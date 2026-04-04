@@ -80,7 +80,7 @@ export default function SensayOG() {
             fontFamily: SANS, fontSize: "2rem", fontWeight: 800,
             color: TEXT, letterSpacing: "-.02em",
           }}>
-            Sens<span style={{ color: CORAL }}>ay</span>
+            Sen<span style={{ color: CORAL }}>say</span>
           </div>
 
           {/* headline */}

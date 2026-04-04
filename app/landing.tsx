@@ -241,7 +241,7 @@ export default function SensayLanding() {
         }}>
           <div style={{ margin: "0 auto", width: "90%", maxWidth: 1200, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <span style={{ color: TEXT, fontFamily: SANS, fontSize: "1.1rem", fontWeight: 700, letterSpacing: "-.01em" }}>
-              Sens<span style={{ color: CORAL }}>ay</span>
+              Sen<span style={{ color: CORAL }}>say</span>
             </span>
             <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
               <LangToggle />
@@ -568,7 +568,9 @@ export default function SensayLanding() {
                 <div style={{ color: MUTED, fontFamily: SANS, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1rem" }}>
                   {lang === "ru" ? "Бесплатно" : "Free"}
                 </div>
-                <div style={{ color: TEXT, fontFamily: SANS, fontSize: "2.4rem", fontWeight: 700, marginBottom: ".2rem", letterSpacing: "-.02em" }}>$0</div>
+                <div style={{ color: TEXT, fontFamily: SANS, fontSize: "2.4rem", fontWeight: 700, marginBottom: ".2rem", letterSpacing: "-.02em" }}>
+                  {lang === "ru" ? "0 ₽" : "$0"}
+                </div>
                 <div style={{ color: MUTED, fontFamily: SANS, fontSize: "0.82rem", marginBottom: "1.5rem" }}>
                   {lang === "ru" ? "навсегда бесплатно" : "always free"}
                 </div>
@@ -591,7 +593,9 @@ export default function SensayLanding() {
                 <div style={{ color: CORAL, fontFamily: SANS, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1rem" }}>
                   {lang === "ru" ? "Про" : "Pro"}
                 </div>
-                <div style={{ color: WHITE, fontFamily: SANS, fontSize: "2.4rem", fontWeight: 700, marginBottom: ".2rem", letterSpacing: "-.02em" }}>$9</div>
+                <div style={{ color: WHITE, fontFamily: SANS, fontSize: "2.4rem", fontWeight: 700, marginBottom: ".2rem", letterSpacing: "-.02em" }}>
+                  {lang === "ru" ? "699 ₽" : "$9"}
+                </div>
                 <div style={{ color: "#888", fontFamily: SANS, fontSize: "0.82rem", marginBottom: "1.5rem" }}>
                   {lang === "ru" ? "в месяц · отмена в любой момент" : "per month · cancel anytime"}
                 </div>
@@ -612,7 +616,7 @@ export default function SensayLanding() {
                   {lang === "ru" ? "Команда" : "Team"}
                 </div>
                 <div style={{ color: TEXT, fontFamily: SANS, fontSize: "2.4rem", fontWeight: 700, marginBottom: ".2rem", letterSpacing: "-.02em" }}>
-                  {lang === "ru" ? "Индивид." : "Custom"}
+                  {lang === "ru" ? "По запросу" : "Custom"}
                 </div>
                 <div style={{ color: MUTED, fontFamily: SANS, fontSize: "0.82rem", marginBottom: "1.5rem" }}>
                   {lang === "ru" ? "для команд от 5 человек" : "for teams of 5+"}
@@ -659,7 +663,7 @@ export default function SensayLanding() {
         <footer style={{ background: WHITE, borderTop: `1px solid ${BORDER}`, padding: "28px 0" }}>
           <div style={{ margin: "0 auto", width: "90%", maxWidth: 1200, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
             <span style={{ color: MUTED, fontFamily: SANS, fontSize: "0.78rem", fontWeight: 500 }}>
-              Sens<span style={{ color: CORAL }}>ay</span> — {lang === "ru" ? "голосовой ввод на ИИ" : "voice dictation AI"}
+              Sen<span style={{ color: CORAL }}>say</span> — {lang === "ru" ? "голосовой ввод на ИИ" : "voice dictation AI"}
             </span>
             <span style={{ color: MUTED, fontFamily: SANS, fontSize: "0.78rem" }}>
               {lang === "ru" ? "Сделано командой " : "Made by "}
