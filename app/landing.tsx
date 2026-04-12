@@ -1,8 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { useLang } from "@/app/context/LanguageContext";
 import LangToggle from "@/app/context/LangToggle";
 import { MicButton, VoiceDemo, StickyCta } from "./client";
+import PricingAlert from "./components/PricingAlert";
+import YmClientId from "./components/YmClientId";
+import HeroDownload from "./components/HeroDownload";
+import { reachGoal } from "./utils/reachGoal";
 
 const WHITE  = "#ffffff";
 const OFF    = "#faf8f6";
@@ -15,6 +20,7 @@ const SANS   = "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif";
 
 export default function SensayLanding() {
   const lang = useLang();
+  const [alertTier, setAlertTier] = useState<"free" | "pro" | null>(null);
 
   const howSteps = [
     {
@@ -244,6 +250,7 @@ export default function SensayLanding() {
               Sen<span style={{ color: CORAL }}>say</span>
             </span>
             <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+              {/* <YmClientId /> */}
               <LangToggle />
               <a href="#pricing" className="s-cta" style={{ padding: "8px 20px", fontSize: "0.8rem", borderRadius: 6 }}>
                 {lang === "ru" ? "Попробовать" : "Try free"}
@@ -287,10 +294,8 @@ export default function SensayLanding() {
                     ? "Говорите. Получайте чистый текст — в email, Slack, WhatsApp или где угодно ещё. Без набора. Без переключения приложений."
                     : "Speak. Get clean, ready-to-send text — in your email, Slack, WhatsApp, or anywhere else. No typing. No switching apps."}
                 </p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 14 }}>
-                  <a href="#pricing" className="s-cta">
-                    {lang === "ru" ? "Начать бесплатно — без регистрации" : "Start free — no signup"}
-                  </a>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 14, alignItems: "flex-start" }}>
+                  <HeroDownload />
                   <a href="#how" className="s-ghost">
                     {lang === "ru" ? "Как это работает →" : "See how →"}
                   </a>
@@ -581,9 +586,12 @@ export default function SensayLanding() {
                     </li>
                   ))}
                 </ul>
-                <a href="#" style={{ marginTop: "2rem", display: "block", textAlign: "center", border: `1.5px solid ${BORDER}`, color: TEXT, fontFamily: SANS, fontSize: "0.88rem", fontWeight: 600, padding: "12px", borderRadius: 8 }}>
+                <button
+                  onClick={() => { reachGoal("click_pricing_free"); setAlertTier("free"); }}
+                  style={{ marginTop: "2rem", display: "block", width: "100%", textAlign: "center", border: `1.5px solid ${BORDER}`, color: TEXT, fontFamily: SANS, fontSize: "0.88rem", fontWeight: 600, padding: "12px", borderRadius: 8, background: WHITE, cursor: "pointer" }}
+                >
                   {lang === "ru" ? "Начать" : "Get started"}
-                </a>
+                </button>
               </div>
 
               <div style={{ background: TEXT, border: "none", borderRadius: 12, padding: "1.75rem", display: "flex", flexDirection: "column", position: "relative" }}>
@@ -606,9 +614,13 @@ export default function SensayLanding() {
                     </li>
                   ))}
                 </ul>
-                <a href="#" className="s-cta" style={{ marginTop: "2rem", display: "block", textAlign: "center", fontSize: "0.88rem", padding: "12px", borderRadius: 8 }}>
+                <button
+                  onClick={() => { reachGoal("click_pricing_pro"); setAlertTier("pro"); }}
+                  className="s-cta"
+                  style={{ marginTop: "2rem", display: "block", width: "100%", textAlign: "center", fontSize: "0.88rem", padding: "12px", borderRadius: 8, border: "none", cursor: "pointer" }}
+                >
                   {lang === "ru" ? "14 дней бесплатно" : "14 days free"}
-                </a>
+                </button>
               </div>
 
               <div className="s-card" style={{ display: "flex", flexDirection: "column" }}>
@@ -675,6 +687,7 @@ export default function SensayLanding() {
       </div>
 
       <StickyCta />
+      {alertTier && <PricingAlert tier={alertTier} visible={true} onClose={() => setAlertTier(null)} />}
     </>
   );
 }
