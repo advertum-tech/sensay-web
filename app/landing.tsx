@@ -7,6 +7,7 @@ import { MicButton, VoiceDemo, StickyCta } from "./client";
 import PricingAlert from "./components/PricingAlert";
 import YmClientId from "./components/YmClientId";
 import HeroDownload from "./components/HeroDownload";
+import PlatformDebug from "./components/PlatformDebug";
 import { reachGoal } from "./utils/reachGoal";
 
 const WHITE  = "#ffffff";
@@ -681,6 +682,9 @@ export default function SensayLanding() {
               {lang === "ru" ? "Сделано командой " : "Made by "}
               <a href="https://advertum.com" style={{ color: TEXT, fontWeight: 500 }}>Advertum</a>
             </span>
+          </div>
+          <div style={{ margin: "0 auto", width: "90%", maxWidth: 1200 }}>
+            <PlatformDebug />
           </div>
         </footer>
 

@@ -15,6 +15,29 @@ interface NavigatorWithUA extends Navigator {
   };
 }
 
+function detectMacArchViaWebGL(): "mac-arm" | "mac-x64" {
+  try {
+    const canvas = document.createElement("canvas");
+    const gl = canvas.getContext("webgl");
+    const ext = gl?.getExtension("WEBGL_debug_renderer_info");
+    if (!ext) return "mac-arm"; // can't tell — default to ARM (most modern Macs)
+    const renderer = (gl?.getParameter(ext.UNMASKED_RENDERER_WEBGL) ?? "").toLowerCase();
+    // Apple Silicon GPUs report "apple" in the renderer string
+    if (
+      renderer.includes("apple") ||
+      renderer.includes("m1") ||
+      renderer.includes("m2") ||
+      renderer.includes("m3") ||
+      renderer.includes("m4")
+    ) {
+      return "mac-arm";
+    }
+    return "mac-x64";
+  } catch {
+    return "mac-arm";
+  }
+}
+
 export function usePlatform(): { platform: Platform; isLoading: boolean } {
   const [platform, setPlatform] = useState<Platform>("unknown");
   const [isLoading, setIsLoading] = useState(true);
@@ -53,7 +76,8 @@ export function usePlatform(): { platform: Platform; isLoading: boolean } {
       if (ua.includes("win") || ua.includes("windows")) {
         setPlatform("windows");
       } else if (ua.includes("mac os x") || ua.includes("macos")) {
-        setPlatform("mac-arm");
+        // Try WebGL renderer to distinguish ARM vs Intel (reliable in Safari)
+        setPlatform(detectMacArchViaWebGL());
       }
 
       setIsLoading(false);
