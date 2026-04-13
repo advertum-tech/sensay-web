@@ -51,7 +51,7 @@ export function usePlatform(): { platform: Platform; isLoading: boolean } {
           const data = await nav.userAgentData.getHighEntropyValues(["architecture", "platform", "bitness"]);
 
           if (data.platform === "macOS") {
-            if (data.architecture === "x86_64") {
+            if (data.architecture === "x86" || data.architecture === "x86_64") {
               setPlatform("mac-x64");
             } else {
               setPlatform("mac-arm");
