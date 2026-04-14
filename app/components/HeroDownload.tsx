@@ -7,7 +7,6 @@ import { SiApple } from "react-icons/si";
 import { FaWindows } from "react-icons/fa";
 import { HiOutlineDownload } from "react-icons/hi";
 import DownloadAlert from "./DownloadAlert";
-import { registerIdentity } from "@/app/utils/registerIdentity";
 import { reachGoal } from "@/app/utils/reachGoal";
 
 const CORAL = "#ff4422";
@@ -15,11 +14,11 @@ const CORAL2 = "#ff6644";
 const MUTED = "#888888";
 const SANS = "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif";
 
-const goalMap: Record<Platform, string> = {
-  "mac-arm": "download_mac_arm",
-  "mac-x64": "download_mac_x64",
-  windows: "download_windows",
-  unknown: "download_other",
+const platformParamMap: Record<Platform, Record<string, boolean>> = {
+  "mac-arm": { mac_arm: true },
+  "mac-x64": { mac_x64: true },
+  windows:   { windows: true },
+  unknown:   { other: true },
 };
 
 const buttonConfig: Record<Platform, { icon: React.ReactNode; labelEn: string; labelRu: string }> = {
@@ -52,11 +51,9 @@ export default function HeroDownload() {
   const [showAllPlatforms, setShowAllPlatforms] = useState(false);
 
   const config = buttonConfig[platform];
-  const goal = goalMap[platform];
 
   function handleDownload() {
-    reachGoal(goal);
-    registerIdentity();
+    reachGoal("click_download_button", { platform: platformParamMap[platform] });
     setShowAllPlatforms(false);
     setAlertVisible(true);
   }

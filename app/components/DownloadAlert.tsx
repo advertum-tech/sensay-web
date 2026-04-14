@@ -5,7 +5,6 @@ import { useLang, type Lang } from "@/app/context/LanguageContext";
 import { SiApple } from "react-icons/si";
 import { FaWindows } from "react-icons/fa";
 import type { Platform } from "@/app/hooks/usePlatform";
-import { registerIdentity } from "@/app/utils/registerIdentity";
 import { reachGoal } from "@/app/utils/reachGoal";
 
 const TEXT = "#111111";
@@ -37,7 +36,7 @@ const otherTitle: Record<Lang, string> = {
 
 interface PlatformOption {
   key: Platform;
-  goal: string;
+  platform: Record<string, boolean>;
   icon: React.ReactNode;
   labelEn: string;
   labelRu: string;
@@ -46,21 +45,21 @@ interface PlatformOption {
 const platformOptions: PlatformOption[] = [
   {
     key: "mac-arm",
-    goal: "download_mac_arm",
+    platform: { mac_arm: true },
     icon: <SiApple size={18} />,
     labelEn: "Mac (Apple Silicon)",
     labelRu: "Mac (Apple Silicon)",
   },
   {
     key: "mac-x64",
-    goal: "download_mac_x64",
+    platform: { mac_x64: true },
     icon: <SiApple size={18} />,
     labelEn: "Mac (Intel)",
     labelRu: "Mac (Intel)",
   },
   {
     key: "windows",
-    goal: "download_windows",
+    platform: { windows: true },
     icon: <FaWindows size={18} />,
     labelEn: "Windows",
     labelRu: "Windows",
@@ -174,8 +173,7 @@ export default function DownloadAlert({ visible, onClose, showAllPlatforms }: Do
                 <button
                   key={opt.key}
                   onClick={() => {
-                    reachGoal(opt.goal);
-                    registerIdentity();
+                    reachGoal("click_download_button", { platform: opt.platform });
                   }}
                   style={{
                     display: "flex",

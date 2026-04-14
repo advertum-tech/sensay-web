@@ -2,11 +2,15 @@ import { getYmId } from "./ymId";
 
 const YM_ID = getYmId();
 
-export function reachGoal(goal: string) {
-  if (typeof window !== "undefined") {
-    const w = window as unknown as { ym?: (id: number, method: string, goal: string) => void };
-    if (typeof w.ym === "function") {
-      w.ym(YM_ID, "reachGoal", goal);
-    }
-  }
+declare global {
+  function ym(counterId: number, method: string, ...args: unknown[]): void;
+}
+
+export function reachGoal(goal: string, params?: Record<string, unknown>): void {
+  if (typeof window === "undefined" || typeof ym === "undefined") return;
+  const userId = localStorage.getItem("sensay_user_id");
+  const mergedParams = userId
+    ? { users: { userId }, ...params }
+    : params;
+  ym(YM_ID, "reachGoal", goal, mergedParams);
 }
