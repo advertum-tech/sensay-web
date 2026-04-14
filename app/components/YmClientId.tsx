@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { getYmId } from "../utils/ymId";
 
-const YM_ID = Number(process.env.NEXT_PUBLIC_YM_COUNTER_ID);
+const YM_ID = getYmId();
 
 export default function YmClientId() {
   const [clientId, setClientId] = useState<string | null>(null);

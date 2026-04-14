@@ -1,4 +1,6 @@
-const YM_ID = 108448760;
+import { getYmId } from "./ymId";
+
+const YM_ID = getYmId();
 const API_URL = "https://api.sensay.app/functions/v1/register-identity";
 
 function getYmClientId(): Promise<string | null> {

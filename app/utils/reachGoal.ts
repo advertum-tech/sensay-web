@@ -1,4 +1,6 @@
-const YM_ID = Number(process.env.NEXT_PUBLIC_YM_COUNTER_ID);
+import { getYmId } from "./ymId";
+
+const YM_ID = getYmId();
 
 export function reachGoal(goal: string) {
   if (typeof window !== "undefined") {

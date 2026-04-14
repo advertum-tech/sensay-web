@@ -2,8 +2,9 @@
 
 import Script from "next/script";
 import { usePathname } from "next/navigation";
+import { getYmId } from "../utils/ymId";
 
-const YM_ID = Number(process.env.NEXT_PUBLIC_YM_COUNTER_ID);
+const YM_ID = getYmId();
 const API_BASE = "https://api.sensay.app";
 
 export default function YandexMetrica() {
