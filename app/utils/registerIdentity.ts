@@ -1,6 +1,6 @@
 import { getYmId } from "./ymId";
 
-const YM_ID = getYmId();//test deploy
+const YM_ID = getYmId();
 const API_URL = "https://api.sensay.app/functions/v1/register-identity";
 
 function getYmClientId(): Promise<string | null> {
