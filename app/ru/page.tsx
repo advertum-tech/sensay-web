@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SensayLanding from "../landing";
 
+// just say
 export const metadata: Metadata = {
   title: "Sensay — Просто скажи",
   description: "Говорите. Получайте чистый текст — в email, Slack, WhatsApp или где угодно ещё. Без набора. Без переключения приложений.",
