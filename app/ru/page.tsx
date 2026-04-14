@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Sensay — Просто скажи",
-    description: "Говорите. Получайте чистый текст — в email, Slack, WhatsApp, или где угодно ещё. Без набора. Без переключения приложений.",
+    description: "Говорите. Получайте чистый текст — в email, Slack, WhatsApp или где угодно ещё. Без набора. Без переключения приложений.",
     images: ["https://sensay.app/sensay/og.png"],
   },
 };
