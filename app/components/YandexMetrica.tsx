@@ -31,7 +31,13 @@ export default function YandexMetrica() {
         fetch(`${API_BASE}/functions/v1/register-identity`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ym_client_id: clientId }),
+          body: JSON.stringify({
+            ym_client_id: clientId,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            language: navigator.language,
+            screen: `${screen.width}x${screen.height}`,
+            platform: navigator.platform,
+          }),
         })
           .then((res) => (res.ok ? res.json() : null))
           .then((data: { user_id?: string } | null) => {
