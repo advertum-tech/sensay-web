@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useLang } from "@/app/context/LanguageContext";
 import { usePlatform, type Platform } from "@/app/hooks/usePlatform";
 import { SiApple } from "react-icons/si";
 import { FaWindows } from "react-icons/fa";
@@ -10,7 +9,6 @@ import DownloadAlert from "./DownloadAlert";
 import { reachGoal } from "@/app/utils/reachGoal";
 
 const CORAL = "#ff4422";
-const CORAL2 = "#ff6644";
 const MUTED = "#888888";
 const SANS = "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif";
 
@@ -21,31 +19,26 @@ const platformParamMap: Record<Platform, Record<string, boolean>> = {
   unknown:   { other: true },
 };
 
-const buttonConfig: Record<Platform, { icon: React.ReactNode; labelEn: string; labelRu: string }> = {
+const buttonConfig: Record<Platform, { icon: React.ReactNode; label: string }> = {
   "mac-arm": {
     icon: <SiApple size={20} />,
-    labelEn: "Download for Mac (Apple Silicon)",
-    labelRu: "Скачать для Mac (Apple Silicon)",
+    label: "Download for Mac (Apple Silicon)",
   },
   "mac-x64": {
     icon: <SiApple size={20} />,
-    labelEn: "Download for Mac (Intel)",
-    labelRu: "Скачать для Mac (Intel)",
+    label: "Download for Mac (Intel)",
   },
   windows: {
     icon: <FaWindows size={20} />,
-    labelEn: "Download for Windows",
-    labelRu: "Скачать для Windows",
+    label: "Download for Windows",
   },
   unknown: {
     icon: <HiOutlineDownload size={20} />,
-    labelEn: "Download",
-    labelRu: "Скачать",
+    label: "Download",
   },
 };
 
 export default function HeroDownload() {
-  const lang = useLang();
   const { platform } = usePlatform();
   const [alertVisible, setAlertVisible] = useState(false);
   const [showAllPlatforms, setShowAllPlatforms] = useState(false);
@@ -78,7 +71,7 @@ export default function HeroDownload() {
           }}
         >
           <span style={{ display: "flex", alignItems: "center" }}>{config.icon}</span>
-          {lang === "ru" ? config.labelRu : config.labelEn}
+          {config.label}
         </button>
         <button
           onClick={handleOtherPlatforms}
@@ -100,7 +93,7 @@ export default function HeroDownload() {
             (e.currentTarget as HTMLElement).style.color = MUTED;
           }}
         >
-          {lang === "ru" ? "Другие платформы" : "Other platforms"}
+          Other platforms
         </button>
       </div>
 

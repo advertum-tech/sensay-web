@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { useLang, type Lang } from "@/app/context/LanguageContext";
 import { SiApple } from "react-icons/si";
 import { FaWindows } from "react-icons/fa";
 import type { Platform } from "@/app/hooks/usePlatform";
@@ -14,32 +13,11 @@ const MUTED = "#888888";
 const BORDER = "#e8e8e4";
 const SANS = "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif";
 
-const titles: Record<Lang, string> = {
-  en: "Thanks for downloading!",
-  ru: "Спасибо за скачивание!",
-};
-
-const bodies: Record<Lang, string> = {
-  en: "We're in early testing — your feedback matters.",
-  ru: "Мы в режиме тестирования — ваш отзыв важен.",
-};
-
-const btnLabels: Record<Lang, string> = {
-  en: "Got it",
-  ru: "Понятно",
-};
-
-const otherTitle: Record<Lang, string> = {
-  en: "Download for your platform",
-  ru: "Скачайте для вашей платформы",
-};
-
 interface PlatformOption {
   key: Platform;
   platform: Record<string, boolean>;
   icon: React.ReactNode;
-  labelEn: string;
-  labelRu: string;
+  label: string;
 }
 
 const platformOptions: PlatformOption[] = [
@@ -47,22 +25,19 @@ const platformOptions: PlatformOption[] = [
     key: "mac-arm",
     platform: { mac_arm: true },
     icon: <SiApple size={18} />,
-    labelEn: "Mac (Apple Silicon)",
-    labelRu: "Mac (Apple Silicon)",
+    label: "Mac (Apple Silicon)",
   },
   {
     key: "mac-x64",
     platform: { mac_x64: true },
     icon: <SiApple size={18} />,
-    labelEn: "Mac (Intel)",
-    labelRu: "Mac (Intel)",
+    label: "Mac (Intel)",
   },
   {
     key: "windows",
     platform: { windows: true },
     icon: <FaWindows size={18} />,
-    labelEn: "Windows",
-    labelRu: "Windows",
+    label: "Windows",
   },
 ];
 
@@ -73,8 +48,6 @@ interface DownloadAlertProps {
 }
 
 export default function DownloadAlert({ visible, onClose, showAllPlatforms }: DownloadAlertProps) {
-  const lang = useLang();
-
   useEffect(() => {
     if (!visible) return;
     const handleKey = (e: KeyboardEvent) => {
@@ -139,7 +112,7 @@ export default function DownloadAlert({ visible, onClose, showAllPlatforms }: Do
             letterSpacing: "-.01em",
           }}
         >
-          {titles[lang]}
+          Thanks for downloading!
         </h3>
         <p
           style={{
@@ -147,10 +120,10 @@ export default function DownloadAlert({ visible, onClose, showAllPlatforms }: Do
             fontFamily: SANS,
             fontSize: "0.9rem",
             lineHeight: 1.7,
-            margin: showAllPlatforms ? "0 0 1.5rem" : "0 0 1.5rem",
+            margin: "0 0 1.5rem",
           }}
         >
-          {bodies[lang]}
+          We&rsquo;re in early testing — your feedback matters.
         </p>
 
         {showAllPlatforms && (
@@ -166,7 +139,7 @@ export default function DownloadAlert({ visible, onClose, showAllPlatforms }: Do
                 marginBottom: "0.75rem",
               }}
             >
-              {otherTitle[lang]}
+              Download for your platform
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {platformOptions.map((opt) => (
@@ -199,7 +172,7 @@ export default function DownloadAlert({ visible, onClose, showAllPlatforms }: Do
                   }}
                 >
                   <span style={{ display: "flex", alignItems: "center", color: MUTED }}>{opt.icon}</span>
-                  {lang === "ru" ? opt.labelRu : opt.labelEn}
+                  {opt.label}
                 </button>
               ))}
             </div>
@@ -220,7 +193,7 @@ export default function DownloadAlert({ visible, onClose, showAllPlatforms }: Do
             cursor: "pointer",
           }}
         >
-          {btnLabels[lang]}
+          Got it
         </button>
       </div>
     </div>

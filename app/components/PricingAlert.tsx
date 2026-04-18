@@ -1,6 +1,5 @@
 "use client";
 
-import { useLang, type Lang } from "@/app/context/LanguageContext";
 import { useEffect } from "react";
 
 const TEXT = "#111111";
@@ -8,30 +7,16 @@ const CORAL = "#ff4422";
 const WHITE = "#ffffff";
 const SANS = "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif";
 
-const messages: Record<Lang, Record<"free" | "pro", { title: string; body: string; btn: string }>> = {
-  en: {
-    free: {
-      title: "You're in!",
-      body: "Sensay Free is ready for you. We'll send a quick start guide to your email.",
-      btn: "Got it",
-    },
-    pro: {
-      title: "Welcome to Pro!",
-      body: "Your 14-day free trial starts now. No credit card needed — we'll remind you before it ends.",
-      btn: "Sounds good",
-    },
+const messages: Record<"free" | "pro", { title: string; body: string; btn: string }> = {
+  free: {
+    title: "You're in!",
+    body: "Sensay Free is ready for you. We'll send a quick start guide to your email.",
+    btn: "Got it",
   },
-  ru: {
-    free: {
-      title: "Добро пожаловать!",
-      body: "Sensay Free готов для вас. Мы отправим краткое руководство на вашу почту.",
-      btn: "Понятно",
-    },
-    pro: {
-      title: "Добро пожаловать в Про!",
-      body: "Бесплатный пробный период 14 дней начинается сейчас. Кредитная карта не нужна — напомним до окончания.",
-      btn: "Отлично",
-    },
+  pro: {
+    title: "Welcome to Pro!",
+    body: "Your 14-day free trial starts now. No credit card needed — we'll remind you before it ends.",
+    btn: "Sounds good",
   },
 };
 
@@ -42,8 +27,6 @@ interface PricingAlertProps {
 }
 
 export default function PricingAlert({ tier, visible, onClose }: PricingAlertProps) {
-  const lang = useLang();
-
   useEffect(() => {
     if (!visible) return;
     const handleKey = (e: KeyboardEvent) => {
@@ -55,7 +38,7 @@ export default function PricingAlert({ tier, visible, onClose }: PricingAlertPro
 
   if (!visible) return null;
 
-  const m = messages[lang][tier];
+  const m = messages[tier];
 
   return (
     <div
@@ -98,7 +81,7 @@ export default function PricingAlert({ tier, visible, onClose }: PricingAlertPro
             fontWeight: 700,
           }}
         >
-          {tier === "pro" ? "✓" : "✓"}
+          ✓
         </div>
         <h3
           style={{

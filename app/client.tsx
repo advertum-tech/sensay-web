@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useLang } from "@/app/context/LanguageContext";
 
 const WHITE  = "#ffffff";
 const CORAL  = "#ff4422";
@@ -66,9 +65,7 @@ export function MicButton() {
 }
 
 export function VoiceDemo() {
-  const lang = useLang();
-
-  const pairsEn = [
+  const pairs = [
     {
       voice: "um, need to move the meeting — Thursday doesn't work, maybe Friday? or next week honestly",
       text: "Could we move Thursday's meeting? Friday or early next week works better on my end.",
@@ -82,23 +79,6 @@ export function VoiceDemo() {
       text: "I'd love to learn more. I'm free this week and early next — happy to find a time that works for you.",
     },
   ];
-
-  const pairsRu = [
-    {
-      voice: "эм, надо перенести встречу — в четверг не могу, может пятница? или вообще следующая неделя",
-      text: "Можем перенести встречу с четверга? Пятница или начало следующей недели подходят.",
-    },
-    {
-      voice: "в целом дизайн классный но хедер как-то большой, слишком выпирает наверное",
-      text: "Дизайн в целом отличный. Хедер чуть уменьшил бы — сейчас немного доминирует.",
-    },
-    {
-      voice: "да вакансия интересна, когда можем поговорить? эта неделя или начало следующей подходят",
-      text: "Хотел бы узнать подробнее. Свободен на этой неделе и в начале следующей.",
-    },
-  ];
-
-  const pairs = lang === "ru" ? pairsRu : pairsEn;
 
   const [idx, setIdx]     = useState(0);
   const [show, setShow]   = useState(true);
@@ -136,9 +116,7 @@ export function VoiceDemo() {
             transition: "all .4s",
           }} />
           <span style={{ color: MUTED, fontFamily: SANS, fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.04em" }}>
-            {phase === "voice"
-              ? (lang === "ru" ? "Слушаю..." : "Listening...")
-              : (lang === "ru" ? "Готово" : "Done")}
+            {phase === "voice" ? "Listening..." : "Done"}
           </span>
         </div>
         <span style={{ color: BORDER, fontFamily: SANS, fontSize: "0.68rem" }}>Sensay</span>
@@ -163,9 +141,7 @@ export function VoiceDemo() {
 
       <div style={{ marginTop: "1.5rem", paddingTop: "1.2rem", borderTop: `1px solid ${BORDER}`, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <span style={{ color: phase === "voice" ? CORAL : "#22c55e", fontFamily: SANS, fontSize: "0.72rem", fontWeight: 600, transition: "color .4s" }}>
-          {phase === "voice"
-            ? (lang === "ru" ? "Запись..." : "Capturing...")
-            : (lang === "ru" ? "✓ Готово к отправке" : "✓ Ready to send")}
+          {phase === "voice" ? "Capturing..." : "✓ Ready to send"}
         </span>
         <div style={{ display: "flex", gap: 6 }}>
           {[12, 18, 26, 20, 28, 22, 16, 24, 18].map((h, i) => (
@@ -190,7 +166,6 @@ export function VoiceDemo() {
 }
 
 export function StickyCta() {
-  const lang = useLang();
   const [sticky, setSticky] = useState(false);
 
   useEffect(() => {
@@ -210,7 +185,7 @@ export function StickyCta() {
         display: "inline-block",
         boxShadow: `0 4px 20px ${CORAL}50`,
       }}>
-        {lang === "ru" ? "Попробовать →" : "Try free →"}
+        Try free →
       </a>
     </div>
   );
