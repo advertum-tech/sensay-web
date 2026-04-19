@@ -1,13 +1,18 @@
-// Snapshot of Russian landing copy.
-// Not used at runtime: sensay.app is English-only for now. A Russian landing
-// will live on a separate domain later and pull its strings from here.
+// Russian landing copy — used when NEXT_PUBLIC_SENSAY_LOCALE=ru
+// (sensayapp.ru build). Mirrors the shape of en.ts; locales/index.ts picks
+// the right object at build time.
 
 export const ru = {
+  lang: "ru",
+
   metadata: {
     title: "Sensay — Просто скажи",
     description:
       "Говорите. Получайте чистый текст — в email, Slack, WhatsApp или где угодно ещё. Без набора. Без переключения приложений.",
     ogLocale: "ru_RU",
+    url: "https://sensayapp.ru",
+    siteName: "Sensay",
+    ogImage: "https://sensayapp.ru/sensay/og.png",
   },
 
   header: {
@@ -244,6 +249,7 @@ export const ru = {
     macArm: "Скачать для Mac (Apple Silicon)",
     macIntel: "Скачать для Mac (Intel)",
     windows: "Скачать для Windows",
+    windowsSoon: "Windows — скоро",
     generic: "Скачать",
     otherPlatforms: "Другие платформы",
   },
@@ -253,6 +259,7 @@ export const ru = {
     body: "Мы в режиме тестирования — ваш отзыв важен.",
     btn: "Понятно",
     otherTitle: "Скачайте для вашей платформы",
+    soonLabel: "Скоро",
   },
 
   pricingAlert: {

@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { locale } from "@/app/locales";
 
 const WHITE  = "#ffffff";
 const CORAL  = "#ff4422";
@@ -65,20 +66,8 @@ export function MicButton() {
 }
 
 export function VoiceDemo() {
-  const pairs = [
-    {
-      voice: "um, need to move the meeting — Thursday doesn't work, maybe Friday? or next week honestly",
-      text: "Could we move Thursday's meeting? Friday or early next week works better on my end.",
-    },
-    {
-      voice: "basically the design looks great but the header's a bit big, like too dominant maybe",
-      text: "The design looks great overall. I'd scale the header down a bit — it's slightly dominant right now.",
-    },
-    {
-      voice: "yeah I'm interested in the role, when can we chat? this week or early next works for me",
-      text: "I'd love to learn more. I'm free this week and early next — happy to find a time that works for you.",
-    },
-  ];
+  const t = locale.voiceDemo;
+  const pairs = t.pairs;
 
   const [idx, setIdx]     = useState(0);
   const [show, setShow]   = useState(true);
@@ -116,7 +105,7 @@ export function VoiceDemo() {
             transition: "all .4s",
           }} />
           <span style={{ color: MUTED, fontFamily: SANS, fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.04em" }}>
-            {phase === "voice" ? "Listening..." : "Done"}
+            {phase === "voice" ? t.listening : t.done}
           </span>
         </div>
         <span style={{ color: BORDER, fontFamily: SANS, fontSize: "0.68rem" }}>Sensay</span>
@@ -141,7 +130,7 @@ export function VoiceDemo() {
 
       <div style={{ marginTop: "1.5rem", paddingTop: "1.2rem", borderTop: `1px solid ${BORDER}`, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <span style={{ color: phase === "voice" ? CORAL : "#22c55e", fontFamily: SANS, fontSize: "0.72rem", fontWeight: 600, transition: "color .4s" }}>
-          {phase === "voice" ? "Capturing..." : "✓ Ready to send"}
+          {phase === "voice" ? t.capturing : t.ready}
         </span>
         <div style={{ display: "flex", gap: 6 }}>
           {[12, 18, 26, 20, 28, 22, 16, 24, 18].map((h, i) => (
@@ -185,7 +174,7 @@ export function StickyCta() {
         display: "inline-block",
         boxShadow: `0 4px 20px ${CORAL}50`,
       }}>
-        Try free →
+        {locale.stickyCta}
       </a>
     </div>
   );

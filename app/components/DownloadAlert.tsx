@@ -5,6 +5,8 @@ import { SiApple } from "react-icons/si";
 import { FaWindows } from "react-icons/fa";
 import type { Platform } from "@/app/hooks/usePlatform";
 import { reachGoal } from "@/app/utils/reachGoal";
+import { locale } from "@/app/locales";
+import { getDownloadUrl } from "@/app/utils/downloads";
 
 const TEXT = "#111111";
 const CORAL = "#ff4422";
@@ -12,6 +14,8 @@ const WHITE = "#ffffff";
 const MUTED = "#888888";
 const BORDER = "#e8e8e4";
 const SANS = "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif";
+
+const t = locale.downloadAlert;
 
 interface PlatformOption {
   key: Platform;
@@ -112,7 +116,7 @@ export default function DownloadAlert({ visible, onClose, showAllPlatforms }: Do
             letterSpacing: "-.01em",
           }}
         >
-          Thanks for downloading!
+          {t.title}
         </h3>
         <p
           style={{
@@ -123,7 +127,7 @@ export default function DownloadAlert({ visible, onClose, showAllPlatforms }: Do
             margin: "0 0 1.5rem",
           }}
         >
-          We&rsquo;re in early testing — your feedback matters.
+          {t.body}
         </p>
 
         {showAllPlatforms && (
@@ -139,42 +143,86 @@ export default function DownloadAlert({ visible, onClose, showAllPlatforms }: Do
                 marginBottom: "0.75rem",
               }}
             >
-              Download for your platform
+              {t.otherTitle}
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              {platformOptions.map((opt) => (
-                <button
-                  key={opt.key}
-                  onClick={() => {
-                    reachGoal("click_download_button", { platform: opt.platform });
-                  }}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 10,
-                    width: "100%",
-                    padding: "10px 16px",
-                    borderRadius: 8,
-                    border: `1.5px solid ${BORDER}`,
-                    background: WHITE,
-                    color: TEXT,
-                    fontFamily: SANS,
-                    fontSize: "0.88rem",
-                    fontWeight: 500,
-                    cursor: "pointer",
-                    transition: "border-color .15s",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = CORAL;
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = BORDER;
-                  }}
-                >
-                  <span style={{ display: "flex", alignItems: "center", color: MUTED }}>{opt.icon}</span>
-                  {opt.label}
-                </button>
-              ))}
+              {platformOptions.map((opt) => {
+                const url = getDownloadUrl(opt.key);
+                const commonRowStyle: React.CSSProperties = {
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  width: "100%",
+                  padding: "10px 16px",
+                  borderRadius: 8,
+                  border: `1.5px solid ${BORDER}`,
+                  background: WHITE,
+                  color: TEXT,
+                  fontFamily: SANS,
+                  fontSize: "0.88rem",
+                  fontWeight: 500,
+                  textAlign: "left",
+                };
+
+                if (url) {
+                  return (
+                    <a
+                      key={opt.key}
+                      href={url}
+                      onClick={() => {
+                        reachGoal("click_download_button", { platform: opt.platform });
+                      }}
+                      style={{
+                        ...commonRowStyle,
+                        cursor: "pointer",
+                        textDecoration: "none",
+                        transition: "border-color .15s",
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLElement).style.borderColor = CORAL;
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLElement).style.borderColor = BORDER;
+                      }}
+                    >
+                      <span style={{ display: "flex", alignItems: "center", color: MUTED }}>
+                        {opt.icon}
+                      </span>
+                      {opt.label}
+                    </a>
+                  );
+                }
+
+                return (
+                  <div
+                    key={opt.key}
+                    style={{
+                      ...commonRowStyle,
+                      cursor: "not-allowed",
+                      opacity: 0.55,
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <span style={{ display: "flex", alignItems: "center", color: MUTED }}>
+                        {opt.icon}
+                      </span>
+                      {opt.label}
+                    </span>
+                    <span
+                      style={{
+                        color: MUTED,
+                        fontSize: "0.72rem",
+                        fontWeight: 600,
+                        letterSpacing: "0.08em",
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      {t.soonLabel}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}
@@ -193,7 +241,7 @@ export default function DownloadAlert({ visible, onClose, showAllPlatforms }: Do
             cursor: "pointer",
           }}
         >
-          Got it
+          {t.btn}
         </button>
       </div>
     </div>

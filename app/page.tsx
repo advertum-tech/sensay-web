@@ -1,23 +1,26 @@
 import type { Metadata } from "next";
 import SensayLanding from "./landing";
+import { locale } from "./locales";
+
+const m = locale.metadata;
 
 export const metadata: Metadata = {
-  title: "Sensay — Just Say It",
-  description: "Speak. Get clean, ready-to-send text in your email, Slack, WhatsApp, or anywhere else. No typing. No switching apps.",
+  title: m.title,
+  description: m.description,
   openGraph: {
-    title: "Sensay — Just Say It",
-    description: "Speak. Get clean, ready-to-send text in your email, Slack, WhatsApp, or anywhere else. No typing. No switching apps.",
-    url: "https://sensay.app",
-    siteName: "Sensay",
-    images: [{ url: "https://sensay.app/sensay/og.png", width: 1200, height: 630 }],
-    locale: "en_US",
+    title: m.title,
+    description: m.description,
+    url: m.url,
+    siteName: m.siteName,
+    images: [{ url: m.ogImage, width: 1200, height: 630 }],
+    locale: m.ogLocale,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sensay — Just Say It",
-    description: "Speak. Get clean, ready-to-send text in your email, Slack, WhatsApp, or anywhere else. No typing. No switching apps.",
-    images: ["https://sensay.app/sensay/og.png"],
+    title: m.title,
+    description: m.description,
+    images: [m.ogImage],
   },
 };
 

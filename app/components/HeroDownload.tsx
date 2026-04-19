@@ -7,6 +7,8 @@ import { FaWindows } from "react-icons/fa";
 import { HiOutlineDownload } from "react-icons/hi";
 import DownloadAlert from "./DownloadAlert";
 import { reachGoal } from "@/app/utils/reachGoal";
+import { locale } from "@/app/locales";
+import { getDownloadUrl } from "@/app/utils/downloads";
 
 const CORAL = "#ff4422";
 const MUTED = "#888888";
@@ -19,23 +21,28 @@ const platformParamMap: Record<Platform, Record<string, boolean>> = {
   unknown:   { other: true },
 };
 
+const t = locale.heroDownload;
+
 const buttonConfig: Record<Platform, { icon: React.ReactNode; label: string }> = {
-  "mac-arm": {
-    icon: <SiApple size={20} />,
-    label: "Download for Mac (Apple Silicon)",
-  },
-  "mac-x64": {
-    icon: <SiApple size={20} />,
-    label: "Download for Mac (Intel)",
-  },
-  windows: {
-    icon: <FaWindows size={20} />,
-    label: "Download for Windows",
-  },
-  unknown: {
-    icon: <HiOutlineDownload size={20} />,
-    label: "Download",
-  },
+  "mac-arm": { icon: <SiApple size={20} />, label: t.macArm },
+  "mac-x64": { icon: <SiApple size={20} />, label: t.macIntel },
+  windows:   { icon: <FaWindows size={20} />, label: t.windowsSoon },
+  unknown:   { icon: <HiOutlineDownload size={20} />, label: t.generic },
+};
+
+const primaryCtaStyle: React.CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 10,
+  border: "none",
+  cursor: "pointer",
+  color: "#ffffff",
+};
+
+const disabledCtaStyle: React.CSSProperties = {
+  ...primaryCtaStyle,
+  cursor: "not-allowed",
+  opacity: 0.55,
 };
 
 export default function HeroDownload() {
@@ -44,8 +51,10 @@ export default function HeroDownload() {
   const [showAllPlatforms, setShowAllPlatforms] = useState(false);
 
   const config = buttonConfig[platform];
+  const downloadUrl = getDownloadUrl(platform);
+  const isWindows = platform === "windows";
 
-  function handleDownload() {
+  function handleDownloadClick() {
     reachGoal("click_download_button", { platform: platformParamMap[platform] });
     setShowAllPlatforms(false);
     setAlertVisible(true);
@@ -56,23 +65,37 @@ export default function HeroDownload() {
     setAlertVisible(true);
   }
 
+  const primaryButton = isWindows ? (
+    <button type="button" className="s-cta" style={disabledCtaStyle} disabled>
+      <span style={{ display: "flex", alignItems: "center" }}>{config.icon}</span>
+      {config.label}
+    </button>
+  ) : downloadUrl ? (
+    <a
+      href={downloadUrl}
+      onClick={handleDownloadClick}
+      className="s-cta"
+      style={primaryCtaStyle}
+    >
+      <span style={{ display: "flex", alignItems: "center" }}>{config.icon}</span>
+      {config.label}
+    </a>
+  ) : (
+    <button
+      type="button"
+      onClick={handleDownloadClick}
+      className="s-cta"
+      style={primaryCtaStyle}
+    >
+      <span style={{ display: "flex", alignItems: "center" }}>{config.icon}</span>
+      {config.label}
+    </button>
+  );
+
   return (
     <>
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        <button
-          onClick={handleDownload}
-          className="s-cta"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 10,
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
-          <span style={{ display: "flex", alignItems: "center" }}>{config.icon}</span>
-          {config.label}
-        </button>
+        {primaryButton}
         <button
           onClick={handleOtherPlatforms}
           style={{
@@ -93,7 +116,7 @@ export default function HeroDownload() {
             (e.currentTarget as HTMLElement).style.color = MUTED;
           }}
         >
-          Other platforms
+          {t.otherPlatforms}
         </button>
       </div>
 

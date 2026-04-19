@@ -1,24 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
+import { locale } from "@/app/locales";
 
 const TEXT = "#111111";
 const CORAL = "#ff4422";
 const WHITE = "#ffffff";
 const SANS = "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif";
 
-const messages: Record<"free" | "pro", { title: string; body: string; btn: string }> = {
-  free: {
-    title: "You're in!",
-    body: "Sensay Free is ready for you. We'll send a quick start guide to your email.",
-    btn: "Got it",
-  },
-  pro: {
-    title: "Welcome to Pro!",
-    body: "Your 14-day free trial starts now. No credit card needed — we'll remind you before it ends.",
-    btn: "Sounds good",
-  },
-};
+const messages = locale.pricingAlert;
 
 interface PricingAlertProps {
   tier: "free" | "pro";

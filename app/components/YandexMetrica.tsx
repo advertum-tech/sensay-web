@@ -3,9 +3,10 @@
 import Script from "next/script";
 import { useEffect } from "react";
 import { getYmId } from "../utils/ymId";
+import { detectPlatformSlug } from "../utils/platformSlug";
 
 const YM_ID = getYmId();
-const API_BASE = "https://api.sensay.app";
+const API_BASE = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://api.sensay.app";
 
 declare global {
   function ym(counterId: number, method: string, ...args: unknown[]): void;
@@ -13,26 +14,24 @@ declare global {
 
 export default function YandexMetrica() {
   useEffect(() => {
-    const cachedUserId = localStorage.getItem("sensay_user_id");
-
     function applyUser(userId: string) {
       ym(YM_ID, "userParams", { UserID: userId });
       ym(YM_ID, "reachGoal", "visit", { users: { userId } });
     }
 
     function handleInited() {
-      // Fast path: apply cached user_id immediately so YM has it for the
-      // current page view even if the register-identity round-trip is slow.
-      if (cachedUserId) {
-        applyUser(cachedUserId);
-      }
-
       // Always hit register-identity, even on repeat visits, so the server
       // refreshes ip_address, ip_expires_at (1-hour TTL), and updated_at.
       // Skipping this call lets IP/fingerprint go stale, which breaks
       // identify-session on subsequent app launches from the same browser.
-      ym(YM_ID, "getClientID", (clientId: string) => {
+      //
+      // No localStorage fast-path: if the server row was deleted (testing or
+      // expire-identities cron), the cached user_id is stale. Waiting ~300ms
+      // for the server's fresh id is cheaper than emitting a visit goal bound
+      // to a user that no longer exists.
+      ym(YM_ID, "getClientID", async (clientId: string) => {
         if (!clientId) return;
+        const platform = await detectPlatformSlug();
         fetch(`${API_BASE}/functions/v1/register-identity`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -41,16 +40,14 @@ export default function YandexMetrica() {
             timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
             language: navigator.language,
             screen: `${screen.width}x${screen.height}`,
-            platform: navigator.platform,
+            platform,
           }),
         })
           .then((res) => (res.ok ? res.json() : null))
           .then((data: { user_id?: string } | null) => {
             if (!data?.user_id) return;
             localStorage.setItem("sensay_user_id", data.user_id);
-            if (data.user_id !== cachedUserId) {
-              applyUser(data.user_id);
-            }
+            applyUser(data.user_id);
           })
           .catch(() => {});
       });

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import PricingAlert from "./PricingAlert";
 import { reachGoal } from "@/app/utils/reachGoal";
+import { locale } from "@/app/locales";
 
 const WHITE = "#ffffff";
 const TEXT = "#111111";
@@ -11,26 +12,7 @@ const MUTED = "#888888";
 const BORDER = "#e8e8e4";
 const SANS = "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif";
 
-const freeFeatures = [
-  "30 minutes / day",
-  "English + major languages",
-  "Browser + key apps",
-];
-
-const proFeatures = [
-  "Unlimited dictation",
-  "All languages",
-  "Every app & input field",
-  "Smart context register",
-  "Priority processing",
-];
-
-const teamFeatures = [
-  "Everything in Pro",
-  "Team admin + SSO",
-  "Audit logs",
-  "Priority support",
-];
+const t = locale.pricing;
 
 export default function PricingCards() {
   const [alertTier, setAlertTier] = useState<"free" | "pro" | null>(null);
@@ -57,7 +39,7 @@ export default function PricingCards() {
                 margin: "0 0 .75rem",
               }}
             >
-              Simple pricing.
+              {t.title}
             </h2>
             <p
               style={{
@@ -67,7 +49,7 @@ export default function PricingCards() {
                 margin: 0,
               }}
             >
-              Start free. Upgrade when you&rsquo;re hooked.
+              {t.subtitle}
             </p>
           </div>
           <div
@@ -92,7 +74,7 @@ export default function PricingCards() {
                   marginBottom: "1rem",
                 }}
               >
-                Free
+                {t.free.name}
               </div>
               <div
                 style={{
@@ -104,7 +86,7 @@ export default function PricingCards() {
                   letterSpacing: "-.02em",
                 }}
               >
-                $0
+                {t.free.price}
               </div>
               <div
                 style={{
@@ -114,10 +96,10 @@ export default function PricingCards() {
                   marginBottom: "1.5rem",
                 }}
               >
-                always free
+                {t.free.period}
               </div>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 auto", flex: 1 }}>
-                {freeFeatures.map((item) => (
+                {t.free.features.map((item) => (
                   <li
                     key={item}
                     style={{
@@ -157,7 +139,7 @@ export default function PricingCards() {
                   cursor: "pointer",
                 }}
               >
-                Get started
+                {t.free.cta}
               </button>
             </div>
 
@@ -190,7 +172,7 @@ export default function PricingCards() {
                   whiteSpace: "nowrap",
                 }}
               >
-                Most popular
+                {t.pro.badge}
               </div>
               <div
                 style={{
@@ -203,7 +185,7 @@ export default function PricingCards() {
                   marginBottom: "1rem",
                 }}
               >
-                Pro
+                {t.pro.name}
               </div>
               <div
                 style={{
@@ -215,7 +197,7 @@ export default function PricingCards() {
                   letterSpacing: "-.02em",
                 }}
               >
-                $9
+                {t.pro.price}
               </div>
               <div
                 style={{
@@ -225,10 +207,10 @@ export default function PricingCards() {
                   marginBottom: "1.5rem",
                 }}
               >
-                per month · cancel anytime
+                {t.pro.period}
               </div>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 auto", flex: 1 }}>
-                {proFeatures.map((item) => (
+                {t.pro.features.map((item) => (
                   <li
                     key={item}
                     style={{
@@ -265,7 +247,7 @@ export default function PricingCards() {
                   cursor: "pointer",
                 }}
               >
-                14 days free
+                {t.pro.cta}
               </button>
             </div>
 
@@ -281,7 +263,7 @@ export default function PricingCards() {
                   marginBottom: "1rem",
                 }}
               >
-                Team
+                {t.team.name}
               </div>
               <div
                 style={{
@@ -293,7 +275,7 @@ export default function PricingCards() {
                   letterSpacing: "-.02em",
                 }}
               >
-                Custom
+                {t.team.price}
               </div>
               <div
                 style={{
@@ -303,10 +285,10 @@ export default function PricingCards() {
                   marginBottom: "1.5rem",
                 }}
               >
-                for teams of 5+
+                {t.team.period}
               </div>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 auto", flex: 1 }}>
-                {teamFeatures.map((item) => (
+                {t.team.features.map((item) => (
                   <li
                     key={item}
                     style={{
@@ -340,7 +322,7 @@ export default function PricingCards() {
                   borderRadius: 8,
                 }}
               >
-                Get in touch
+                {t.team.cta}
               </a>
             </div>
           </div>

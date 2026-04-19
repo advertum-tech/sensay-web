@@ -2,6 +2,7 @@ import { VoiceDemo, StickyCta } from "./client";
 import HeroDownload from "./components/HeroDownload";
 import PlatformDebug from "./components/PlatformDebug";
 import PricingCards from "./components/PricingCards";
+import { locale } from "@/app/locales";
 
 const WHITE  = "#ffffff";
 const OFF    = "#faf8f6";
@@ -12,130 +13,39 @@ const MUTED  = "#888888";
 const BORDER = "#e8e8e4";
 const SANS   = "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif";
 
-const howSteps = [
-  {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <circle cx="16" cy="16" r="16" fill={CORAL + "15"} />
-        <rect x="11" y="7" width="10" height="14" rx="5" fill={CORAL} opacity=".85"/>
-        <path d="M7 17c0 4.97 4.03 9 9 9s9-4.03 9-9" stroke={CORAL} strokeWidth="2" strokeLinecap="round" opacity=".85"/>
-        <line x1="16" y1="26" x2="16" y2="30" stroke={CORAL} strokeWidth="2" strokeLinecap="round" opacity=".85"/>
-      </svg>
-    ),
-    n: "1",
-    title: "Tap and talk",
-    body: "Open Sensay, tap the mic. Speak the way you&rsquo;d say it to someone in the room.",
-  },
-  {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <circle cx="16" cy="16" r="16" fill={CORAL + "15"} />
-        <path d="M8 18 L12 22 L24 10" stroke={CORAL} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity=".85"/>
-      </svg>
-    ),
-    n: "2",
-    title: "Sensay cleans it",
-    body: "Filler words, pauses, and &ldquo;um&rdquo;s — gone. Grammar fixed. Register matched to where it&rsquo;s going.",
-  },
-  {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <circle cx="16" cy="16" r="16" fill={CORAL + "15"} />
-        <path d="M8 10h16M8 16h12M8 22h8" stroke={CORAL} strokeWidth="2" strokeLinecap="round" opacity=".85"/>
-      </svg>
-    ),
-    n: "3",
-    title: "Text appears",
-    body: "In your email, Slack, WhatsApp, Notion — wherever your cursor is. Paste nothing. Done.",
-  },
+const t = locale;
+
+const stepIcons = [
+  (
+    <svg key="1" width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="16" fill={CORAL + "15"} />
+      <rect x="11" y="7" width="10" height="14" rx="5" fill={CORAL} opacity=".85"/>
+      <path d="M7 17c0 4.97 4.03 9 9 9s9-4.03 9-9" stroke={CORAL} strokeWidth="2" strokeLinecap="round" opacity=".85"/>
+      <line x1="16" y1="26" x2="16" y2="30" stroke={CORAL} strokeWidth="2" strokeLinecap="round" opacity=".85"/>
+    </svg>
+  ),
+  (
+    <svg key="2" width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="16" fill={CORAL + "15"} />
+      <path d="M8 18 L12 22 L24 10" stroke={CORAL} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity=".85"/>
+    </svg>
+  ),
+  (
+    <svg key="3" width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="16" fill={CORAL + "15"} />
+      <path d="M8 10h16M8 16h12M8 22h8" stroke={CORAL} strokeWidth="2" strokeLinecap="round" opacity=".85"/>
+    </svg>
+  ),
 ];
 
-const useCases = [
-  {
-    emoji: "🚗",
-    title: "In the car",
-    body: "Reply to messages, jot down ideas. Hands on the wheel, words in the app.",
-  },
-  {
-    emoji: "🛋️",
-    title: "On the couch",
-    body: "Long reply, short energy. Say it instead of slowly hunting keys.",
-  },
-  {
-    emoji: "🚶",
-    title: "On a walk",
-    body: "The idea that arrived while moving. Say it before it&rsquo;s gone.",
-  },
-  {
-    emoji: "🍳",
-    title: "Hands full",
-    body: "Cooking, coffee, whatever. Your voice is free even when your hands aren&rsquo;t.",
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      "I replied to like 12 WhatsApps during my commute. Without Sensay I would've just stared at them until evening.",
-    name: "Marcus T.",
-    role: "Project manager",
-    color: "#ff9985",
-  },
-  {
-    quote:
-      "My ChatGPT answers got noticeably better. Turns out I was just being lazy with my prompts because typing them out felt like work.",
-    name: "Daria S.",
-    role: "Designer",
-    color: "#ff7055",
-  },
-  {
-    quote:
-      "I drafted a full client update email while walking to the coffee machine. Hit send before I even sat back down.",
-    name: "James R.",
-    role: "Consultant",
-    color: "#ff4422",
-  },
-];
-
-const faqs = [
-  {
-    q: "How accurate is it?",
-    a: "Very. It handles natural speech well — including filler words, mid-sentence corrections, and most accents. It won't be perfect 100% of the time, but it's faster to fix one word than to type the whole thing.",
-  },
-  {
-    q: "What languages does it support?",
-    a: "50+ languages including English, Spanish, French, German, Portuguese, Russian, Arabic, Japanese, and more. The free tier covers all major languages.",
-  },
-  {
-    q: "Is my voice recorded or stored?",
-    a: "No. Audio is processed in real time and not stored on our servers. What you say stays with you.",
-  },
-  {
-    q: "Does it work offline?",
-    a: "Not yet — processing happens in the cloud for best accuracy. You need a connection, but it's fast enough that you won't notice.",
-  },
-  {
-    q: "Which apps does it work with?",
-    a: "Any app where you can type — Gmail, Slack, WhatsApp, Notion, ChatGPT, Outlook, Google Docs, Teams, any browser input field. If there's a text cursor, Sensay works.",
-  },
-  {
-    q: "What happens when my free trial ends?",
-    a: "Nothing scary. You drop to the free tier — 30 minutes a day, forever. Upgrade only if you want more.",
-  },
-];
-
-const integrationApps = [
-  "Gmail",
-  "Slack",
-  "WhatsApp",
-  "Notion",
-  "Outlook",
-  "Google Docs",
-  "Teams",
-  "Any browser",
-];
+const testimonialColors = ["#ff9985", "#ff7055", "#ff4422"];
 
 export default function SensayLanding() {
+  const [heroL1, heroL2, heroL3] = t.hero.h1Lines;
+  const [whyL1, whyL2] = t.whyVoice.titleLines;
+  const [aiL1, aiL2] = t.aiPrompts.titleLines;
+  const lovedBy = t.hero.lovedByTemplate.split("{{count}}");
+
   return (
     <>
       <style>{`
@@ -218,7 +128,7 @@ export default function SensayLanding() {
             </span>
             <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
               <a href="#pricing" className="s-cta" style={{ padding: "8px 20px", fontSize: "0.8rem", borderRadius: 6 }}>
-                Try free
+                {t.header.tryCta}
               </a>
             </div>
           </div>
@@ -239,7 +149,7 @@ export default function SensayLanding() {
                   padding: "5px 14px", borderRadius: 20,
                   marginBottom: "2rem",
                 }}>
-                  Voice dictation · works in any app
+                  {t.hero.badge}
                 </div>
                 <h1 style={{
                   color: TEXT, fontFamily: SANS,
@@ -248,15 +158,15 @@ export default function SensayLanding() {
                   margin: "0 0 1.5rem",
                   letterSpacing: "-.03em",
                 }}>
-                  Just<br />say<br /><span style={{ color: CORAL }}>it.</span>
+                  {heroL1}<br />{heroL2}<br /><span style={{ color: CORAL }}>{heroL3}</span>
                 </h1>
                 <p style={{ color: MUTED, fontFamily: SANS, fontSize: "clamp(.9rem,1.8vw,1.1rem)", lineHeight: 1.85, maxWidth: 440, margin: "0 0 2.5rem", fontWeight: 400 }}>
-                  Speak. Get clean, ready-to-send text — in your email, Slack, WhatsApp, or anywhere else. No typing. No switching apps.
+                  {t.hero.paragraph}
                 </p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 14, alignItems: "flex-start" }}>
                   <HeroDownload />
                   <a href="#how" className="s-ghost">
-                    See how →
+                    {t.hero.seeHow}
                   </a>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: "2rem" }}>
@@ -266,7 +176,7 @@ export default function SensayLanding() {
                     ))}
                   </div>
                   <span style={{ color: MUTED, fontFamily: SANS, fontSize: "0.8rem", fontWeight: 400 }}>
-                    Loved by <strong style={{ color: TEXT }}>12,000+</strong> people already
+                    {lovedBy[0]}<strong style={{ color: TEXT }}>{t.hero.lovedCount}</strong>{lovedBy[1]}
                   </span>
                 </div>
               </div>
@@ -275,7 +185,7 @@ export default function SensayLanding() {
                 <div style={{ position: "relative", width: 280, height: 320, borderRadius: 20, overflow: "hidden", boxShadow: "0 16px 48px rgba(0,0,0,.10)" }}>
                   <img
                     src="/sensay/hero.jpg"
-                    alt="Speaking into phone"
+                    alt={t.hero.imageAlt}
                     style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
                   />
                   <div style={{
@@ -303,18 +213,18 @@ export default function SensayLanding() {
           <div style={{ margin: "0 auto", width: "90%", maxWidth: 1200 }}>
             <div style={{ textAlign: "center", marginBottom: "4rem" }}>
               <h2 style={{ color: TEXT, fontFamily: SANS, fontSize: "clamp(1.8rem,3.5vw,2.6rem)", fontWeight: 700, letterSpacing: "-.02em", margin: "0 0 .75rem" }}>
-                Three seconds, start to finish.
+                {t.howItWorks.title}
               </h2>
               <p style={{ color: MUTED, fontFamily: SANS, fontSize: "1rem", lineHeight: 1.8, margin: 0, fontWeight: 400 }}>
-                No learning curve. No setup. You already know how to use it.
+                {t.howItWorks.subtitle}
               </p>
             </div>
             <div className="s-three-col" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1.5rem" }}>
-              {howSteps.map(({ icon, n, title, body }) => (
-                <div key={n} className="s-card">
-                  <div style={{ marginBottom: "1.2rem" }}>{icon}</div>
-                  <h3 style={{ color: TEXT, fontFamily: SANS, fontSize: "1.1rem", fontWeight: 600, margin: "0 0 .6rem", letterSpacing: "-.01em" }}>{title}</h3>
-                  <p style={{ color: MUTED, fontFamily: SANS, fontSize: "0.85rem", lineHeight: 1.85, margin: 0 }} dangerouslySetInnerHTML={{ __html: body }} />
+              {t.howItWorks.steps.map((step, i) => (
+                <div key={i} className="s-card">
+                  <div style={{ marginBottom: "1.2rem" }}>{stepIcons[i]}</div>
+                  <h3 style={{ color: TEXT, fontFamily: SANS, fontSize: "1.1rem", fontWeight: 600, margin: "0 0 .6rem", letterSpacing: "-.01em" }}>{step.title}</h3>
+                  <p style={{ color: MUTED, fontFamily: SANS, fontSize: "0.85rem", lineHeight: 1.85, margin: 0 }}>{step.body}</p>
                 </div>
               ))}
             </div>
@@ -326,9 +236,9 @@ export default function SensayLanding() {
           <div style={{ margin: "0 auto", width: "90%", maxWidth: 1200 }}>
             <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", flexWrap: "wrap" }}>
               <span style={{ color: MUTED, fontFamily: SANS, fontSize: "0.78rem", fontWeight: 500, whiteSpace: "nowrap" }}>
-                Works in
+                {t.integrations.label}
               </span>
-              {integrationApps.map(app => (
+              {t.integrations.apps.map(app => (
                 <div key={app} style={{
                   background: WHITE, border: `1px solid ${BORDER}`, borderRadius: 6,
                   padding: "5px 14px",
@@ -347,10 +257,10 @@ export default function SensayLanding() {
           <div style={{ margin: "0 auto", width: "90%", maxWidth: 1200 }}>
             <div style={{ textAlign: "center", marginBottom: "4rem" }}>
               <h2 style={{ color: TEXT, fontFamily: SANS, fontSize: "clamp(1.8rem,3.5vw,2.6rem)", fontWeight: 700, letterSpacing: "-.02em", margin: "0 0 .75rem" }}>
-                You type 40 words a minute.<br />You speak 130.
+                {whyL1}<br />{whyL2}
               </h2>
               <p style={{ color: MUTED, fontFamily: SANS, fontSize: "1rem", lineHeight: 1.8, margin: "0 auto", maxWidth: 480 }}>
-                Your thoughts don&rsquo;t slow down for your fingers. Neither should your messages.
+                {t.whyVoice.subtitle}
               </p>
             </div>
             <div className="s-two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", maxWidth: 820, margin: "0 auto" }}>
@@ -358,22 +268,22 @@ export default function SensayLanding() {
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: "1.2rem" }}>
                   <div style={{ width: 8, height: 8, borderRadius: "50%", background: MUTED, flexShrink: 0 }} />
                   <span style={{ color: MUTED, fontFamily: SANS, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase" }}>
-                    Typing
+                    {t.whyVoice.typing.label}
                   </span>
                 </div>
                 <p style={{ color: MUTED, fontFamily: SANS, fontSize: "0.95rem", lineHeight: 1.9, margin: 0 }}>
-                  Hunt for the right words. Fix the typo. Re-read. Edit again. Send something shorter than what you actually meant.
+                  {t.whyVoice.typing.body}
                 </p>
               </div>
               <div style={{ background: CORAL + "08", border: `1.5px solid ${CORAL}30`, borderRadius: 12, padding: "2rem" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: "1.2rem" }}>
                   <div style={{ width: 8, height: 8, borderRadius: "50%", background: CORAL, flexShrink: 0 }} />
                   <span style={{ color: CORAL, fontFamily: SANS, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase" }}>
-                    Speaking with Sensay
+                    {t.whyVoice.speaking.label}
                   </span>
                 </div>
                 <p style={{ color: TEXT, fontFamily: SANS, fontSize: "0.95rem", lineHeight: 1.9, margin: 0 }}>
-                  Say exactly what you mean. Sensay cleans it up. Done in the time it took to unlock your phone.
+                  {t.whyVoice.speaking.body}
                 </p>
               </div>
             </div>
@@ -385,18 +295,18 @@ export default function SensayLanding() {
           <div style={{ margin: "0 auto", width: "90%", maxWidth: 1200 }}>
             <div style={{ textAlign: "center", marginBottom: "4rem" }}>
               <h2 style={{ color: TEXT, fontFamily: SANS, fontSize: "clamp(1.8rem,3.5vw,2.6rem)", fontWeight: 700, letterSpacing: "-.02em", margin: "0 0 .75rem" }}>
-                Whenever typing feels like too much.
+                {t.useCases.title}
               </h2>
               <p style={{ color: MUTED, fontFamily: SANS, fontSize: "1rem", margin: 0 }}>
-                Which is, honestly, most of the time.
+                {t.useCases.subtitle}
               </p>
             </div>
             <div className="s-four-col" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "1.5rem" }}>
-              {useCases.map(({ emoji, title, body }) => (
+              {t.useCases.items.map(({ emoji, title, body }) => (
                 <div key={title} className="s-card" style={{ textAlign: "center" }}>
                   <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>{emoji}</div>
                   <h4 style={{ color: TEXT, fontFamily: SANS, fontSize: "1rem", fontWeight: 600, margin: "0 0 .6rem" }}>{title}</h4>
-                  <p style={{ color: MUTED, fontFamily: SANS, fontSize: "0.82rem", lineHeight: 1.85, margin: 0 }} dangerouslySetInnerHTML={{ __html: body }} />
+                  <p style={{ color: MUTED, fontFamily: SANS, fontSize: "0.82rem", lineHeight: 1.85, margin: 0 }}>{body}</p>
                 </div>
               ))}
             </div>
@@ -413,35 +323,35 @@ export default function SensayLanding() {
                 letterSpacing: "0.12em", textTransform: "uppercase",
                 padding: "5px 14px", borderRadius: 20, marginBottom: "1.5rem",
               }}>
-                For AI power users
+                {t.aiPrompts.badge}
               </div>
               <h2 style={{ color: TEXT, fontFamily: SANS, fontSize: "clamp(1.8rem,3.5vw,2.6rem)", fontWeight: 700, letterSpacing: "-.02em", margin: "0 0 .75rem" }}>
-                Your AI gets smarter when you<br />stop typing to it.
+                {aiL1}<br />{aiL2}
               </h2>
               <p style={{ color: MUTED, fontFamily: SANS, fontSize: "1rem", lineHeight: 1.8, margin: "0 auto", maxWidth: 520 }}>
-                When you type a prompt, you cut corners. When you speak, you explain. Better input, better output — every time.
+                {t.aiPrompts.subtitle}
               </p>
             </div>
             <div className="s-two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", maxWidth: 860, margin: "0 auto 2rem" }}>
               <div>
                 <div style={{ color: MUTED, fontFamily: SANS, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
-                  Typed prompt
+                  {t.aiPrompts.typedLabel}
                 </div>
                 <div style={{ background: WHITE, border: `1.5px solid ${BORDER}`, borderRadius: 10, padding: "1.25rem 1.5rem", fontFamily: "'Courier New', monospace", fontSize: "0.88rem", color: MUTED, lineHeight: 1.7, minHeight: 100, display: "flex", alignItems: "center" }}>
-                  summarize this article
+                  {t.aiPrompts.typedExample}
                 </div>
               </div>
               <div>
                 <div style={{ color: CORAL, fontFamily: SANS, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
-                  Spoken → cleaned by Sensay
+                  {t.aiPrompts.spokenLabel}
                 </div>
                 <div style={{ background: WHITE, border: `1.5px solid ${CORAL}30`, borderRadius: 10, padding: "1.25rem 1.5rem", fontFamily: "'Courier New', monospace", fontSize: "0.88rem", color: TEXT, lineHeight: 1.7 }}>
-                  Can you summarize this article in 3 bullet points, focusing on the practical implications for a non-technical audience? Keep it under 100 words.
+                  {t.aiPrompts.spokenExample}
                 </div>
               </div>
             </div>
             <p style={{ textAlign: "center", color: MUTED, fontFamily: SANS, fontSize: "0.85rem", margin: 0 }}>
-              Same thought. One took 3 seconds to type. The other took 4 seconds to say — and got a much better answer.
+              {t.aiPrompts.footer}
             </p>
           </div>
         </section>
@@ -451,16 +361,16 @@ export default function SensayLanding() {
           <div style={{ margin: "0 auto", width: "90%", maxWidth: 1200 }}>
             <div style={{ textAlign: "center", marginBottom: "4rem" }}>
               <h2 style={{ color: TEXT, fontFamily: SANS, fontSize: "clamp(1.8rem,3.5vw,2.6rem)", fontWeight: 700, letterSpacing: "-.02em", margin: 0 }}>
-                Real people. Real messages.
+                {t.testimonials.title}
               </h2>
             </div>
             <div className="s-three-col" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1.5rem" }}>
-              {testimonials.map(({ quote, name, role, color }) => (
+              {t.testimonials.items.map(({ quote, name, role }, i) => (
                 <div key={name} className="s-card" style={{ display: "flex", flexDirection: "column" }}>
                   <div style={{ color: CORAL, fontSize: "3rem", lineHeight: 1, marginBottom: ".75rem", opacity: 0.2, fontFamily: "Georgia, serif" }}>&ldquo;</div>
                   <p style={{ color: TEXT, fontFamily: SANS, fontSize: "0.92rem", lineHeight: 1.85, margin: "0 0 auto", flex: 1 }}>{quote}</p>
                   <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: "1.5rem", paddingTop: "1.25rem", borderTop: `1px solid ${BORDER}` }}>
-                    <div style={{ width: 36, height: 36, borderRadius: "50%", background: color, flexShrink: 0 }} />
+                    <div style={{ width: 36, height: 36, borderRadius: "50%", background: testimonialColors[i] ?? CORAL, flexShrink: 0 }} />
                     <div>
                       <div style={{ color: TEXT, fontFamily: SANS, fontSize: "0.85rem", fontWeight: 600 }}>{name}</div>
                       <div style={{ color: MUTED, fontFamily: SANS, fontSize: "0.75rem" }}>{role}</div>
@@ -477,11 +387,11 @@ export default function SensayLanding() {
           <div style={{ margin: "0 auto", width: "90%", maxWidth: 720 }}>
             <div style={{ textAlign: "center", marginBottom: "4rem" }}>
               <h2 style={{ color: TEXT, fontFamily: SANS, fontSize: "clamp(1.8rem,3.5vw,2.6rem)", fontWeight: 700, letterSpacing: "-.02em", margin: 0 }}>
-                Simple answers.
+                {t.faq.title}
               </h2>
             </div>
             <div style={{ border: `1.5px solid ${BORDER}`, borderRadius: 12, overflow: "hidden" }}>
-              {faqs.map(({ q, a }, i, arr) => (
+              {t.faq.items.map(({ q, a }, i, arr) => (
                 <details key={q} className="s-faq-item" style={{ background: WHITE, borderBottom: i < arr.length - 1 ? `1px solid ${BORDER}` : "none" }}>
                   <summary style={{ padding: "1.3rem 1.75rem" }}>{q}</summary>
                   <p style={{ padding: "0 1.75rem 1.3rem", color: MUTED, fontFamily: SANS, fontSize: "0.88rem", lineHeight: 1.85, margin: 0 }}>{a}</p>
@@ -498,10 +408,10 @@ export default function SensayLanding() {
         <section style={{ background: CORAL, padding: "96px 0" }}>
           <div style={{ margin: "0 auto", width: "90%", maxWidth: 700, textAlign: "center" }}>
             <h2 style={{ color: WHITE, fontFamily: SANS, fontSize: "clamp(2rem,4.5vw,3.4rem)", fontWeight: 700, lineHeight: 1.15, margin: "0 0 1.2rem", letterSpacing: "-.02em" }}>
-              You know what you want to say.
+              {t.finalCta.title}
             </h2>
             <p style={{ color: "rgba(255,255,255,.75)", fontFamily: SANS, fontSize: "1.1rem", lineHeight: 1.8, marginBottom: "2.5rem", fontWeight: 400 }}>
-              So say it.
+              {t.finalCta.subtitle}
             </p>
             <a href="#pricing" style={{
               background: WHITE, color: CORAL,
@@ -511,7 +421,7 @@ export default function SensayLanding() {
               transition: "all .15s",
               boxShadow: "0 4px 20px rgba(0,0,0,.15)",
             }}>
-              Try Sensay free
+              {t.finalCta.cta}
             </a>
           </div>
         </section>
@@ -520,10 +430,10 @@ export default function SensayLanding() {
         <footer style={{ background: WHITE, borderTop: `1px solid ${BORDER}`, padding: "28px 0" }}>
           <div style={{ margin: "0 auto", width: "90%", maxWidth: 1200, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
             <span style={{ color: MUTED, fontFamily: SANS, fontSize: "0.78rem", fontWeight: 500 }}>
-              Sen<span style={{ color: CORAL }}>say</span> — voice dictation AI
+              Sen<span style={{ color: CORAL }}>say</span> — {t.footer.tagline}
             </span>
             <span style={{ color: MUTED, fontFamily: SANS, fontSize: "0.78rem" }}>
-              Made by <a href="https://advertum.com" style={{ color: TEXT, fontWeight: 500 }}>Advertum</a>
+              {t.footer.madeByPrefix}<a href="https://advertum.com" style={{ color: TEXT, fontWeight: 500 }}>Advertum</a>
             </span>
           </div>
           <div style={{ margin: "0 auto", width: "90%", maxWidth: 1200 }}>
