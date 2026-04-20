@@ -38,7 +38,7 @@ export default function YandexMetrica() {
           body: JSON.stringify({
             ym_client_id: clientId,
             timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-            language: navigator.language,
+            locale: navigator.language,
             screen: `${screen.width}x${screen.height}`,
             platform,
           }),
