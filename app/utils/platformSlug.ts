@@ -1,12 +1,18 @@
-// Canonical OS+arch slug for the 4th fingerprint signal sent to
-// register-identity / identify-session. Shapes the browser value into the
-// same space Electron uses (`${process.platform}-${process.arch}`), so the
-// server canonicalizer produces identical tokens on both sides.
+// Canonical platform enum sent to register-identity / identify-session and
+// stored verbatim in public.users.platform. Same alphabet in Electron
+// (src/helpers/supabaseService.js) — clients resolve, server persists.
 //
-// Output alphabet:
-//   mac-arm | mac-x64 | win-arm | win-x64 | linux-arm | linux-x64
-//   (falls back to navigator.platform when arch can't be detected — e.g.
-//   Safari without WebGL renderer info; server treats such values as legacy.)
+// Alphabet: mac_intel | mac_arm | win32 | linux
+//   - Intel vs ARM is tracked only for macOS (Apple Silicon migration is
+//     ongoing and the split is analytically meaningful).
+//   - Windows and Linux collapse all archs into a single value; ARM share
+//     there is negligible for this app.
+//
+// Returns null when detection fails (exotic UA, headless env). register-identity
+// accepts a missing platform; identify-session does not — but that path runs
+// only in Electron, where detection is deterministic from process.platform.
+
+export type PlatformSlug = "mac_intel" | "mac_arm" | "win32" | "linux";
 
 interface NavigatorWithUA extends Navigator {
   userAgentData?: {
@@ -19,7 +25,7 @@ interface NavigatorWithUA extends Navigator {
   };
 }
 
-function detectMacArchViaWebGL(): "arm" | "x64" | null {
+function detectMacArchViaWebGL(): "arm" | "intel" | null {
   try {
     const canvas = document.createElement("canvas");
     const gl = canvas.getContext("webgl") as WebGLRenderingContext | null;
@@ -27,29 +33,27 @@ function detectMacArchViaWebGL(): "arm" | "x64" | null {
     if (!ext) return null;
     const renderer = String(gl?.getParameter(ext.UNMASKED_RENDERER_WEBGL) ?? "").toLowerCase();
     if (/apple|m[1-4]/.test(renderer)) return "arm";
-    if (renderer) return "x64";
+    if (renderer) return "intel";
     return null;
   } catch {
     return null;
   }
 }
 
-export async function detectPlatformSlug(): Promise<string> {
-  if (typeof navigator === "undefined") return "unknown";
+export async function detectPlatformSlug(): Promise<PlatformSlug | null> {
+  if (typeof navigator === "undefined") return null;
 
   const nav = navigator as NavigatorWithUA;
 
   if (nav.userAgentData) {
     try {
       const data = await nav.userAgentData.getHighEntropyValues(["architecture", "platform"]);
-      const arch =
-        data.architecture === "arm" ? "arm" :
-        data.architecture === "x86" || data.architecture === "x86_64" ? "x64" :
-        null;
-      if (arch) {
-        if (data.platform === "macOS") return `mac-${arch}`;
-        if (data.platform === "Windows") return `win-${arch}`;
-        if (data.platform === "Linux") return `linux-${arch}`;
+      if (data.platform === "Windows") return "win32";
+      if (data.platform === "Linux") return "linux";
+      if (data.platform === "macOS") {
+        if (data.architecture === "arm") return "mac_arm";
+        if (data.architecture === "x86" || data.architecture === "x86_64") return "mac_intel";
+        // Arch absent — fall through to WebGL.
       }
     } catch {
       // fall through to UA sniffing
@@ -58,22 +62,17 @@ export async function detectPlatformSlug(): Promise<string> {
 
   const ua = navigator.userAgent.toLowerCase();
 
-  if (ua.includes("windows")) {
-    // ARM Windows is rare and UA rarely advertises it explicitly; default to x64.
-    return ua.includes("arm64") ? "win-arm" : "win-x64";
-  }
+  if (ua.includes("windows")) return "win32";
+  if (ua.includes("linux")) return "linux";
 
   if (ua.includes("mac os x") || ua.includes("macos")) {
     const arch = detectMacArchViaWebGL();
-    if (arch) return `mac-${arch}`;
-    // WebGL unavailable (headless, some privacy modes) — emit legacy value
-    // so the server treats it as "arch unknown" instead of guessing wrong.
-    return navigator.platform;
+    if (arch === "arm") return "mac_arm";
+    if (arch === "intel") return "mac_intel";
+    // WebGL unavailable (headless, some privacy modes). Modern Macs are
+    // overwhelmingly ARM — default there so the analytics split stays honest.
+    return "mac_arm";
   }
 
-  if (ua.includes("linux")) {
-    return ua.includes("aarch64") || ua.includes("arm64") ? "linux-arm" : "linux-x64";
-  }
-
-  return navigator.platform || "unknown";
+  return null;
 }
