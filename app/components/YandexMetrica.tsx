@@ -14,6 +14,7 @@ declare global {
 
 export default function YandexMetrica() {
   useEffect(() => {
+    if (process.env.NEXT_PUBLIC_DISABLE_ANALYTICS === "true") return;
     function applyUser(userId: string) {
       ym(YM_ID, "userParams", { UserID: userId });
       ym(YM_ID, "reachGoal", "visit", { users: { userId } });
@@ -64,6 +65,8 @@ export default function YandexMetrica() {
       document.removeEventListener(`yacounter${YM_ID}inited`, handleInited);
     };
   }, []);
+
+  if (process.env.NEXT_PUBLIC_DISABLE_ANALYTICS === "true") return null;
 
   return (
     <Script id="yandex-metrica-init" strategy="afterInteractive">
