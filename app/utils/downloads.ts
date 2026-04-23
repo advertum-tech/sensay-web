@@ -7,7 +7,8 @@ export const downloadUrls: Record<Platform, string | null> = {
     "https://api.sensay.app/storage/v1/object/public/builds/macos/arm64/latest/sensay.dmg",
   "mac-x64":
     "https://api.sensay.app/storage/v1/object/public/builds/macos/x64/latest/sensay.dmg",
-  windows: null,
+  windows:
+    "https://api.sensay.app/storage/v1/object/public/builds/windows/x64/latest/sensay.exe",
   unknown: null,
 };
 

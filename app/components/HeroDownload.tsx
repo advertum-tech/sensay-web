@@ -26,7 +26,7 @@ const t = locale.heroDownload;
 const buttonConfig: Record<Platform, { icon: React.ReactNode; label: string }> = {
   "mac-arm": { icon: <SiApple size={20} />, label: t.macArm },
   "mac-x64": { icon: <SiApple size={20} />, label: t.macIntel },
-  windows:   { icon: <FaWindows size={20} />, label: t.windowsSoon },
+  windows:   { icon: <FaWindows size={20} />, label: t.windows },
   unknown:   { icon: <HiOutlineDownload size={20} />, label: t.generic },
 };
 
@@ -39,12 +39,6 @@ const primaryCtaStyle: React.CSSProperties = {
   color: "#ffffff",
 };
 
-const disabledCtaStyle: React.CSSProperties = {
-  ...primaryCtaStyle,
-  cursor: "not-allowed",
-  opacity: 0.55,
-};
-
 export default function HeroDownload() {
   const { platform } = usePlatform();
   const [alertVisible, setAlertVisible] = useState(false);
@@ -52,7 +46,6 @@ export default function HeroDownload() {
 
   const config = buttonConfig[platform];
   const downloadUrl = getDownloadUrl(platform);
-  const isWindows = platform === "windows";
 
   function handleDownloadClick() {
     reachGoal("click_download_button", { platform: platformParamMap[platform] });
@@ -65,12 +58,7 @@ export default function HeroDownload() {
     setAlertVisible(true);
   }
 
-  const primaryButton = isWindows ? (
-    <button type="button" className="s-cta" style={disabledCtaStyle} disabled>
-      <span style={{ display: "flex", alignItems: "center" }}>{config.icon}</span>
-      {config.label}
-    </button>
-  ) : downloadUrl ? (
+  const primaryButton = downloadUrl ? (
     <a
       href={downloadUrl}
       onClick={handleDownloadClick}
