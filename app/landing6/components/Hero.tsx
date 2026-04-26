@@ -189,7 +189,7 @@ export default function Hero() {
           <div className="flex">
 
             {/* Left column */}
-            <div className="w-[44%] flex-none pt-10 pb-12 flex flex-col">
+            <div className="w-[44%] flex-none pt-10 pb-12 flex flex-col relative z-30">
               <div className="relative w-fit mb-8">
                 <img src="/voice-dictation-works-in-any-app-bg-desktop.svg" alt="" width={402} className="absolute left-0 pointer-events-none max-w-none" />
                 <p className="relative font-['Inter',_sans-serif] font-bold text-[20px] uppercase text-stone-500 -rotate-[3deg] whitespace-nowrap">
@@ -206,7 +206,7 @@ export default function Hero() {
                   href="#"
                   className="inline-block bg-coral text-white font-bold text-base uppercase rounded-xl px-10 py-4 mb-5"
                 >
-                  Start free<span className="hidden min-[1500px]:inline"> — no signup</span>
+                  Start free<span className="hidden min-[1350px]:inline"> — no signup</span>
                 </a>
                 <div>
                   <a
@@ -235,17 +235,17 @@ export default function Hero() {
               </div>
 
               {/* Visual cluster — right-anchored at <1500px */}
-              <div className="absolute right-0 bottom-0 min-[1500px]:relative min-[1500px]:right-auto min-[1500px]:bottom-auto">
+              <div className="absolute right-0 bottom-0 min-[1500px]:relative min-[1500px]:right-auto min-[1500px]:bottom-auto min-[1500px]:ml-auto">
 
                 {/* Bubble */}
                 <img
                   src="/hero-bubble-desktop.svg"
                   alt=""
-                  className="absolute z-20 pointer-events-none w-[384px] left-[-251px] top-[5px]"
+                  className="absolute z-20 pointer-events-none w-[384px] left-[-245px] top-[5px]"
                 />
 
                 {/* Person + iPhone — in flow, determines container height */}
-                <div className="flex items-end relative z-10" style={{ paddingLeft: "25px", gap: "34px" }}>
+                <div className="flex items-end relative z-10" style={{ paddingLeft: "31px", gap: "28px" }}>
                   <img src="/hero-person.png" alt="" className="block shrink-0 w-[382px]" />
                   <div className="relative shrink-0 w-[310px]">
                     <img src="/hero-iphone.png" alt="Sensay app" className="w-full" />
@@ -269,14 +269,14 @@ export default function Hero() {
                 <img
                   src="/hero-mic-btn.svg"
                   alt=""
-                  className="absolute z-20 w-[30px] left-[25px] bottom-[24px]"
+                  className="absolute z-20 w-[30px] left-[31px] bottom-[24px]"
                 />
 
                 {/* Dashed connector 1 */}
                 <img
                   src="/hero-dashed-1.svg"
                   alt=""
-                  className="absolute pointer-events-none w-[238px] left-[215px] bottom-[122px]"
+                  className="absolute pointer-events-none w-[238px] left-[221px] bottom-[122px]"
                   style={{ zIndex: 15 }}
                 />
 
@@ -284,7 +284,7 @@ export default function Hero() {
                 <img
                   src="/hero-dashed-all.svg"
                   alt=""
-                  className="absolute z-0 pointer-events-none left-[101px] top-[243px]"
+                  className="absolute z-0 pointer-events-none left-[81px] top-[203px]"
                 />
 
               </div>
