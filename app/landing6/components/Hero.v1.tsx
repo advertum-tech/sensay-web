@@ -238,13 +238,13 @@ export default function Hero() {
               <img
                 src="/hero-bubble-desktop.svg"
                 alt=""
-                className="absolute z-20 pointer-events-none w-[384px] left-[-251px] top-[281px]"
+                className="absolute z-20 pointer-events-none w-[326px] left-[-164px] top-[339px] min-[1500px]:w-[384px] min-[1500px]:left-[-251px] min-[1500px]:top-[281px]"
               />
 
               {/* Person + iPhone — in flow, determine column height, bottoms aligned */}
-              <div className="flex items-end relative z-10" style={{ paddingLeft: "25px", gap: "34px" }}>
-                <img src="/hero-person.png" alt="" className="block shrink-0 w-[382px]" />
-                <div className="relative shrink-0 w-[310px]">
+              <div className="flex items-end relative z-10 ml-[50px] min-[1500px]:ml-0" style={{ paddingLeft: "25px", gap: "34px" }}>
+                <img src="/hero-person.png" alt="" className="block shrink-0 w-[320px] min-[1500px]:w-[382px]" />
+                <div className="relative shrink-0 w-[260px] min-[1500px]:w-[310px]">
                   <img src="/hero-iphone.png" alt="Sensay app" className="w-full" />
                   <img
                     src="/phone-text-and-white-logo.svg"
@@ -259,21 +259,21 @@ export default function Hero() {
               <img
                 src="/hero-record-btn.svg"
                 alt=""
-                className="absolute z-20 w-[84px] left-[308px] bottom-[100px]"
+                className="absolute z-20 w-[71px] left-[312px] bottom-[85px] min-[1500px]:w-[84px] min-[1500px]:left-[308px] min-[1500px]:bottom-[100px]"
               />
 
               {/* Mic button */}
               <img
                 src="/hero-mic-btn.svg"
                 alt=""
-                className="absolute z-20 w-[30px] left-[25px] bottom-[24px]"
+                className="absolute z-20 w-[26px] left-[75px] bottom-[20px] min-[1500px]:w-[30px] min-[1500px]:left-[25px] min-[1500px]:bottom-[24px]"
               />
 
               {/* Dashed connector 1 */}
               <img
                 src="/hero-dashed-1.svg"
                 alt=""
-                className="absolute pointer-events-none w-[238px] left-[215px] bottom-[122px]"
+                className="absolute pointer-events-none w-[202px] left-[233px] bottom-[104px] min-[1500px]:w-[238px] min-[1500px]:left-[215px] min-[1500px]:bottom-[122px]"
                 style={{ zIndex: 15 }}
               />
 
@@ -281,7 +281,7 @@ export default function Hero() {
               <img
                 src="/hero-dashed-all.svg"
                 alt=""
-                className="absolute z-0 pointer-events-none left-[101px] top-[519px]"
+                className="absolute z-0 pointer-events-none w-[619px] left-[136px] top-[531px] min-[1500px]:w-auto min-[1500px]:left-[101px] min-[1500px]:top-[519px]"
               />
 
             </div>
