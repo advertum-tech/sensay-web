@@ -1,1 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --color-sand: #DED8CC;
+  --color-coral: #FC482F;
+}
