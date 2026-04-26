@@ -234,55 +234,60 @@ export default function Hero() {
                 <LovedBadge size={200} />
               </div>
 
-              {/* Bubble */}
-              <img
-                src="/hero-bubble-desktop.svg"
-                alt=""
-                className="absolute z-20 pointer-events-none w-[384px] left-[-251px] top-[281px]"
-              />
+              {/* Visual cluster — right-anchored at <1500px */}
+              <div className="absolute right-0 bottom-0 min-[1500px]:relative min-[1500px]:right-auto min-[1500px]:bottom-auto">
 
-              {/* Person + iPhone — in flow, determine column height, bottoms aligned */}
-              <div className="flex items-end relative z-10" style={{ paddingLeft: "25px", gap: "34px" }}>
-                <img src="/hero-person.png" alt="" className="block shrink-0 w-[382px]" />
-                <div className="relative shrink-0 w-[310px]">
-                  <img src="/hero-iphone.png" alt="Sensay app" className="w-full" />
-                  <img
-                    src="/phone-text-and-white-logo.svg"
-                    alt=""
-                    className="absolute"
-                    style={{ left: "14%", top: "27%", width: "72%" }}
-                  />
+                {/* Bubble */}
+                <img
+                  src="/hero-bubble-desktop.svg"
+                  alt=""
+                  className="absolute z-20 pointer-events-none w-[384px] left-[-251px] top-[5px]"
+                />
+
+                {/* Person + iPhone — in flow, determines container height */}
+                <div className="flex items-end relative z-10" style={{ paddingLeft: "25px", gap: "34px" }}>
+                  <img src="/hero-person.png" alt="" className="block shrink-0 w-[382px]" />
+                  <div className="relative shrink-0 w-[310px]">
+                    <img src="/hero-iphone.png" alt="Sensay app" className="w-full" />
+                    <img
+                      src="/phone-text-and-white-logo.svg"
+                      alt=""
+                      className="absolute"
+                      style={{ left: "14%", top: "27%", width: "72%" }}
+                    />
+                  </div>
                 </div>
+
+                {/* Record button */}
+                <img
+                  src="/hero-record-btn.svg"
+                  alt=""
+                  className="absolute z-20 w-[84px] left-[308px] bottom-[100px]"
+                />
+
+                {/* Mic button */}
+                <img
+                  src="/hero-mic-btn.svg"
+                  alt=""
+                  className="absolute z-20 w-[30px] left-[25px] bottom-[24px]"
+                />
+
+                {/* Dashed connector 1 */}
+                <img
+                  src="/hero-dashed-1.svg"
+                  alt=""
+                  className="absolute pointer-events-none w-[238px] left-[215px] bottom-[122px]"
+                  style={{ zIndex: 15 }}
+                />
+
+                {/* Dashed connector all */}
+                <img
+                  src="/hero-dashed-all.svg"
+                  alt=""
+                  className="absolute z-0 pointer-events-none left-[101px] top-[243px]"
+                />
+
               </div>
-
-              {/* Record button */}
-              <img
-                src="/hero-record-btn.svg"
-                alt=""
-                className="absolute z-20 w-[84px] left-[308px] bottom-[100px]"
-              />
-
-              {/* Mic button */}
-              <img
-                src="/hero-mic-btn.svg"
-                alt=""
-                className="absolute z-20 w-[30px] left-[25px] bottom-[24px]"
-              />
-
-              {/* Dashed connector 1 */}
-              <img
-                src="/hero-dashed-1.svg"
-                alt=""
-                className="absolute pointer-events-none w-[238px] left-[215px] bottom-[122px]"
-                style={{ zIndex: 15 }}
-              />
-
-              {/* Dashed connector all */}
-              <img
-                src="/hero-dashed-all.svg"
-                alt=""
-                className="absolute z-0 pointer-events-none left-[101px] top-[519px]"
-              />
 
             </div>
           </div>
