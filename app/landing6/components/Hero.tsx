@@ -97,90 +97,119 @@ export default function Hero() {
       </div>
 
       {/* ═══ TABLET (sm–xl) ═══ */}
-      <div className="hidden sm:block xl:hidden relative overflow-hidden">
-        {/* Bubble — large absolute background, right half, full section height */}
-        <img
-          src="/hero-bubble-tablet-mobile.svg"
-          alt=""
-          className="absolute w-[59%] z-20 pointer-events-none"
-          style={{ right: "-5%", top: "100px" }}
-        />
+      <div className="hidden sm:block xl:hidden">
 
-        <div className="px-8 relative z-10">
-          {/* Top row: headline left, tagline right */}
-          <div className="grid grid-cols-2 pt-12">
-            <div>
-              <div className="font-['Inter',_sans-serif] font-bold uppercase mb-8">
-                <div className="text-[100px] leading-[80px]">JUST</div>
-                <div className="text-[100px] leading-[80px]">SAY</div>
-                <div className="text-[100px] leading-[80px] text-coral">IT.</div>
-              </div>
-              <p className="font-['Inter',_sans-serif] text-[16px] font-medium uppercase leading-[28px] text-black">
-                <strong className="font-bold">Speak.</strong>{" "}Get clean, ready-to-send text — in your email, Slack, WhatsApp, or anywhere
-                else.{" "}
-                <strong className="font-bold">No typing. No switching apps.</strong>
-              </p>
-            </div>
-            <div className="flex justify-end pt-3">
-              <div>
-                <div className="relative w-fit">
-                  <img src="/voice-dictation-bg-tablet-mobile.svg" alt="" width={155} height={56} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
-                  <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
-                </div>
-                <div className="relative w-fit ml-[55px]">
-                  <img src="/works-in-any-app-bg-tablet-mobile.svg" alt="" width={176} height={52} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
-                  <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">works in any app</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Hero visual area — pixel-perfect from Figma 834px frame */}
+        <div className="relative overflow-hidden" style={{ height: "947px" }}>
 
-          {/* Visual row: iPhone left, person right */}
-          <div className="grid grid-cols-2 mt-10 items-end">
+          {/* Centering wrapper — all content centered at 834px */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "834px", height: "947px" }}>
+
+            {/* Person — bottom layer */}
+            <img
+              src="/hero-person.png"
+              alt=""
+              className="absolute z-0"
+              style={{ left: "441px", top: "604px", width: "343px" }}
+            />
+
+            {/* Bubble — on top of person */}
+            <img
+              src="/hero-bubble-tablet-mobile.svg"
+              alt=""
+              className="absolute z-10 pointer-events-none"
+              style={{ left: "344px", top: "188px", width: "494px" }}
+            />
+
+            {/* Voice dictation tag */}
+            <div className="absolute z-10" style={{ left: "476px", top: "194px" }}>
+              <div className="relative w-fit">
+                <img src="/voice-dictation-bg-tablet-mobile.svg" alt="" width={155} height={56} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
+                <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
+              </div>
+              <div className="relative w-fit ml-[55px]">
+                <img src="/works-in-any-app-bg-tablet-mobile.svg" alt="" width={176} height={52} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
+                <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">works in any app</p>
+              </div>
+            </div>
+
+            {/* Headline */}
+            <div className="absolute z-10 font-['Inter',_sans-serif] font-bold uppercase" style={{ left: "81px", top: "204px" }}>
+              <div className="text-[100px] leading-[80px]">JUST</div>
+              <div className="text-[100px] leading-[80px]">SAY</div>
+              <div className="text-[100px] leading-[80px] text-coral">IT.</div>
+            </div>
+
+            {/* Body text */}
+            <p className="absolute z-10 font-['Inter',_sans-serif] text-[16px] font-medium uppercase leading-[24px] text-black" style={{ left: "80px", top: "471px", width: "249px" }}>
+              <strong className="font-bold">Speak.</strong>{" "}Get clean, ready-to-send text — in your email, Slack, WhatsApp, or anywhere else.{" "}
+              <strong className="font-bold">No typing. No switching apps.</strong>
+            </p>
+
             {/* iPhone */}
-            <div>
-              <div className="relative w-[260px]">
-                <img src="/hero-iphone.png" alt="Sensay app" className="w-full" />
-                <img
-                  src="/phone-text-and-white-logo.svg"
-                  alt=""
-                  className="absolute inset-0 w-full h-full"
-                />
-              </div>
+            <div className="absolute z-10" style={{ left: "59px", top: "645px", width: "310px" }}>
+              <img src="/hero-iphone.png" alt="Sensay app" className="w-full" />
+              <img
+                src="/phone-text-and-white-logo.svg"
+                alt=""
+                className="absolute"
+                style={{ left: "14%", top: "27%", width: "72%" }}
+              />
             </div>
-            {/* Person */}
-            <div className="flex justify-end">
-              <div className="relative">
-                <img src="/hero-person.png" alt="" className="w-[300px]" />
-                <img
-                  src="/hero-record-btn.svg"
-                  alt=""
-                  className="absolute w-[25%] z-20"
-                  style={{ top: "52%", left: "3%" }}
-                />
-                <img
-                  src="/hero-mic-btn.svg"
-                  alt=""
-                  className="absolute w-[9%] z-20"
-                  style={{ top: "30%", right: "18%" }}
-                />
-              </div>
-            </div>
+
+            {/* Dashed connector */}
+            <img
+              src="/hero-dashed-1.svg"
+              alt=""
+              className="absolute z-10 pointer-events-none"
+              style={{ left: "339px", top: "688px", width: "258px" }}
+            />
+
+            {/* Record button */}
+            <img
+              src="/hero-record-btn.svg"
+              alt=""
+              className="absolute z-20"
+              style={{ left: "452px", top: "787px", width: "84px" }}
+            />
+
+            {/* Mic button */}
+            <img
+              src="/hero-mic-btn.svg"
+              alt=""
+              className="absolute z-20"
+              style={{ left: "722px", top: "708px", width: "30px" }}
+            />
+
           </div>
 
-          <div className="h-px bg-white mt-8 mb-6" />
+          {/* Separator — above all content */}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-white z-30" />
+        </div>
 
-          {/* CTA + Loved badge */}
-          <div className="flex items-center gap-8 pb-10">
+        {/* CTA + Loved badge */}
+        <div className="flex items-start" style={{ paddingLeft: "80px", paddingTop: "50px", paddingBottom: "50px" }}>
+          <div>
             <a
               href="#"
-              className="inline-block bg-coral text-white font-bold text-base uppercase rounded-xl px-8 py-4"
+              className="flex items-center justify-center bg-coral text-white font-bold text-base uppercase rounded-xl"
+              style={{ width: "280px", height: "50px" }}
             >
               Start free — no signup
             </a>
-            <LovedBadge size={120} />
+            <a
+              href="#"
+              className="block font-bold text-[18px] uppercase tracking-widest text-black mt-4"
+              style={{ paddingLeft: "85px" }}
+            >
+              See how →
+            </a>
+          </div>
+          <div style={{ marginLeft: "183px" }}>
+            <LovedBadge size={110} />
           </div>
         </div>
+
       </div>
 
       {/* ═══ DESKTOP (xl+) ═══ */}
