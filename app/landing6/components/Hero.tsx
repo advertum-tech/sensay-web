@@ -21,78 +21,62 @@ export default function Hero() {
 
       {/* ═══ MOBILE (< md, 0–767px) ═══ */}
       <div className="md:hidden overflow-hidden">
-        <div className="px-5 pt-8">
-          <div className="mb-5">
-            <div className="relative w-fit">
-              <img src="/voice-dictation-bg-tablet-mobile.svg" alt="" width={155} height={56} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
-              <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
+        <div className="relative left-1/2 -translate-x-1/2" style={{ width: "375px" }}>
+
+          <div className="px-5 pt-8">
+            <div className="mb-5">
+              <div className="relative w-fit">
+                <img src="/voice-dictation-bg-tablet-mobile.svg" alt="" width={155} height={56} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
+                <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
+              </div>
+              <div className="relative w-fit ml-[100px]">
+                <img src="/works-in-any-app-bg-tablet-mobile.svg" alt="" width={176} height={52} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
+                <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">works in any app</p>
+              </div>
             </div>
-            <div className="relative w-fit ml-[100px]">
-              <img src="/works-in-any-app-bg-tablet-mobile.svg" alt="" width={176} height={52} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
-              <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">works in any app</p>
+
+            <div className="font-['Inter',_sans-serif] font-bold uppercase mb-5 text-center">
+              <div className="text-[70px] leading-[60px]">JUST</div>
+              <div className="text-[70px] leading-[60px]">SAY <span className="text-coral">IT.</span></div>
             </div>
+
+            <p className="font-['Inter',_sans-serif] text-[14px] font-medium uppercase leading-[24px] text-black/80 mb-6">
+              <strong className="font-bold">Speak.</strong>{" "}Get clean, ready-to-send text — in your email, Slack, WhatsApp, or anywhere else.{" "}
+              <strong className="font-bold">No typing. No switching apps.</strong>
+            </p>
+
+            <a href="#" className="block bg-coral text-white font-bold text-sm uppercase rounded-xl px-8 py-4 text-center mb-4">
+              Start free — no signup
+            </a>
+            <a href="#" className="block text-sm font-bold uppercase tracking-widest text-black text-center mb-6">
+              See how →
+            </a>
           </div>
 
-          <div className="font-['Inter',_sans-serif] font-bold uppercase mb-5">
-            <div className="text-[70px] leading-[60px]">JUST</div>
-            <div className="text-[70px] leading-[60px]">SAY</div>
-            <div className="text-[70px] leading-[60px]"><span className="text-coral">IT.</span></div>
+          {/* Bubble */}
+          <img src="/hero-bubble-tablet-mobile.svg" alt="" className="relative z-10" style={{ width: "375px" }} />
+
+          {/* Person + overlays */}
+          <div className="relative" style={{ marginTop: "-20px" }}>
+            <img src="/hero-person.png" alt="" style={{ width: "343px", marginLeft: "16px" }} />
+            <img src="/hero-dashed-mobile.svg" alt="" className="absolute z-20" style={{ width: "204px", top: "5px", left: "85px" }} />
+            <img src="/hero-mic-btn.svg" alt="" className="absolute z-20" style={{ width: "30px", top: "5px", left: "4px" }} />
           </div>
 
-          <p className="font-['Inter',_sans-serif] text-[14px] font-medium uppercase leading-[24px] text-black/80 text-center mb-6">
-            <strong className="font-bold">Speak.</strong>{" "}Get clean, ready-to-send text — in your email, Slack, WhatsApp, or anywhere
-            else.{" "}
-            <strong className="font-bold">No typing. No switching apps.</strong>
-          </p>
+          {/* Separator — right at person bottom, per Figma y=1183 */}
+          <div className="h-px bg-white" />
 
-          <a
-            href="#"
-            className="block bg-coral text-white font-bold text-sm uppercase rounded-xl px-8 py-4 text-center mb-4"
-          >
-            Start free — no signup
-          </a>
-          <a
-            href="#"
-            className="block text-sm font-bold uppercase tracking-widest text-black text-center mb-6"
-          >
-            See how →
-          </a>
-        </div>
+          {/* iPhone — 39px below separator, per Figma y=1222 */}
+          <div className="relative" style={{ marginTop: "39px" }}>
+            <img src="/hero-iphone.png" alt="Sensay app" style={{ width: "320px", marginLeft: "18px" }} />
+            <img src="/phone-text-and-white-logo.svg" alt="" className="absolute" style={{ left: "63px", top: "94px", width: "230px" }} />
+          </div>
 
-        {/* Bubble — full width, above person */}
-        <img src="/hero-bubble-tablet-mobile.svg" alt="" className="relative w-full z-10" />
+          {/* Loved badge — 50px below iPhone bottom, per Figma y=1574 */}
+          <div className="flex justify-center" style={{ paddingTop: "50px", paddingBottom: "32px" }}>
+            <LovedBadge size={120} />
+          </div>
 
-        {/* Person photo — full width, overlaps bubble slightly */}
-        <div className="relative -mt-5">
-          <img src="/hero-person.png" alt="" className="w-full" />
-          <img
-            src="/hero-record-btn.svg"
-            alt=""
-            className="absolute z-20 w-[22%]"
-            style={{ top: "32%", left: "57%" }}
-          />
-          <img
-            src="/hero-mic-btn.svg"
-            alt=""
-            className="absolute z-20 w-[10%]"
-            style={{ top: "2%", left: "1%" }}
-          />
-        </div>
-
-        {/* iPhone — full width below person */}
-        <div className="relative -mt-3">
-          <img src="/hero-iphone.png" alt="Sensay app" className="w-full" />
-          <img
-            src="/phone-text-and-white-logo.svg"
-            alt=""
-            className="absolute inset-0 w-full h-full"
-          />
-        </div>
-
-        <div className="h-px bg-white mt-4 mx-5 mb-6" />
-
-        <div className="flex justify-center pb-8">
-          <LovedBadge size={120} />
         </div>
       </div>
 
