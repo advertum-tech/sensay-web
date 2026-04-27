@@ -225,23 +225,23 @@ export default function Hero() {
               src="/hero-person.png"
               alt=""
               className="absolute z-0"
-              style={{ left: "556px", top: "604px", width: "432px" }}
+              style={{ left: "556px", top: "604px", width: "343px" }}
             />
 
             <img
               src="/hero-bubble-tablet-mobile.svg"
               alt=""
               className="absolute z-10 pointer-events-none"
-              style={{ left: "503px", top: "188px", width: "494px" }}
+              style={{ left: "473px", top: "188px", width: "494px" }}
             />
 
             <div className="absolute z-10" style={{ left: "599px", top: "194px" }}>
               <div className="relative w-fit">
-                <img src="/voice-dictation-bg-tablet-mobile.svg" alt="" width={195} height={56} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
+                <img src="/voice-dictation-bg-tablet-mobile.svg" alt="" width={155} height={56} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
                 <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
               </div>
-              <div className="relative w-fit ml-[69px]">
-                <img src="/works-in-any-app-bg-tablet-mobile.svg" alt="" width={222} height={52} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
+              <div className="relative w-fit ml-[55px]">
+                <img src="/works-in-any-app-bg-tablet-mobile.svg" alt="" width={176} height={52} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
                 <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">works in any app</p>
               </div>
             </div>
@@ -257,7 +257,7 @@ export default function Hero() {
               <strong className="font-bold">No typing. No switching apps.</strong>
             </p>
 
-            <div className="absolute z-10" style={{ left: "74px", top: "645px", width: "390px" }}>
+            <div className="absolute z-10" style={{ left: "124px", top: "645px", width: "310px" }}>
               <img src="/hero-iphone.png" alt="Sensay app" className="w-full" />
               <img src="/phone-text-and-white-logo.svg" alt="" className="absolute" style={{ left: "14%", top: "27%", width: "72%" }} />
             </div>
@@ -266,7 +266,7 @@ export default function Hero() {
               src="/hero-dashed-1-tablet.svg"
               alt=""
               className="absolute z-10 pointer-events-none"
-              style={{ left: "427px", top: "688px", width: "325px" }}
+              style={{ left: "387px", top: "688px", width: "258px" }}
             />
 
             <img
@@ -304,7 +304,7 @@ export default function Hero() {
             >
               See how →
             </a>
-            <div className="absolute" style={{ right: "142px", top: "32px", width: "393px" }}>
+            <div className="absolute" style={{ right: "142px", top: "32px", width: "312px" }}>
               <img src="/hero-dashed-2-tablet.svg" alt="" className="w-full" />
               <div className="absolute flex flex-col items-center" style={{ top: "4.5%", left: "63%", transform: "translateX(-50%)" }}>
                 <img src="/loved-avatars.svg" alt="" className="mb-1" style={{ width: "74px" }} />
