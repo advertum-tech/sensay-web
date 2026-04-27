@@ -257,7 +257,7 @@ export default function Hero() {
               <strong className="font-bold">No typing. No switching apps.</strong>
             </p>
 
-            <div className="absolute z-10" style={{ left: "124px", top: "645px", width: "310px" }}>
+            <div className="absolute z-[15]" style={{ left: "124px", top: "645px", width: "310px" }}>
               <img src="/hero-iphone.png" alt="Sensay app" className="w-full" />
               <img src="/phone-text-and-white-logo.svg" alt="" className="absolute" style={{ left: "14%", top: "27%", width: "72%" }} />
             </div>
@@ -273,14 +273,14 @@ export default function Hero() {
               src="/hero-record-btn.svg"
               alt=""
               className="absolute z-20"
-              style={{ left: "569px", top: "787px", width: "106px" }}
+              style={{ left: "524px", top: "787px", width: "84px" }}
             />
 
             <img
               src="/hero-mic-btn.svg"
               alt=""
               className="absolute z-20"
-              style={{ left: "909px", top: "708px", width: "38px" }}
+              style={{ left: "829px", top: "708px", width: "30px" }}
             />
 
           </div>
@@ -322,10 +322,10 @@ export default function Hero() {
       {/* ═══ DESKTOP (xl+) ═══ */}
       <div className="hidden xl:block">
         <div className="max-w-screen-2xl mx-auto px-16">
-          <div className="flex">
+          <div className="flex pt-20">
 
             {/* Left column */}
-            <div className="w-[44%] flex-none pt-10 pb-12 flex flex-col relative z-30">
+            <div className="w-[44%] flex-none pb-12 flex flex-col relative z-30">
               <div className="relative w-fit mb-8">
                 <img src="/voice-dictation-works-in-any-app-bg-desktop.svg" alt="" width={402} className="absolute left-0 pointer-events-none max-w-none" />
                 <p className="relative font-['Inter',_sans-serif] font-bold text-[20px] uppercase text-stone-500 -rotate-[3deg] whitespace-nowrap">
