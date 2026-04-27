@@ -21,7 +21,7 @@ export default function Hero() {
 
       {/* ═══ MOBILE (< md, 0–767px) ═══ */}
       <div className="md:hidden overflow-hidden">
-        <div className="relative max-[499px]:left-1/2 max-[499px]:-translate-x-1/2 max-[499px]:w-[375px]">
+        <div className="relative max-[499px]:left-1/2 max-[499px]:-translate-x-1/2 max-[499px]:w-[375px] max-[359px]:left-0 max-[359px]:translate-x-0 max-[359px]:w-full">
 
           <div className="px-5 pt-8 min-[500px]:flex min-[500px]:flex-col min-[500px]:items-center">
             {/* ≤499px: two stacked tags */}
@@ -30,7 +30,7 @@ export default function Hero() {
                 <img src="/voice-dictation-bg-tablet-mobile.svg" alt="" width={155} height={56} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
                 <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
               </div>
-              <div className="relative w-fit" style={{ marginLeft: "150px", top: "-4px" }}>
+              <div className="relative w-fit ml-[150px] max-[359px]:ml-[110px]" style={{ top: "-4px" }}>
                 <img src="/works-in-any-app-bg-tablet-mobile.svg" alt="" width={176} height={52} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
                 <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">works in any app</p>
               </div>
@@ -63,34 +63,33 @@ export default function Hero() {
             <a href="#" className="max-[499px]:block min-[500px]:inline-block bg-coral text-white font-bold text-sm uppercase rounded-xl px-8 py-4 text-center mb-4">
               Start free — no signup
             </a>
-            <a href="#" className="block text-sm font-bold uppercase tracking-widest text-black text-center mb-6">
+            <a href="#" className="block text-sm font-bold uppercase tracking-widest text-black text-center">
               See how →
             </a>
           </div>
 
           {/* Bubble */}
-          <img src="/hero-bubble-tablet-mobile.svg" alt="" className="relative z-10" style={{ width: "375px" }} />
+          <img src="/hero-bubble-tablet-mobile.svg" alt="" className="relative z-10 block mx-auto w-[375px] max-[359px]:w-[300px]" style={{ marginTop: "-30px" }} />
 
           {/* Person + overlays */}
-          <div className="relative" style={{ marginTop: "-20px" }}>
-            <img src="/hero-person.png" alt="" style={{ width: "343px", marginLeft: "16px" }} />
-            <img src="/hero-dashed-mobile.svg" alt="" className="absolute z-20" style={{ width: "204px", top: "5px", left: "85px" }} />
-            <img src="/hero-mic-btn.svg" alt="" className="absolute z-20" style={{ width: "30px", top: "5px", left: "4px" }} />
+          <div className="relative mx-auto w-[359px] max-[359px]:w-[274px] min-[500px]:w-[375px]" style={{ marginTop: "-56px" }}>
+            <img src="/hero-person.png" alt="" className="w-[343px] max-[359px]:w-[274px] ml-[16px] max-[359px]:ml-[13px]" />
+            <img src="/hero-dashed-mobile.svg" alt="" className="absolute z-20 w-[204px] max-[359px]:w-[163px] top-[5px] max-[359px]:top-[4px] left-[95px] max-[359px]:left-[76px]" />
+            <img src="/hero-mic-btn.svg" alt="" className="absolute z-20 w-[30px] max-[359px]:w-[24px] top-[5px] max-[359px]:top-[4px] left-[4px] max-[359px]:left-[3px]" />
           </div>
 
           {/* Separator — right at person bottom, per Figma y=1183 */}
-          <div className="h-px bg-white" />
+          <div className="relative z-40 h-px bg-white max-[499px]:ml-[calc(50%-50vw)] max-[499px]:w-screen" />
 
-          {/* iPhone — 39px below separator, per Figma y=1222 */}
-          <div className="relative" style={{ marginTop: "39px" }}>
-            <img src="/hero-iphone.png" alt="Sensay app" style={{ width: "320px", marginLeft: "18px" }} />
-            <img src="/phone-text-and-white-logo.svg" alt="" className="absolute" style={{ left: "63px", top: "94px", width: "230px" }} />
+          {/* iPhone — 20px below separator */}
+          <div className="relative z-30 mx-auto w-[338px] max-[359px]:w-[270px] min-[500px]:w-[375px]" style={{ marginTop: "20px" }}>
+            <img src="/hero-iphone.png" alt="Sensay app" className="w-[320px] max-[359px]:w-[256px] ml-[18px] max-[359px]:ml-[14px]" />
+            <img src="/phone-text-and-white-logo.svg" alt="" className="absolute left-[63px] max-[359px]:left-[50px] top-[94px] max-[359px]:top-[75px] w-[230px] max-[359px]:w-[184px]" />
           </div>
 
-          {/* Loved badge — 50px below iPhone bottom, per Figma y=1574 */}
-          <div className="flex justify-center" style={{ paddingTop: "50px", paddingBottom: "32px" }}>
-            <LovedBadge size={120} />
-          </div>
+          {/* Separator — iPhone bottom sits on this line, per Figma y=1524 */}
+          <div className="h-px bg-white max-[499px]:ml-[calc(50%-50vw)] max-[499px]:w-screen" />
+
 
         </div>
       </div>
@@ -430,7 +429,7 @@ export default function Hero() {
 
         {/* Separator */}
         <div className="max-w-screen-2xl mx-auto px-16">
-          <div className="h-px bg-white" />
+          <div className="h-px bg-white max-[499px]:ml-[calc(50%-50vw)] max-[499px]:w-screen" />
         </div>
       </div>
 

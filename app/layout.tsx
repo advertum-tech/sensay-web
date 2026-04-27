@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={locale.lang}>
+    <html lang={locale.lang} className="bg-[#DED8CC]">
       <body>
         {children}
         <YandexMetrica />
