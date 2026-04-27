@@ -1,3 +1,7 @@
+import HeroPerson from './HeroPerson';
+import HeroPersonMobile from './HeroPersonMobile';
+import HeroMicBtn from './HeroMicBtn';
+
 function LovedBadge({ size = 120 }: { size?: number }) {
   return (
     <div className="relative" style={{ width: size, aspectRatio: "232 / 192" }}>
@@ -17,7 +21,7 @@ function LovedBadge({ size = 120 }: { size?: number }) {
 
 export default function Hero() {
   return (
-    <section className="bg-sand">
+    <section className="bg-[#DFDDD1]">
 
       {/* ═══ MOBILE (< md, 0–767px) ═══ */}
       <div className="md:hidden overflow-hidden">
@@ -72,11 +76,7 @@ export default function Hero() {
           <img src="/hero-bubble-tablet-mobile.svg" alt="" className="relative z-10 block mx-auto w-[375px] max-[359px]:w-[300px]" style={{ marginTop: "-30px" }} />
 
           {/* Person + overlays */}
-          <div className="relative mx-auto w-[359px] max-[359px]:w-[274px] min-[500px]:w-[375px]" style={{ marginTop: "-56px" }}>
-            <img src="/hero-person.png" alt="" className="w-[343px] max-[359px]:w-[274px] ml-[16px] max-[359px]:ml-[13px]" />
-            <img src="/hero-dashed-mobile.svg" alt="" className="absolute z-20 w-[204px] max-[359px]:w-[163px] top-[5px] max-[359px]:top-[4px] left-[95px] max-[359px]:left-[76px]" />
-            <img src="/hero-mic-btn.svg" alt="" className="absolute z-20 w-[30px] max-[359px]:w-[24px] top-[5px] max-[359px]:top-[4px] left-[4px] max-[359px]:left-[3px]" />
-          </div>
+          <HeroPersonMobile />
 
           {/* Separator — right at person bottom, per Figma y=1183 */}
           <div className="relative z-40 h-px bg-white max-[499px]:ml-[calc(50%-50vw)] max-[499px]:w-screen" />
@@ -100,15 +100,10 @@ export default function Hero() {
         {/* Hero visual area — Figma 834px frame, centered */}
         <div className="relative overflow-hidden" style={{ height: "807px" }}>
 
-          <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "834px", height: "807px" }}>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "834px", height: "807px" }} data-hero-video-container>
 
             {/* Person — bottom layer */}
-            <img
-              src="/hero-person.png"
-              alt=""
-              className="absolute z-0"
-              style={{ left: "441px", top: "464px", width: "343px" }}
-            />
+            <HeroPerson className="absolute z-0" style={{ left: "441px", top: "464px", width: "343px" }} />
 
             {/* Bubble — above person */}
             <img
@@ -166,12 +161,7 @@ export default function Hero() {
             />
 
             {/* Mic button */}
-            <img
-              src="/hero-mic-btn.svg"
-              alt=""
-              className="absolute z-20"
-              style={{ left: "722px", top: "568px", width: "30px" }}
-            />
+            <HeroMicBtn className="absolute z-50" style={{ left: "722px", top: "568px", width: "30px" }} />
 
           </div>
 
@@ -217,14 +207,9 @@ export default function Hero() {
 
         <div className="relative overflow-hidden" style={{ height: "807px" }}>
 
-          <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "1050px", height: "807px" }}>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "1050px", height: "807px" }} data-hero-video-container>
 
-            <img
-              src="/hero-person.png"
-              alt=""
-              className="absolute z-0"
-              style={{ left: "556px", top: "464px", width: "343px" }}
-            />
+            <HeroPerson className="absolute z-0" style={{ left: "556px", top: "464px", width: "343px" }} />
 
             <img
               src="/hero-bubble-tablet-mobile.svg"
@@ -274,12 +259,7 @@ export default function Hero() {
               style={{ left: "524px", top: "647px", width: "84px" }}
             />
 
-            <img
-              src="/hero-mic-btn.svg"
-              alt=""
-              className="absolute z-20"
-              style={{ left: "829px", top: "568px", width: "30px" }}
-            />
+            <HeroMicBtn className="absolute z-50" style={{ left: "829px", top: "568px", width: "30px" }} />
 
           </div>
 
@@ -369,7 +349,7 @@ export default function Hero() {
               </div>
 
               {/* Visual cluster — right-anchored at <1500px */}
-              <div className="absolute right-0 bottom-0 min-[1500px]:relative min-[1500px]:right-auto min-[1500px]:bottom-auto min-[1500px]:ml-auto">
+              <div className="absolute right-0 bottom-0 min-[1500px]:relative min-[1500px]:right-auto min-[1500px]:bottom-auto min-[1500px]:ml-auto" data-hero-video-container>
 
                 {/* Bubble */}
                 <img
@@ -380,7 +360,7 @@ export default function Hero() {
 
                 {/* Person + iPhone — in flow, determines container height */}
                 <div className="flex items-end relative z-10" style={{ paddingLeft: "31px", gap: "28px" }}>
-                  <img src="/hero-person.png" alt="" className="block shrink-0 w-[382px]" />
+                  <HeroPerson className="block shrink-0 w-[382px]" />
                   <div className="relative shrink-0 w-[310px]">
                     <img src="/hero-iphone.png" alt="Sensay app" className="w-full" />
                     <img
@@ -400,11 +380,7 @@ export default function Hero() {
                 />
 
                 {/* Mic button */}
-                <img
-                  src="/hero-mic-btn.svg"
-                  alt=""
-                  className="absolute z-20 w-[30px] left-[31px] bottom-[24px]"
-                />
+                <HeroMicBtn className="absolute z-50 w-[30px] left-[31px] bottom-[24px]" />
 
                 {/* Dashed connector 1 */}
                 <img
