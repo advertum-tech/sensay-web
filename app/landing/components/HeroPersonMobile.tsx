@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const IDLE_TIMEOUT = 15_000;
+const IDLE_TIMEOUT = 60_000;
 
 export default function HeroPersonMobile() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -18,6 +18,13 @@ export default function HeroPersonMobile() {
 
   function handlePlay() {
     lastPlayedAt.current = Date.now();
+  }
+
+  function handleEnded() {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    setMuted(true);
   }
 
   function handleMicClick(e: React.MouseEvent) {
@@ -58,6 +65,7 @@ export default function HeroPersonMobile() {
         style={{ cursor: 'pointer' }}
         onClick={handleVideoClick}
         onPlay={handlePlay}
+        onEnded={handleEnded}
       />
       <img
         src="/hero-dashed-mobile.svg"

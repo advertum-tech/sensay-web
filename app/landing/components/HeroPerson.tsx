@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
-const IDLE_TIMEOUT = 15_000;
+const IDLE_TIMEOUT = 60_000;
 
 interface Props {
   className?: string;
@@ -22,6 +22,14 @@ export default function HeroPerson({ className, style }: Props) {
 
   function handlePlay() {
     lastPlayedAt.current = Date.now();
+  }
+
+  function handleEnded() {
+    const v = ref.current;
+    if (!v) return;
+    v.muted = true;
+    const container = v.closest('[data-hero-video-container]');
+    container?.dispatchEvent(new CustomEvent('hero-video-muted', { bubbles: false }));
   }
 
   useEffect(() => {
@@ -49,6 +57,7 @@ export default function HeroPerson({ className, style }: Props) {
       style={style}
       onClick={handleClick}
       onPlay={handlePlay}
+      onEnded={handleEnded}
     />
   );
 }
