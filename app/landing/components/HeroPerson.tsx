@@ -1,6 +1,8 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+
+const IDLE_TIMEOUT = 15_000;
 
 interface Props {
   className?: string;
@@ -9,6 +11,7 @@ interface Props {
 
 export default function HeroPerson({ className, style }: Props) {
   const ref = useRef<HTMLVideoElement>(null);
+  const lastPlayedAt = useRef(Date.now());
 
   function handleClick() {
     const v = ref.current;
@@ -16,6 +19,24 @@ export default function HeroPerson({ className, style }: Props) {
     v.currentTime = 0;
     v.play();
   }
+
+  function handlePlay() {
+    lastPlayedAt.current = Date.now();
+  }
+
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    const id = setInterval(() => {
+      if (Date.now() - lastPlayedAt.current < IDLE_TIMEOUT) return;
+      v.muted = true;
+      v.currentTime = 0;
+      v.play();
+      const container = v.closest('[data-hero-video-container]');
+      container?.dispatchEvent(new CustomEvent('hero-video-muted', { bubbles: false }));
+    }, 2_000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <video
@@ -27,6 +48,7 @@ export default function HeroPerson({ className, style }: Props) {
       className={className}
       style={style}
       onClick={handleClick}
+      onPlay={handlePlay}
     />
   );
 }

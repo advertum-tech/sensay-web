@@ -1,10 +1,13 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+const IDLE_TIMEOUT = 15_000;
 
 export default function HeroPersonMobile() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
+  const lastPlayedAt = useRef(Date.now());
 
   function handleVideoClick() {
     const v = videoRef.current;
@@ -13,13 +16,35 @@ export default function HeroPersonMobile() {
     v.play();
   }
 
+  function handlePlay() {
+    lastPlayedAt.current = Date.now();
+  }
+
   function handleMicClick(e: React.MouseEvent) {
     e.stopPropagation();
     const v = videoRef.current;
     if (!v) return;
-    v.muted = !v.muted;
-    setMuted(v.muted);
+    const nowMuted = !v.muted;
+    v.muted = nowMuted;
+    setMuted(nowMuted);
+    if (!nowMuted && (v.paused || v.ended)) {
+      v.currentTime = 0;
+      v.play();
+    }
   }
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const id = setInterval(() => {
+      if (Date.now() - lastPlayedAt.current < IDLE_TIMEOUT) return;
+      v.muted = true;
+      setMuted(true);
+      v.currentTime = 0;
+      v.play();
+    }, 2_000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <div className="relative mx-auto w-[359px] max-[359px]:w-[274px] min-[500px]:w-[375px]" style={{ marginTop: "-56px" }}>
@@ -32,6 +57,7 @@ export default function HeroPersonMobile() {
         className="w-[343px] max-[359px]:w-[274px] ml-[16px] max-[359px]:ml-[13px]"
         style={{ cursor: 'pointer' }}
         onClick={handleVideoClick}
+        onPlay={handlePlay}
       />
       <img
         src="/hero-dashed-mobile.svg"
