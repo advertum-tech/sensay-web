@@ -21,31 +21,46 @@ export default function Hero() {
 
       {/* ═══ MOBILE (< md, 0–767px) ═══ */}
       <div className="md:hidden overflow-hidden">
-        <div className="relative left-1/2 -translate-x-1/2" style={{ width: "375px" }}>
+        <div className="relative max-[499px]:left-1/2 max-[499px]:-translate-x-1/2 max-[499px]:w-[375px]">
 
-          <div className="px-5 pt-8">
-            <div className="mb-5">
-              <div className="relative w-fit">
+          <div className="px-5 pt-8 min-[500px]:flex min-[500px]:flex-col min-[500px]:items-center">
+            {/* ≤499px: two stacked tags */}
+            <div className="min-[500px]:hidden mb-5">
+              <div className="relative w-fit" style={{ marginLeft: "50px", top: "6px" }}>
                 <img src="/voice-dictation-bg-tablet-mobile.svg" alt="" width={155} height={56} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
                 <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
               </div>
-              <div className="relative w-fit ml-[100px]">
+              <div className="relative w-fit" style={{ marginLeft: "150px", top: "-4px" }}>
                 <img src="/works-in-any-app-bg-tablet-mobile.svg" alt="" width={176} height={52} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
                 <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">works in any app</p>
               </div>
             </div>
 
-            <div className="font-['Inter',_sans-serif] font-bold uppercase mb-5 text-center">
+            {/* 500–767px: single-line tag, centered, ~20% smaller than desktop */}
+            <div className="hidden min-[500px]:block mb-8">
+              <div className="relative w-fit">
+                <img src="/voice-dictation-works-in-any-app-bg-desktop.svg" alt="" width={320} className="absolute left-0 pointer-events-none max-w-none" />
+                <p className="relative font-['Inter',_sans-serif] font-bold text-[16px] uppercase text-stone-500 -rotate-[3deg] whitespace-nowrap">Voice dictation · works in any app</p>
+              </div>
+            </div>
+
+            {/* ≤499px: two-line heading */}
+            <div className="min-[500px]:hidden font-['Inter',_sans-serif] font-bold uppercase mb-5 text-center">
               <div className="text-[70px] leading-[60px]">JUST</div>
               <div className="text-[70px] leading-[60px]">SAY <span className="text-coral">IT.</span></div>
             </div>
 
-            <p className="font-['Inter',_sans-serif] text-[14px] font-medium uppercase leading-[24px] text-black/80 mb-6">
+            {/* 500–767px: one-line heading */}
+            <div className="hidden min-[500px]:block font-['Inter',_sans-serif] font-bold uppercase mb-5 text-center text-[70px] leading-[60px] whitespace-nowrap">
+              JUST SAY <span className="text-coral">IT.</span>
+            </div>
+
+            <p className="font-['Inter',_sans-serif] text-[14px] font-medium uppercase leading-[24px] text-black/80 mb-6 text-center max-[499px]:-mx-2 min-[500px]:max-w-[480px]">
               <strong className="font-bold">Speak.</strong>{" "}Get clean, ready-to-send text — in your email, Slack, WhatsApp, or anywhere else.{" "}
               <strong className="font-bold">No typing. No switching apps.</strong>
             </p>
 
-            <a href="#" className="block bg-coral text-white font-bold text-sm uppercase rounded-xl px-8 py-4 text-center mb-4">
+            <a href="#" className="max-[499px]:block min-[500px]:inline-block bg-coral text-white font-bold text-sm uppercase rounded-xl px-8 py-4 text-center mb-4">
               Start free — no signup
             </a>
             <a href="#" className="block text-sm font-bold uppercase tracking-widest text-black text-center mb-6">
@@ -84,16 +99,16 @@ export default function Hero() {
       <div className="hidden md:block lg:hidden">
 
         {/* Hero visual area — Figma 834px frame, centered */}
-        <div className="relative overflow-hidden" style={{ height: "947px" }}>
+        <div className="relative overflow-hidden" style={{ height: "807px" }}>
 
-          <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "834px", height: "947px" }}>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "834px", height: "807px" }}>
 
             {/* Person — bottom layer */}
             <img
               src="/hero-person.png"
               alt=""
               className="absolute z-0"
-              style={{ left: "441px", top: "604px", width: "343px" }}
+              style={{ left: "441px", top: "464px", width: "343px" }}
             />
 
             {/* Bubble — above person */}
@@ -101,11 +116,11 @@ export default function Hero() {
               src="/hero-bubble-tablet-mobile.svg"
               alt=""
               className="absolute z-10 pointer-events-none"
-              style={{ left: "344px", top: "188px", width: "494px" }}
+              style={{ left: "344px", top: "48px", width: "494px" }}
             />
 
             {/* Voice dictation tag */}
-            <div className="absolute z-10" style={{ left: "476px", top: "194px" }}>
+            <div className="absolute z-10" style={{ left: "476px", top: "54px" }}>
               <div className="relative w-fit">
                 <img src="/voice-dictation-bg-tablet-mobile.svg" alt="" width={155} height={56} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
                 <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
@@ -117,20 +132,20 @@ export default function Hero() {
             </div>
 
             {/* Headline */}
-            <div className="absolute z-10 font-['Inter',_sans-serif] font-bold uppercase" style={{ left: "81px", top: "204px" }}>
+            <div className="absolute z-10 font-['Inter',_sans-serif] font-bold uppercase" style={{ left: "81px", top: "64px" }}>
               <div className="text-[100px] leading-[80px]">JUST</div>
               <div className="text-[100px] leading-[80px]">SAY</div>
               <div className="text-[100px] leading-[80px] text-coral">IT.</div>
             </div>
 
             {/* Body text */}
-            <p className="absolute z-10 font-['Inter',_sans-serif] text-[16px] font-medium uppercase leading-[24px] text-black" style={{ left: "80px", top: "471px", width: "249px" }}>
+            <p className="absolute z-10 font-['Inter',_sans-serif] text-[16px] font-medium uppercase leading-[24px] text-black" style={{ left: "80px", top: "331px", width: "249px" }}>
               <strong className="font-bold">Speak.</strong>{" "}Get clean, ready-to-send text — in your email, Slack, WhatsApp, or anywhere else.{" "}
               <strong className="font-bold">No typing. No switching apps.</strong>
             </p>
 
             {/* iPhone */}
-            <div className="absolute z-10" style={{ left: "59px", top: "645px", width: "310px" }}>
+            <div className="absolute z-10" style={{ left: "59px", top: "505px", width: "310px" }}>
               <img src="/hero-iphone.png" alt="Sensay app" className="w-full" />
               <img src="/phone-text-and-white-logo.svg" alt="" className="absolute" style={{ left: "14%", top: "27%", width: "72%" }} />
             </div>
@@ -140,7 +155,7 @@ export default function Hero() {
               src="/hero-dashed-1-tablet.svg"
               alt=""
               className="absolute z-10 pointer-events-none"
-              style={{ left: "339px", top: "688px", width: "258px" }}
+              style={{ left: "339px", top: "548px", width: "258px" }}
             />
 
             {/* Record button */}
@@ -148,7 +163,7 @@ export default function Hero() {
               src="/hero-record-btn.svg"
               alt=""
               className="absolute z-20"
-              style={{ left: "452px", top: "787px", width: "84px" }}
+              style={{ left: "452px", top: "647px", width: "84px" }}
             />
 
             {/* Mic button */}
@@ -156,7 +171,7 @@ export default function Hero() {
               src="/hero-mic-btn.svg"
               alt=""
               className="absolute z-20"
-              style={{ left: "722px", top: "708px", width: "30px" }}
+              style={{ left: "722px", top: "568px", width: "30px" }}
             />
 
           </div>
@@ -201,25 +216,25 @@ export default function Hero() {
           Vertical positions and section heights unchanged. */}
       <div className="hidden lg:block xl:hidden">
 
-        <div className="relative overflow-hidden" style={{ height: "947px" }}>
+        <div className="relative overflow-hidden" style={{ height: "807px" }}>
 
-          <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "1050px", height: "947px" }}>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "1050px", height: "807px" }}>
 
             <img
               src="/hero-person.png"
               alt=""
               className="absolute z-0"
-              style={{ left: "556px", top: "604px", width: "343px" }}
+              style={{ left: "556px", top: "464px", width: "343px" }}
             />
 
             <img
               src="/hero-bubble-tablet-mobile.svg"
               alt=""
               className="absolute z-10 pointer-events-none"
-              style={{ left: "473px", top: "188px", width: "494px" }}
+              style={{ left: "473px", top: "48px", width: "494px" }}
             />
 
-            <div className="absolute z-10" style={{ left: "599px", top: "194px" }}>
+            <div className="absolute z-10" style={{ left: "599px", top: "54px" }}>
               <div className="relative w-fit">
                 <img src="/voice-dictation-bg-tablet-mobile.svg" alt="" width={155} height={56} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
                 <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
@@ -230,18 +245,18 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="absolute z-10 font-['Inter',_sans-serif] font-bold uppercase" style={{ left: "102px", top: "204px" }}>
+            <div className="absolute z-10 font-['Inter',_sans-serif] font-bold uppercase" style={{ left: "102px", top: "64px" }}>
               <div className="text-[100px] leading-[80px]">JUST</div>
               <div className="text-[100px] leading-[80px]">SAY</div>
               <div className="text-[100px] leading-[80px] text-coral">IT.</div>
             </div>
 
-            <p className="absolute z-10 font-['Inter',_sans-serif] text-[16px] font-medium uppercase leading-[24px] text-black" style={{ left: "101px", top: "471px", width: "314px" }}>
+            <p className="absolute z-10 font-['Inter',_sans-serif] text-[16px] font-medium uppercase leading-[24px] text-black" style={{ left: "101px", top: "331px", width: "314px" }}>
               <strong className="font-bold">Speak.</strong>{" "}Get clean, ready-to-send text — in your email, Slack, WhatsApp, or anywhere else.{" "}
               <strong className="font-bold">No typing. No switching apps.</strong>
             </p>
 
-            <div className="absolute z-[15]" style={{ left: "124px", top: "645px", width: "310px" }}>
+            <div className="absolute z-[15]" style={{ left: "124px", top: "505px", width: "310px" }}>
               <img src="/hero-iphone.png" alt="Sensay app" className="w-full" />
               <img src="/phone-text-and-white-logo.svg" alt="" className="absolute" style={{ left: "14%", top: "27%", width: "72%" }} />
             </div>
@@ -250,21 +265,21 @@ export default function Hero() {
               src="/hero-dashed-1-tablet.svg"
               alt=""
               className="absolute z-10 pointer-events-none"
-              style={{ left: "387px", top: "688px", width: "258px" }}
+              style={{ left: "387px", top: "548px", width: "258px" }}
             />
 
             <img
               src="/hero-record-btn.svg"
               alt=""
               className="absolute z-20"
-              style={{ left: "524px", top: "787px", width: "84px" }}
+              style={{ left: "524px", top: "647px", width: "84px" }}
             />
 
             <img
               src="/hero-mic-btn.svg"
               alt=""
               className="absolute z-20"
-              style={{ left: "829px", top: "708px", width: "30px" }}
+              style={{ left: "829px", top: "568px", width: "30px" }}
             />
 
           </div>
