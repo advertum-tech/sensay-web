@@ -19,8 +19,8 @@ export default function Hero() {
   return (
     <section className="bg-sand">
 
-      {/* ═══ MOBILE (< sm) ═══ */}
-      <div className="sm:hidden overflow-hidden">
+      {/* ═══ MOBILE (< md, 0–767px) ═══ */}
+      <div className="md:hidden overflow-hidden">
         <div className="px-5 pt-8">
           <div className="mb-5">
             <div className="relative w-fit">
@@ -96,13 +96,12 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ═══ TABLET (sm–xl) ═══ */}
-      <div className="hidden sm:block xl:hidden">
+      {/* ═══ TABLET narrow (md–lg, 768–1023px) ═══ */}
+      <div className="hidden md:block lg:hidden">
 
-        {/* Hero visual area — pixel-perfect from Figma 834px frame */}
+        {/* Hero visual area — Figma 834px frame, centered */}
         <div className="relative overflow-hidden" style={{ height: "947px" }}>
 
-          {/* Centering wrapper — all content centered at 834px */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "834px", height: "947px" }}>
 
             {/* Person — bottom layer */}
@@ -113,7 +112,7 @@ export default function Hero() {
               style={{ left: "441px", top: "604px", width: "343px" }}
             />
 
-            {/* Bubble — on top of person */}
+            {/* Bubble — above person */}
             <img
               src="/hero-bubble-tablet-mobile.svg"
               alt=""
@@ -149,17 +148,12 @@ export default function Hero() {
             {/* iPhone */}
             <div className="absolute z-10" style={{ left: "59px", top: "645px", width: "310px" }}>
               <img src="/hero-iphone.png" alt="Sensay app" className="w-full" />
-              <img
-                src="/phone-text-and-white-logo.svg"
-                alt=""
-                className="absolute"
-                style={{ left: "14%", top: "27%", width: "72%" }}
-              />
+              <img src="/phone-text-and-white-logo.svg" alt="" className="absolute" style={{ left: "14%", top: "27%", width: "72%" }} />
             </div>
 
             {/* Dashed connector */}
             <img
-              src="/hero-dashed-1.svg"
+              src="/hero-dashed-1-tablet.svg"
               alt=""
               className="absolute z-10 pointer-events-none"
               style={{ left: "339px", top: "688px", width: "258px" }}
@@ -183,30 +177,143 @@ export default function Hero() {
 
           </div>
 
-          {/* Separator — above all content */}
           <div className="absolute bottom-0 left-0 right-0 h-px bg-white z-30" />
         </div>
 
         {/* CTA + Loved badge */}
-        <div className="flex items-start" style={{ paddingLeft: "80px", paddingTop: "50px", paddingBottom: "50px" }}>
-          <div>
+        <div className="relative" style={{ height: "256px" }}>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "834px" }}>
             <a
               href="#"
-              className="flex items-center justify-center bg-coral text-white font-bold text-base uppercase rounded-xl"
-              style={{ width: "280px", height: "50px" }}
+              className="absolute flex items-center justify-center bg-coral text-white font-bold text-base uppercase rounded-xl"
+              style={{ left: "80px", top: "50px", width: "280px", height: "50px" }}
             >
               Start free — no signup
             </a>
             <a
               href="#"
-              className="block font-bold text-[18px] uppercase tracking-widest text-black mt-4"
-              style={{ paddingLeft: "85px" }}
+              className="absolute font-bold text-[18px] uppercase tracking-widest text-black"
+              style={{ left: "165px", top: "115px" }}
             >
               See how →
             </a>
+            <div className="absolute" style={{ right: "113px", top: "32px", width: "312px" }}>
+              <img src="/hero-dashed-2-tablet.svg" alt="" className="w-full" />
+              <div className="absolute flex flex-col items-center" style={{ top: "4.5%", left: "63%", transform: "translateX(-50%)" }}>
+                <img src="/loved-avatars.svg" alt="" className="mb-1" style={{ width: "59px" }} />
+                <p className="text-center uppercase whitespace-nowrap" style={{ fontSize: "14px", lineHeight: "28px" }}>
+                  Loved by <strong className="font-bold">12,000+</strong>
+                  <br />people already
+                </p>
+              </div>
+            </div>
           </div>
-          <div style={{ marginLeft: "183px" }}>
-            <LovedBadge size={110} />
+        </div>
+
+      </div>
+
+      {/* ═══ TABLET wide (lg–xl, 1024–1279px) ═══
+          Horizontal positions scaled ×1.259 (1050/834) from the 834px Figma frame.
+          Vertical positions and section heights unchanged. */}
+      <div className="hidden lg:block xl:hidden">
+
+        <div className="relative overflow-hidden" style={{ height: "947px" }}>
+
+          <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "1050px", height: "947px" }}>
+
+            <img
+              src="/hero-person.png"
+              alt=""
+              className="absolute z-0"
+              style={{ left: "556px", top: "604px", width: "432px" }}
+            />
+
+            <img
+              src="/hero-bubble-tablet-mobile.svg"
+              alt=""
+              className="absolute z-10 pointer-events-none"
+              style={{ left: "503px", top: "188px", width: "494px" }}
+            />
+
+            <div className="absolute z-10" style={{ left: "599px", top: "194px" }}>
+              <div className="relative w-fit">
+                <img src="/voice-dictation-bg-tablet-mobile.svg" alt="" width={195} height={56} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
+                <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
+              </div>
+              <div className="relative w-fit ml-[69px]">
+                <img src="/works-in-any-app-bg-tablet-mobile.svg" alt="" width={222} height={52} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
+                <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">works in any app</p>
+              </div>
+            </div>
+
+            <div className="absolute z-10 font-['Inter',_sans-serif] font-bold uppercase" style={{ left: "102px", top: "204px" }}>
+              <div className="text-[100px] leading-[80px]">JUST</div>
+              <div className="text-[100px] leading-[80px]">SAY</div>
+              <div className="text-[100px] leading-[80px] text-coral">IT.</div>
+            </div>
+
+            <p className="absolute z-10 font-['Inter',_sans-serif] text-[16px] font-medium uppercase leading-[24px] text-black" style={{ left: "101px", top: "471px", width: "314px" }}>
+              <strong className="font-bold">Speak.</strong>{" "}Get clean, ready-to-send text — in your email, Slack, WhatsApp, or anywhere else.{" "}
+              <strong className="font-bold">No typing. No switching apps.</strong>
+            </p>
+
+            <div className="absolute z-10" style={{ left: "74px", top: "645px", width: "390px" }}>
+              <img src="/hero-iphone.png" alt="Sensay app" className="w-full" />
+              <img src="/phone-text-and-white-logo.svg" alt="" className="absolute" style={{ left: "14%", top: "27%", width: "72%" }} />
+            </div>
+
+            <img
+              src="/hero-dashed-1-tablet.svg"
+              alt=""
+              className="absolute z-10 pointer-events-none"
+              style={{ left: "427px", top: "688px", width: "325px" }}
+            />
+
+            <img
+              src="/hero-record-btn.svg"
+              alt=""
+              className="absolute z-20"
+              style={{ left: "569px", top: "787px", width: "106px" }}
+            />
+
+            <img
+              src="/hero-mic-btn.svg"
+              alt=""
+              className="absolute z-20"
+              style={{ left: "909px", top: "708px", width: "38px" }}
+            />
+
+          </div>
+
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-white z-30" />
+        </div>
+
+        <div className="relative" style={{ height: "256px" }}>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "1050px" }}>
+            <a
+              href="#"
+              className="absolute flex items-center justify-center bg-coral text-white font-bold text-base uppercase rounded-xl"
+              style={{ left: "101px", top: "50px", width: "353px", height: "50px" }}
+            >
+              Start free — no signup
+            </a>
+            <a
+              href="#"
+              className="absolute font-bold text-[18px] uppercase tracking-widest text-black"
+              style={{ left: "208px", top: "115px" }}
+            >
+              See how →
+            </a>
+            <div className="absolute" style={{ right: "142px", top: "32px", width: "393px" }}>
+              <img src="/hero-dashed-2-tablet.svg" alt="" className="w-full" />
+              <div className="absolute flex flex-col items-center" style={{ top: "4.5%", left: "63%", transform: "translateX(-50%)" }}>
+                <img src="/loved-avatars.svg" alt="" className="mb-1" style={{ width: "74px" }} />
+                <p className="text-center uppercase whitespace-nowrap" style={{ fontSize: "14px", lineHeight: "28px" }}>
+                  Loved by <strong className="font-bold">12,000+</strong>
+                  <br />people already
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -311,7 +418,7 @@ export default function Hero() {
 
                 {/* Dashed connector all */}
                 <img
-                  src="/hero-dashed-all.svg"
+                  src="/hero-dashed-all-desktop.svg"
                   alt=""
                   className="absolute z-0 pointer-events-none left-[81px] top-[203px]"
                 />
