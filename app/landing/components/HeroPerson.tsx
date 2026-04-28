@@ -5,11 +5,12 @@ import { useEffect, useRef } from 'react';
 const IDLE_TIMEOUT = 60_000;
 
 interface Props {
+  src?: string;
   className?: string;
   style?: React.CSSProperties;
 }
 
-export default function HeroPerson({ className, style }: Props) {
+export default function HeroPerson({ src = '/vidos_dude2.mp4', className, style }: Props) {
   const ref = useRef<HTMLVideoElement>(null);
   const lastPlayedAt = useRef(Date.now());
 
@@ -49,7 +50,7 @@ export default function HeroPerson({ className, style }: Props) {
   return (
     <video
       ref={ref}
-      src="/vidos_dude2.mp4"
+      src={src}
       autoPlay
       muted
       playsInline

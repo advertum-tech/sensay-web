@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const IDLE_TIMEOUT = 60_000;
 
-export default function HeroPersonMobile() {
+export default function HeroPersonMobile({ src = '/vidos_dude2.mp4' }: { src?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
   const lastPlayedAt = useRef(Date.now());
@@ -57,7 +57,7 @@ export default function HeroPersonMobile() {
     <div className="relative mx-auto w-[359px] max-[359px]:w-[274px] min-[500px]:w-[375px]" style={{ marginTop: "-56px" }}>
       <video
         ref={videoRef}
-        src="/vidos_dude2.mp4"
+        src={src}
         autoPlay
         muted
         playsInline

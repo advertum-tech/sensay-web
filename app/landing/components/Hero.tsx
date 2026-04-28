@@ -19,7 +19,7 @@ function LovedBadge({ size = 120 }: { size?: number }) {
   );
 }
 
-export default function Hero() {
+export default function Hero({ videoSrc = '/vidos_dude2.mp4' }: { videoSrc?: string }) {
   return (
     <section className="bg-[#DFDDD1]">
 
@@ -76,7 +76,7 @@ export default function Hero() {
           <img src="/hero-bubble-tablet-mobile.svg" alt="" className="relative z-10 block mx-auto w-[375px] max-[359px]:w-[300px]" style={{ marginTop: "-30px" }} />
 
           {/* Person + overlays */}
-          <HeroPersonMobile />
+          <HeroPersonMobile src={videoSrc} />
 
           {/* Separator — right at person bottom, per Figma y=1183 */}
           <div className="relative z-40 h-px bg-white max-[499px]:ml-[calc(50%-50vw)] max-[499px]:w-screen" />
@@ -103,7 +103,7 @@ export default function Hero() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "834px", height: "807px" }} data-hero-video-container>
 
             {/* Person — bottom layer */}
-            <HeroPerson className="absolute z-0" style={{ left: "441px", top: "464px", width: "343px" }} />
+            <HeroPerson src={videoSrc} className="absolute z-0" style={{ left: "441px", top: "464px", width: "343px" }} />
 
             {/* Bubble — above person */}
             <img
@@ -209,7 +209,7 @@ export default function Hero() {
 
           <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "1050px", height: "807px" }} data-hero-video-container>
 
-            <HeroPerson className="absolute z-0" style={{ left: "556px", top: "464px", width: "343px" }} />
+            <HeroPerson src={videoSrc} className="absolute z-0" style={{ left: "556px", top: "464px", width: "343px" }} />
 
             <img
               src="/hero-bubble-tablet-mobile.svg"
@@ -360,7 +360,7 @@ export default function Hero() {
 
                 {/* Person + iPhone — in flow, determines container height */}
                 <div className="flex items-end relative z-10" style={{ paddingLeft: "31px", gap: "28px" }}>
-                  <HeroPerson className="block shrink-0 w-[382px]" />
+                  <HeroPerson src={videoSrc} className="block shrink-0 w-[382px]" />
                   <div className="relative shrink-0 w-[310px]">
                     <img src="/hero-iphone.png" alt="Sensay app" className="w-full" />
                     <img
