@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import SensayLanding from "./landing/page";
+import SensayLanding from "./landing";
 import { locale } from "./locales";
 
 const m = locale.metadata;
