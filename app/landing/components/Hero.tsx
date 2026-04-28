@@ -21,7 +21,7 @@ function LovedBadge({ size = 120 }: { size?: number }) {
 
 export default function Hero({ videoSrc = '/vidos_dude2.mp4' }: { videoSrc?: string }) {
   return (
-    <section className="bg-[#DFDDD1]">
+    <section className="bg-[#E3DED3]">
 
       {/* ═══ MOBILE (< md, 0–767px) ═══ */}
       <div className="md:hidden overflow-hidden">
