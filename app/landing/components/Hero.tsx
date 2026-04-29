@@ -73,7 +73,7 @@ export default function Hero({ videoSrc = '/vidos_dude2.mp4' }: { videoSrc?: str
           </div>
 
           {/* Bubble */}
-          <img src="/hero-bubble-tablet-mobile.svg" alt="" className="relative z-10 block mx-auto w-[375px] max-[359px]:w-[300px]" style={{ marginTop: "-30px" }} />
+          <img src="/hero-bubble-tablet-mobile-2x.png" alt="" className="relative z-10 block mx-auto w-[375px] max-[359px]:w-[300px]" style={{ marginTop: "-30px" }} />
 
           {/* Person + overlays */}
           <HeroPersonMobile src={videoSrc} />
@@ -107,7 +107,7 @@ export default function Hero({ videoSrc = '/vidos_dude2.mp4' }: { videoSrc?: str
 
             {/* Bubble — above person */}
             <img
-              src="/hero-bubble-tablet-mobile.svg"
+              src="/hero-bubble-tablet-mobile-2x.png"
               alt=""
               className="absolute z-10 pointer-events-none"
               style={{ left: "344px", top: "48px", width: "494px" }}
@@ -212,7 +212,7 @@ export default function Hero({ videoSrc = '/vidos_dude2.mp4' }: { videoSrc?: str
             <HeroPerson src={videoSrc} className="absolute z-0" style={{ left: "556px", top: "464px", width: "343px" }} />
 
             <img
-              src="/hero-bubble-tablet-mobile.svg"
+              src="/hero-bubble-tablet-mobile-2x.png"
               alt=""
               className="absolute z-10 pointer-events-none"
               style={{ left: "473px", top: "48px", width: "494px" }}
@@ -352,8 +352,13 @@ export default function Hero({ videoSrc = '/vidos_dude2.mp4' }: { videoSrc?: str
               <div className="absolute right-0 bottom-0 min-[1500px]:relative min-[1500px]:right-auto min-[1500px]:bottom-auto min-[1500px]:ml-auto" data-hero-video-container>
 
                 {/* Bubble */}
-                <img
+                {/* <img
                   src="/hero-bubble-desktop.svg"
+                  alt=""
+                  className="absolute z-20 pointer-events-none w-[384px] left-[-245px] top-[5px]"
+                /> */}
+                <img
+                  src="/hero-bubble-desktop-2x.png"
                   alt=""
                   className="absolute z-20 pointer-events-none w-[384px] left-[-245px] top-[5px]"
                 />
