@@ -36,7 +36,7 @@ export default function UseCases() {
 
         {/* xl: dark background layer — max 1580px wide, centered, sits behind content */}
         <div className="hidden xl:flex xl:absolute xl:inset-0 xl:items-stretch xl:pointer-events-none">
-          <div className="xl:relative xl:w-full xl:max-w-[1580px] xl:mx-auto xl:bg-[#2f2f2f] xl:rounded-[20px] xl:overflow-visible" />
+          <div className="xl:relative xl:w-full xl:mx-auto xl:bg-[#2f2f2f] xl:overflow-visible min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-[20px]" />
         </div>
 
         {/* Content — same padded container as other sections; everything (heading, supplement, swirl, cards) is positioned relative to THIS box */}
@@ -48,8 +48,8 @@ export default function UseCases() {
             alt=""
             width={343}
             height={335}
-            className="hidden xl:block xl:absolute pointer-events-none"
-            style={{ right: 280, top: 0 }}
+            className="hidden xl:block xl:absolute pointer-events-none xl:right-[150px] min-[1500px]:!right-[280px]"
+            style={{ top: 0 }}
           />
 
           {/* Heading */}
@@ -63,8 +63,8 @@ export default function UseCases() {
             </p>
             {/* Desktop supplement — positioned per figma node 131:2853 */}
             <p
-              className="hidden xl:block xl:absolute font-['Inter',sans-serif] xl:text-[16px] xl:leading-[28px] xl:uppercase xl:text-[#E3DAD0] xl:font-medium xl:origin-top-left"
-              style={{ top: 141, right: 273, width: 200, transform: 'rotate(-5deg)' }}
+              className="hidden xl:block xl:absolute font-['Inter',sans-serif] xl:text-[16px] xl:leading-[28px] xl:uppercase xl:text-[#E3DAD0] xl:font-medium xl:origin-top-left xl:right-[150px] min-[1500px]:!right-[273px]"
+              style={{ top: 141, width: 200, transform: 'rotate(-5deg)' }}
             >
               <span className="font-bold">Which is, honestly,</span><br />most of the time.
             </p>
