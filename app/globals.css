@@ -1,7 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
 @import "tailwindcss";
 
 @theme {
   --color-sand: #DED8CC;
   --color-coral: #FC482F;
+  --animate-step-pulse: step-pulse 3s ease-out infinite;
+  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite;
+}
+
+@keyframes step-pulse {
+  0%, 100% { transform: scale(1);    opacity: 0;    }
+  3%       { transform: scale(1);    opacity: 0.65; }
+  33%      { transform: scale(1.45); opacity: 0;    }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { transform: scale(1);    opacity: 0.35; }
+  50%      { transform: scale(1.25); opacity: 0.75; }
 }

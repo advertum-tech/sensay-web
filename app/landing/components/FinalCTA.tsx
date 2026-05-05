@@ -18,7 +18,7 @@ export default function FinalCTA() {
     <section className="bg-[#E3DED3] pt-16 md:pt-24">
 
       {/* Orange CTA card — z-20 so it sits above paint bars */}
-      <div className="px-5 md:px-[50px] max-w-[1680px] mx-auto relative z-20">
+      <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto relative z-20">
         <div className="bg-[#FF4122] rounded-tl-[20px] rounded-tr-[20px] rounded-br-[20px] px-8 pt-16 pb-20 md:px-16 md:pt-24 md:pb-28 relative overflow-hidden">
           <img
             src="/landing-assets/sensay-wave-logo.svg"
@@ -42,7 +42,7 @@ export default function FinalCTA() {
       </div>
 
       {/* Paint waveform — outer clips to visible portion (1747/1580=110.5%), inner holds full 2678px canvas */}
-      <div className="px-5 md:px-[50px] max-w-[1680px] mx-auto select-none pointer-events-none relative z-10" aria-hidden="true">
+      <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto select-none pointer-events-none relative z-10" aria-hidden="true">
         <div className="relative overflow-hidden" style={{ paddingTop: '110.5%' }}>
           {/* Inner: full canvas shifted up by hidden portion (931/1747=53.3% of outer height) */}
           <div className="absolute" style={{ top: '-53.3%', left: 0, right: 0, bottom: 0 }}>
@@ -78,7 +78,7 @@ export default function FinalCTA() {
       </div>
 
       {/* Dark bottom section — pulled up to overlap bottom of paint (672/1580≈42.5% of width), rounded-bl only */}
-      <div className="px-5 md:px-[50px] max-w-[1680px] mx-auto relative z-0" style={{ marginTop: '-42.5%' }}>
+      <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto relative z-0" style={{ marginTop: '-42.5%' }}>
         <div className="bg-[#2f2f2f] rounded-bl-[20px] px-5 pt-20 pb-12 md:px-16 md:pt-28 md:pb-16">
 
           {/* Puffy button */}

@@ -1,7 +1,7 @@
 export default function Pricing() {
   return (
     <section className="bg-[#E3DED3] pt-16 pb-20 md:pt-24 md:pb-28">
-      <div className="px-5 md:px-[50px] max-w-[1680px] mx-auto">
+      <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
 
         {/* Heading */}
         <div className="mb-12 md:mb-16">

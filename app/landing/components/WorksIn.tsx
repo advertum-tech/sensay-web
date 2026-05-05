@@ -11,17 +11,31 @@ const ROW2 = [
   { src: "/landing-assets/icon-teams.png", alt: "Microsoft Teams" },
 ];
 
-function AppCard({ src, alt }: { src: string; alt: string }) {
+function CardTail({ mirrored }: { mirrored?: boolean }) {
   return (
-    <div className="w-[140px] h-[140px] md:w-[160px] md:h-[160px] xl:w-[180px] xl:h-[180px] bg-white border border-[#817e73] rounded-tl-[20px] rounded-tr-[20px] rounded-br-[20px] flex items-center justify-center shrink-0">
+    <img
+      src="/landing-assets/card-tail-white.svg"
+      alt=""
+      width={25}
+      height={16}
+      className={`absolute bottom-0 pointer-events-none ${mirrored ? "-right-[10px] -scale-x-100" : "-left-[10px]"}`}
+    />
+  );
+}
+
+function AppCard({ src, alt, mirrored }: { src: string; alt: string; mirrored?: boolean }) {
+  return (
+    <div className="relative w-[140px] h-[140px] md:w-[160px] md:h-[160px] xl:w-[180px] xl:h-[180px] bg-white rounded-[20px] flex items-center justify-center shrink-0">
+      <CardTail mirrored={mirrored} />
       <img src={src} alt={alt} className="w-[60px] h-[60px] md:w-[68px] md:h-[68px] object-contain" />
     </div>
   );
 }
 
-function BrowserCard() {
+function BrowserCard({ mirrored }: { mirrored?: boolean }) {
   return (
-    <div className="w-[140px] h-[140px] md:w-[160px] md:h-[160px] xl:w-[180px] xl:h-[180px] bg-white border border-[#817e73] rounded-tl-[20px] rounded-tr-[20px] rounded-br-[20px] flex flex-col items-center justify-center gap-2 shrink-0">
+    <div className="relative w-[140px] h-[140px] md:w-[160px] md:h-[160px] xl:w-[180px] xl:h-[180px] bg-white rounded-[20px] flex flex-col items-center justify-center gap-2 shrink-0">
+      <CardTail mirrored={mirrored} />
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="10" stroke="#bfb9ac" strokeWidth="1.5"/>
         <ellipse cx="12" cy="12" rx="4" ry="10" stroke="#bfb9ac" strokeWidth="1.5"/>
@@ -34,17 +48,17 @@ function BrowserCard() {
 
 export default function WorksIn() {
   return (
-    <section className="bg-[#E3DED3] pt-16 pb-20 md:pt-24 md:pb-28">
-      <div className="px-5 md:px-[50px] max-w-[1680px] mx-auto">
+    <section className="bg-[#E3DED3] pt-10 pb-10 md:pt-12 md:pb-12">
+      <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
         <h2 className="font-['Inter',sans-serif] uppercase leading-[0.82] text-black mb-12 md:mb-16 text-[52px] md:text-[72px] xl:text-[100px]">
           <span className="font-normal">Works </span><span className="font-bold">in</span>
         </h2>
-        <div className="flex flex-wrap gap-5 mb-5">
+        <div className="relative z-20 flex flex-wrap gap-5 mb-5">
           {ROW1.map((app) => <AppCard key={app.alt} {...app} />)}
         </div>
-        <div className="flex flex-wrap gap-5">
+        <div className="relative z-20 flex flex-wrap gap-5">
           {ROW2.map((app) => <AppCard key={app.alt} {...app} />)}
-          <BrowserCard />
+          <BrowserCard mirrored />
         </div>
       </div>
     </section>

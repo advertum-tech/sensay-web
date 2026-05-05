@@ -22,7 +22,7 @@ const TESTIMONIALS = [
 export default function Testimonials() {
   return (
     <section className="bg-[#E3DED3] pt-16 pb-20 md:pt-24 md:pb-28">
-      <div className="px-5 md:px-[50px] max-w-[1680px] mx-auto">
+      <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
 
         {/* Heading */}
         <h2 className="font-['Inter',sans-serif] uppercase leading-[0.82] text-black mb-12 md:mb-16 text-[52px] md:text-[72px] xl:text-[100px]">
