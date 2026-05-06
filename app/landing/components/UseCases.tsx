@@ -54,11 +54,11 @@ export default function UseCases() {
 
           {/* Heading */}
           <div className="mb-12 md:mb-16 xl:relative">
-            <h2 className="font-['Inter',sans-serif] uppercase leading-[0.8] text-black xl:text-[#E3DAD0] text-[52px] md:text-[72px] xl:text-[100px] xl:max-w-[677px]">
+            <h2 className="font-['Inter',sans-serif] uppercase text-black xl:text-[#E3DAD0] text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] xl:max-w-[677px]">
               <span className="font-normal">Whenever typing feels </span><span className="font-bold">like too much.</span>
             </h2>
             {/* Mobile/tablet supplement (will be redone per breakpoint later) */}
-            <p className="mt-4 font-['Inter',sans-serif] text-[14px] md:text-[16px] text-black/70 xl:hidden">
+            <p className="mt-4 font-['Inter',sans-serif] font-medium text-[16px] leading-[28px] text-black/70 xl:hidden">
               Which is, honestly, most of the time.
             </p>
             {/* Desktop supplement — positioned per figma node 131:2853 */}
@@ -70,16 +70,16 @@ export default function UseCases() {
             </p>
           </div>
 
-          {/* 4 use-case cards */}
-          <div className="relative z-20 grid grid-cols-2 xl:grid-cols-4 gap-5">
+          {/* 4 use-case cards — constrained 1180px sub-grid centered */}
+          <div className="relative z-20 grid grid-cols-2 xl:grid-cols-4 gap-5 md:max-w-[1180px] md:mx-auto">
             {CASES.map((c) => (
               <div
                 key={c.label}
                 className={`relative bg-[#eaeaea] p-5 md:p-6 min-h-[200px] rounded-tl-[20px] rounded-tr-[20px] ${c.mirrored ? "rounded-bl-[20px]" : "rounded-br-[20px]"}`}
               >
                 <img src={c.icon} alt="" width={c.iconW} height={c.iconH} className="block mb-4" />
-                <p className="font-['Inter',sans-serif] font-bold text-[16px] uppercase text-black mb-3">{c.label}</p>
-                <p className="font-['Inter',sans-serif] text-[16px] text-black/80 leading-[28px]">{c.body}</p>
+                <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-black mb-3">{c.label}</p>
+                <p className="font-['Inter',sans-serif] font-normal text-[16px] leading-[28px] text-black/80">{c.body}</p>
               </div>
             ))}
           </div>

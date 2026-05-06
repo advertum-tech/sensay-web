@@ -6,6 +6,13 @@
   --color-coral: #FC482F;
   --animate-step-pulse: step-pulse 3s ease-out infinite;
   --animate-glow-pulse: glow-pulse 4s ease-in-out infinite;
+  --animate-dot-pulse: dot-pulse 1.6s ease-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%   { transform: scale(1);   opacity: 0.9; }
+  60%  { transform: scale(1.9); opacity: 0;   }
+  100% { transform: scale(1.9); opacity: 0;   }
 }
 
 @keyframes step-pulse {

@@ -41,7 +41,7 @@ function BrowserCard({ mirrored }: { mirrored?: boolean }) {
         <ellipse cx="12" cy="12" rx="4" ry="10" stroke="#bfb9ac" strokeWidth="1.5"/>
         <path d="M2 12h20M4 7h16M4 17h16" stroke="#bfb9ac" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
-      <span className="font-['Inter',sans-serif] font-extrabold text-[11px] uppercase text-black/60 text-center leading-tight">Any<br />browser</span>
+      <span className="font-['Inter',sans-serif] font-extrabold text-[12px] xl:text-[14px] leading-[13px] uppercase text-black/60 text-center">Any<br />browser</span>
     </div>
   );
 }
@@ -50,15 +50,18 @@ export default function WorksIn() {
   return (
     <section className="bg-[#E3DED3] pt-10 pb-10 md:pt-12 md:pb-12">
       <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
-        <h2 className="font-['Inter',sans-serif] uppercase leading-[0.82] text-black mb-12 md:mb-16 text-[52px] md:text-[72px] xl:text-[100px]">
+        <h2 className="font-['Inter',sans-serif] uppercase text-black mb-12 md:mb-16 text-[50px] md:text-[50px] xl:text-[100px] leading-[50px] md:leading-[50px] xl:leading-[80px]">
           <span className="font-normal">Works </span><span className="font-bold">in</span>
         </h2>
-        <div className="relative z-20 flex flex-wrap gap-5 mb-5">
-          {ROW1.map((app) => <AppCard key={app.alt} {...app} />)}
-        </div>
-        <div className="relative z-20 flex flex-wrap gap-5">
-          {ROW2.map((app) => <AppCard key={app.alt} {...app} />)}
-          <BrowserCard mirrored />
+        {/* Logos grid — constrained 1180px sub-grid centered */}
+        <div className="md:max-w-[1180px] md:mx-auto">
+          <div className="relative z-20 flex flex-wrap gap-5 mb-5">
+            {ROW1.map((app) => <AppCard key={app.alt} {...app} />)}
+          </div>
+          <div className="relative z-20 flex flex-wrap gap-5">
+            {ROW2.map((app) => <AppCard key={app.alt} {...app} />)}
+            <BrowserCard mirrored />
+          </div>
         </div>
       </div>
     </section>

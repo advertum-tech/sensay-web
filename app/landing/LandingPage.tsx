@@ -48,17 +48,6 @@ export default function LandingPage({ videoSrc }: { videoSrc: string }) {
       <Pricing />
       <FinalCTA />
 
-      <footer className="bg-white border-t border-stone-200 py-7">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-3">
-          <span className="text-xs text-stone-500 font-medium">
-            Sen<span className="text-red-500">say</span> — voice dictation that works in any app
-          </span>
-          <span className="text-xs text-stone-500">
-            Made by <a href="https://advertum.com" className="font-medium text-stone-800">Advertum</a>
-          </span>
-        </div>
-      </footer>
-
     </div>
   );
 }

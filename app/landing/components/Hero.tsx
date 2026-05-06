@@ -32,11 +32,11 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
             <div className="min-[500px]:hidden mb-5">
               <div className="relative w-fit" style={{ marginLeft: "50px", top: "6px" }}>
                 <img src="/voice-dictation-bg-tablet-mobile.svg" alt="" width={155} height={56} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
-                <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
+                <p className="relative font-['Inter',_sans-serif] font-bold text-[16px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
               </div>
               <div className="relative w-fit ml-[150px] max-[359px]:ml-[110px]" style={{ top: "-4px" }}>
                 <img src="/works-in-any-app-bg-tablet-mobile.svg" alt="" width={176} height={52} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
-                <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">works in any app</p>
+                <p className="relative font-['Inter',_sans-serif] font-bold text-[16px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">works in any app</p>
               </div>
             </div>
 
@@ -67,7 +67,7 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
             <a href="#" className="max-[499px]:block min-[500px]:inline-block bg-coral text-white font-bold text-sm uppercase rounded-xl px-8 py-4 text-center mb-4">
               Start free — no signup
             </a>
-            <a href="#" className="block text-sm font-bold uppercase tracking-widest text-black text-center">
+            <a href="#" className="block text-sm font-bold uppercase text-black/60 text-center">
               See how →
             </a>
           </div>
@@ -117,11 +117,11 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
             <div className="absolute z-10" style={{ left: "476px", top: "54px" }}>
               <div className="relative w-fit">
                 <img src="/voice-dictation-bg-tablet-mobile.svg" alt="" width={155} height={56} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
-                <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
+                <p className="relative font-['Inter',_sans-serif] font-bold text-[16px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
               </div>
               <div className="relative w-fit ml-[55px]">
                 <img src="/works-in-any-app-bg-tablet-mobile.svg" alt="" width={176} height={52} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
-                <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">works in any app</p>
+                <p className="relative font-['Inter',_sans-serif] font-bold text-[16px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">works in any app</p>
               </div>
             </div>
 
@@ -180,7 +180,7 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
             </a>
             <a
               href="#"
-              className="absolute font-bold text-[18px] uppercase tracking-widest text-black"
+              className="absolute font-bold text-[18px] leading-[28px] uppercase text-black/60"
               style={{ left: "165px", top: "115px" }}
             >
               See how →
@@ -221,11 +221,11 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
             <div className="absolute z-10" style={{ left: "599px", top: "54px" }}>
               <div className="relative w-fit">
                 <img src="/voice-dictation-bg-tablet-mobile.svg" alt="" width={155} height={56} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
-                <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
+                <p className="relative font-['Inter',_sans-serif] font-bold text-[16px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">Voice dictation</p>
               </div>
               <div className="relative w-fit ml-[55px]">
                 <img src="/works-in-any-app-bg-tablet-mobile.svg" alt="" width={176} height={52} className="absolute left-0 -top-[3px] pointer-events-none max-w-none" />
-                <p className="relative font-['Inter',_sans-serif] font-bold text-[17px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">works in any app</p>
+                <p className="relative font-['Inter',_sans-serif] font-bold text-[16px] uppercase text-stone-500 -rotate-[5deg] whitespace-nowrap">works in any app</p>
               </div>
             </div>
 
@@ -277,7 +277,7 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
             </a>
             <a
               href="#"
-              className="absolute font-bold text-[18px] uppercase tracking-widest text-black"
+              className="absolute font-bold text-[18px] leading-[28px] uppercase text-black/60"
               style={{ left: "208px", top: "115px" }}
             >
               See how →
@@ -325,7 +325,7 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
                 <div>
                   <a
                     href="#"
-                    className="text-sm font-bold uppercase tracking-[0.04em] text-black"
+                    className="text-[16px] leading-[28px] font-bold uppercase text-black"
                   >
                     See how →
                   </a>
