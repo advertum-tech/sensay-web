@@ -19,8 +19,8 @@ export default function FinalCTA() {
   return (
     <section className="bg-[#E3DED3] pt-16 md:pt-24">
 
-      {/* Orange CTA card */}
-      <div className="mx-5 md:mx-[50px] xl:mx-auto xl:max-w-[1580px] relative bg-[#FF4122] rounded-tl-[20px] rounded-tr-[20px] z-20">
+      {/* Orange CTA card — same edge policy as UseCases/FAQ */}
+      <div className="mx-5 md:mx-[50px] xl:mx-0 relative bg-[#FF4122] rounded-tl-[20px] rounded-tr-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-tl-[20px] min-[1600px]:!rounded-tr-[20px] z-20">
         <div className="px-6 pt-10 pb-8 md:px-12 md:pt-14 md:pb-12 xl:px-[100px] xl:pt-[100px] xl:pb-16">
           {/* Logo aligned with heading on the left */}
           <img
@@ -46,16 +46,16 @@ export default function FinalCTA() {
         </div>
       </div>
 
-      {/* Dark bottom section — same wrapper layout as orange CTA, height grown by paint-SVG-equivalent padding-top */}
-      <div className="mx-5 md:mx-[50px] xl:mx-auto xl:max-w-[1580px] mb-12 md:mb-16 relative bg-[#2f2f2f] rounded-bl-[20px] rounded-tr-[20px] rounded-br-[20px] z-0">
+      {/* Dark bottom section — same edge policy as orange + UseCases/FAQ */}
+      <div className="mx-5 md:mx-[50px] xl:mx-0 mb-12 md:mb-16 xl:mb-0 min-[1600px]:!mb-16 relative bg-[#2f2f2f] rounded-bl-[20px] rounded-tr-[20px] rounded-br-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-bl-[20px] min-[1600px]:!rounded-tr-[20px] min-[1600px]:!rounded-br-[20px] z-0">
 
-        {/* Tail at bottom-RIGHT */}
+        {/* Tail at bottom-RIGHT — only when wrapper has rounded corners (mobile/tablet/≥1600) */}
         <img
           src="/landing-assets/card-tail-dark.svg"
           alt=""
           width={25}
           height={16}
-          className="absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100 z-10"
+          className="absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100 z-10 xl:hidden min-[1600px]:!block"
         />
 
         {/* Paint waveform — single SVG (paint-desktop-tablet, viewBox 1580x2675), full width of dark wrapper */}

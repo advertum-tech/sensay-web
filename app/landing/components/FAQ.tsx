@@ -64,8 +64,8 @@ export default function FAQ() {
   return (
     <section className="bg-[#E3DED3] pt-12 pb-20 md:pt-16 md:pb-28">
 
-      {/* Dark wrapper — single element across breakpoints. Fits inside viewport on mobile/tablet via mx, capped at 1580 on xl. */}
-      <div className="mx-5 md:mx-[50px] xl:mx-auto xl:max-w-[1580px] relative bg-[#2f2f2f] rounded-[20px]">
+      {/* Dark wrapper — same edge policy as UseCases: rounded+capped on mobile/tablet/≥1600, full-width edge-to-edge on xl 1280–1599 */}
+      <div className="mx-5 md:mx-[50px] xl:mx-0 relative bg-[#2f2f2f] rounded-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-[20px]">
 
         {/* Tail at bottom-RIGHT */}
         <img
