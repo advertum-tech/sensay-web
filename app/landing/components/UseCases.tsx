@@ -31,7 +31,7 @@ const CASES = [
 
 export default function UseCases() {
   return (
-    <section className="bg-[#E3DED3] pt-16 pb-20 md:pt-24 md:pb-28 xl:bg-transparent xl:py-0">
+    <section className="pt-16 pb-20 md:pt-24 md:pb-28 xl:bg-transparent xl:py-0">
       <div className="xl:relative xl:py-[100px]">
 
         {/* xl: dark background layer — max 1580px wide, centered, sits behind content */}
@@ -54,7 +54,7 @@ export default function UseCases() {
 
           {/* Heading */}
           <div className="mb-12 md:mb-16 xl:relative">
-            <h2 className="font-['Inter',sans-serif] uppercase text-black xl:text-[#E3DAD0] text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] xl:max-w-[677px]">
+            <h2 className="font-['Inter',sans-serif] uppercase text-black xl:text-[#E3DAD0] text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:max-w-[677px]">
               <span className="font-normal">Whenever typing feels </span><span className="font-bold">like too much.</span>
             </h2>
             {/* Mobile/tablet supplement (will be redone per breakpoint later) */}

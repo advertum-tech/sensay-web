@@ -17,7 +17,7 @@ const BARS = [
 
 export default function FinalCTA() {
   return (
-    <section className="bg-[#E3DED3] pt-16 md:pt-24">
+    <section className="pt-16 md:pt-24">
 
       {/* Orange CTA card — same edge policy as UseCases/FAQ */}
       <div className="mx-5 md:mx-[50px] xl:mx-0 relative bg-[#FF4122] rounded-tl-[20px] rounded-tr-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-tl-[20px] min-[1600px]:!rounded-tr-[20px] z-20">
@@ -30,7 +30,7 @@ export default function FinalCTA() {
             height={40}
             className="block h-[62px] md:h-[78px] xl:h-[86px] w-auto object-contain mb-8 md:mb-12"
           />
-          <h2 className="font-['Inter',sans-serif] uppercase text-white text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] mb-20 md:mb-32 xl:mb-40 xl:max-w-[780px]">
+          <h2 className="font-['Inter',sans-serif] uppercase text-white text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] mb-20 md:mb-32 xl:mb-40 md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:max-w-[780px]">
             <span className="font-bold">You know </span>
             <span className="font-bold xl:font-normal">what you want to say.</span>
             <span className="inline-flex align-middle ml-3 relative" style={{ transform: 'translate(-33px, 22px)' }}><SensayDot cutoutColor="#FF4122" /></span>

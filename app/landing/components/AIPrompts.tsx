@@ -20,7 +20,7 @@ function Chip({ children }: { children: React.ReactNode }) {
 
 export default function AIPrompts() {
   return (
-    <section className="bg-[#E3DED3] pt-16 pb-12 md:pt-24 md:pb-16">
+    <section className="pt-16 pb-12 md:pt-24 md:pb-16">
       <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
 
         {/* Heading + paint-splash badges (xl only) */}
@@ -49,7 +49,7 @@ export default function AIPrompts() {
               style={{ top: 0 }}
             />
 
-            <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] xl:max-w-[776px]">
+            <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:max-w-[776px]">
               <span className="font-normal">Your AI gets smarter </span><span className="font-bold">when you<br />stop typing to it.</span>
             </h2>
 

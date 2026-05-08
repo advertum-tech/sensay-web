@@ -24,11 +24,11 @@ const TESTIMONIALS = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-[#E3DED3] pt-12 pb-20 md:pt-16 md:pb-28">
+    <section className="pt-12 pb-20 md:pt-16 md:pb-28">
       <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
 
         {/* Heading */}
-        <h2 className="font-['Inter',sans-serif] uppercase text-black mb-12 md:mb-16 text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] xl:max-w-[776px]">
+        <h2 className="font-['Inter',sans-serif] uppercase text-black mb-12 md:mb-16 text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:max-w-[776px]">
           <span className="font-normal">Real people. </span><span className="font-bold">Real<br />messages</span>
         </h2>
 

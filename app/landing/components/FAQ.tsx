@@ -62,7 +62,7 @@ export default function FAQ() {
   }
 
   return (
-    <section className="bg-[#E3DED3] pt-12 pb-20 md:pt-16 md:pb-28">
+    <section className="pt-12 pb-20 md:pt-16 md:pb-28">
 
       {/* Dark wrapper — same edge policy as UseCases: rounded+capped on mobile/tablet/≥1600, full-width edge-to-edge on xl 1280–1599 */}
       <div className="mx-5 md:mx-[50px] xl:mx-0 relative bg-[#2f2f2f] rounded-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-[20px]">
@@ -78,7 +78,7 @@ export default function FAQ() {
 
         {/* Heading */}
         <div className="px-6 pt-10 md:px-12 md:pt-14 xl:px-[100px] xl:pt-[100px]">
-          <h2 className="font-['Inter',sans-serif] uppercase text-[#E3DAD0] text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] mb-8 md:mb-12 xl:mb-16">
+          <h2 className="font-['Inter',sans-serif] uppercase text-[#E3DAD0] text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] mb-8 md:mb-12 xl:mb-16 md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px]">
             <span className="font-bold">Simple</span><br />
             <span className="font-normal">answers.</span>
           </h2>

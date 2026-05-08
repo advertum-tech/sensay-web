@@ -48,9 +48,9 @@ function BrowserCard({ mirrored }: { mirrored?: boolean }) {
 
 export default function WorksIn() {
   return (
-    <section className="bg-[#E3DED3] pt-10 pb-10 md:pt-12 md:pb-12">
+    <section className="pt-10 pb-10 md:pt-12 md:pb-12">
       <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
-        <h2 className="font-['Inter',sans-serif] uppercase text-black mb-12 md:mb-16 text-[50px] md:text-[50px] xl:text-[100px] leading-[50px] md:leading-[50px] xl:leading-[80px]">
+        <h2 className="font-['Inter',sans-serif] uppercase text-black mb-12 md:mb-16 text-[50px] md:text-[50px] xl:text-[100px] leading-[50px] md:leading-[50px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px]">
           <span className="font-normal">Works </span><span className="font-bold">in</span>
         </h2>
         {/* Logos grid — constrained 1180px sub-grid centered */}

@@ -31,12 +31,12 @@ function StepFlow({ steps, arrowColor }: { steps: string[]; arrowColor: string }
 
 export default function SpeedStat() {
   return (
-    <section className="bg-[#E3DED3] pt-10 pb-20 md:pt-12 md:pb-28">
+    <section className="pt-10 pb-20 md:pt-12 md:pb-28">
       <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
 
         {/* Heading */}
         <div className="mb-12 md:mb-16 xl:relative">
-          <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] md:text-[50px] xl:text-[100px] leading-[50px] md:leading-[50px] xl:leading-[80px] xl:max-w-[778px]">
+          <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] md:text-[50px] xl:text-[100px] leading-[50px] md:leading-[50px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:max-w-[778px]">
             <span className="font-normal">You type 40 words a minute.</span><br />
             <span className="font-bold">You speak 130.</span>
           </h2>

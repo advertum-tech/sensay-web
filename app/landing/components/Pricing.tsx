@@ -53,7 +53,7 @@ export default function Pricing() {
   }, [customOpen]);
 
   return (
-    <section className="bg-[#E3DED3] pt-16 pb-20 md:pt-24 md:pb-28">
+    <section className="pt-16 pb-20 md:pt-24 md:pb-28">
       <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
 
         {/* Heading + supplement (in swirl loop on xl) */}
@@ -68,7 +68,7 @@ export default function Pricing() {
             style={{ top: -80, transform: 'rotate(-7deg)' }}
           />
 
-          <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] xl:max-w-[780px]">
+          <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:max-w-[780px]">
             <span className="font-bold">Simple</span><span className="font-normal"> pricing.</span>
           </h2>
 
