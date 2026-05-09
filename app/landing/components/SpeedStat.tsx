@@ -73,7 +73,6 @@ export default function SpeedStat() {
             <div className="flex items-center gap-3 mb-4">
               <SensayDot cutoutColor="#bfb9ac" pulse={false} solid />
               <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-none uppercase text-white">Typing</p>
-              <img src="/landing-assets/emoji-weary.png" alt="" width={20} height={20} className="block" />
             </div>
             <p className="font-['Inter',sans-serif] text-[16px] text-black leading-[28px]">
               <StepFlow steps={TYPING_STEPS} arrowColor="#FF4122" />
@@ -87,7 +86,6 @@ export default function SpeedStat() {
             <div className="flex items-center gap-3 mb-4">
               <SensayDot cutoutColor="#FF4122" />
               <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-none uppercase text-white">Speaking with Sensay</p>
-              <img src="/landing-assets/emoji-cool.png" alt="" width={20} height={20} className="block" />
             </div>
             <p className="font-['Inter',sans-serif] text-[16px] text-white leading-[28px]">
               <StepFlow steps={SPEAKING_STEPS} arrowColor="#ffffff" />

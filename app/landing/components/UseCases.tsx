@@ -31,8 +31,52 @@ const CASES = [
 
 export default function UseCases() {
   return (
-    <section className="pt-16 pb-20 md:pt-24 md:pb-28 xl:bg-transparent xl:py-0">
-      <div className="xl:relative xl:py-[100px]">
+    <section className="pt-16 pb-20 md:pt-2 md:pb-28 md:-mt-[50px] xl:bg-transparent xl:py-0 xl:mt-0">
+      <div className="xl:relative xl:py-[100px] relative md:max-xl:min-h-[962px]">
+
+        {/* TABLET dark background (md-xl-): absolute, with margin from viewport edges, rounded, with bottom-left tail */}
+        <div className="hidden md:block xl:hidden absolute inset-0 mx-5 bg-[#2f2f2f] rounded-[20px] pointer-events-none z-0">
+          <img
+            src="/landing-assets/card-tail-dark.svg"
+            alt=""
+            width={25}
+            height={16}
+            className="absolute bottom-0 -left-[10px] pointer-events-none"
+          />
+        </div>
+
+        {/* TABLET background swirl + supplement — pixel-perfect 834px wrapper */}
+        <div className="hidden md:block xl:hidden absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none" style={{ width: 834 }}>
+          {/* Main swirl through cards (figma 261:358) */}
+          <img
+            src="/landing-assets/usecases-swirl-tablet.svg"
+            alt=""
+            width={458}
+            height={816}
+            className="absolute md:left-[96px] md:top-[138px] lg:left-[96px] lg:top-[138px]"
+            aria-hidden="true"
+          />
+          <p
+            className="absolute font-['Inter',sans-serif] text-[16px] leading-[28px] uppercase text-[#E3DAD0] font-medium md:right-[166px] md:top-[68px] lg:right-[166px] lg:top-[68px]"
+            style={{ width: 193 }}
+          >
+            <span className="font-bold">Which is, honestly,</span><br />most of the time.
+          </p>
+        </div>
+
+        {/* TABLET top transition swirl — pixel-perfect 834px wrapper. Figma node 261:204, native 17x168 */}
+        <div className="hidden md:block xl:hidden absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none" style={{ width: 834 }}>
+          <img
+            data-figma-node="261:204"
+            src="/landing-assets/usecases-swirl-top-tablet.svg"
+            alt=""
+            width={17}
+            height={168}
+            className="absolute md:left-[547px] md:top-[-103px] lg:left-[547px] lg:top-[-103px] origin-center"
+            style={{ transform: 'rotate(-10deg)' }}
+            aria-hidden="true"
+          />
+        </div>
 
         {/* xl: dark background layer — max 1580px wide, centered, sits behind content */}
         <div className="hidden xl:flex xl:absolute xl:inset-0 xl:items-stretch xl:pointer-events-none">
@@ -40,7 +84,7 @@ export default function UseCases() {
         </div>
 
         {/* Content — same padded container as other sections; everything (heading, supplement, swirl, cards) is positioned relative to THIS box */}
-        <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto xl:relative xl:z-10">
+        <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto relative z-10 md:pt-[73px] xl:pt-0">
 
           {/* Section-local dotted swirl — figma 161:3341, positioned relative to content container */}
           <img
@@ -54,13 +98,9 @@ export default function UseCases() {
 
           {/* Heading */}
           <div className="mb-12 md:mb-16 xl:relative">
-            <h2 className="font-['Inter',sans-serif] uppercase text-black xl:text-[#E3DAD0] text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:max-w-[677px]">
+            <h2 className="font-['Inter',sans-serif] uppercase text-black md:text-[#E3DAD0] xl:text-[#E3DAD0] text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[282px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[282px] xl:max-w-[677px]">
               <span className="font-normal">Whenever typing feels </span><span className="font-bold">like too much.</span>
             </h2>
-            {/* Mobile/tablet supplement (will be redone per breakpoint later) */}
-            <p className="mt-4 font-['Inter',sans-serif] font-medium text-[16px] leading-[28px] text-black/70 xl:hidden">
-              Which is, honestly, most of the time.
-            </p>
             {/* Desktop supplement — positioned per figma node 131:2853 */}
             <p
               className="hidden xl:block xl:absolute font-['Inter',sans-serif] xl:text-[16px] xl:leading-[28px] xl:uppercase xl:text-[#E3DAD0] xl:font-medium xl:origin-top-left xl:right-[150px] min-[1500px]:!right-[273px]"
@@ -70,20 +110,85 @@ export default function UseCases() {
             </p>
           </div>
 
-          {/* 4 use-case cards — constrained 1180px sub-grid centered */}
-          <div className="relative z-20 grid grid-cols-2 xl:grid-cols-4 gap-5 md:max-w-[1180px] md:mx-auto">
-            {CASES.map((c) => (
-              <div
-                key={c.label}
-                className={`relative bg-[#eaeaea] p-5 md:p-6 min-h-[200px] rounded-tl-[20px] rounded-tr-[20px] ${c.mirrored ? "rounded-bl-[20px]" : "rounded-br-[20px]"}`}
-              >
-                <img src={c.icon} alt="" width={c.iconW} height={c.iconH} className="block mb-4" />
-                <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-black mb-3">{c.label}</p>
-                <p className="font-['Inter',sans-serif] font-normal text-[16px] leading-[28px] text-black/80">{c.body}</p>
-              </div>
-            ))}
+          {/* 4 use-case cards — mobile (grid-cols-2) and desktop (xl:grid-cols-4); tablet handled separately below */}
+          <div className="relative z-20 grid grid-cols-2 xl:grid-cols-4 gap-5 md:max-w-[1180px] md:mx-auto md:max-xl:hidden">
+            {CASES.map((c, idx) => {
+              // Desktop: all 4 cards fully rounded. Car (0) — tail bottom-LEFT. Couch (1), Walk (2), Hands full (3) — tail bottom-RIGHT.
+              const desktopTail = idx === 0 ? "left" : "right";
+              return (
+                <div
+                  key={c.label}
+                  className={`relative bg-[#eaeaea] p-5 md:p-6 min-h-[200px] rounded-tl-[20px] rounded-tr-[20px] ${c.mirrored ? "rounded-bl-[20px]" : "rounded-br-[20px]"} xl:rounded-[20px]`}
+                >
+                  <img src={c.icon} alt="" width={c.iconW} height={c.iconH} className="block mb-4" />
+                  <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-black mb-3">{c.label}</p>
+                  <p className="font-['Inter',sans-serif] font-normal text-[16px] leading-[28px] text-black/80">{c.body}</p>
+                  {desktopTail && (
+                    <div
+                      className={`hidden xl:block absolute bottom-0 w-[25px] h-[16px] pointer-events-none ${desktopTail === "right" ? "-right-[10px] -scale-x-100" : "-left-[10px]"}`}
+                      style={{
+                        backgroundColor: "#eaeaea",
+                        WebkitMaskImage: "url(/landing-assets/card-tail.svg)",
+                        maskImage: "url(/landing-assets/card-tail.svg)",
+                        WebkitMaskRepeat: "no-repeat",
+                        maskRepeat: "no-repeat",
+                        WebkitMaskSize: "contain",
+                        maskSize: "contain",
+                      }}
+                    />
+                  )}
+                </div>
+              );
+            })}
           </div>
 
+        </div>
+
+        {/* TABLET cards — pixel-perfect 834px wrapper, brick layout, monochrome icons */}
+        <div className="hidden md:block xl:hidden absolute top-0 left-1/2 -translate-x-1/2 z-20" style={{ width: 834 }}>
+          {[
+            { ...CASES[0], left: 104, top: 398, tailRight: false },
+            { ...CASES[1], left: 364, top: 398, tailRight: false },
+            { ...CASES[2], left: 214, top: 658, tailRight: false },
+            { ...CASES[3], left: 474, top: 658, tailRight: true },
+          ].map((c) => (
+            <div
+              key={c.label}
+              className="absolute bg-[#eaeaea] p-6 w-[240px] h-[240px] rounded-[20px]"
+              style={{ left: c.left, top: c.top }}
+            >
+              <div
+                className={`absolute bottom-0 w-[25px] h-[16px] pointer-events-none ${c.tailRight ? "-right-[10px] -scale-x-100" : "-left-[10px]"}`}
+                style={{
+                  backgroundColor: '#eaeaea',
+                  WebkitMaskImage: 'url(/landing-assets/card-tail.svg)',
+                  maskImage: 'url(/landing-assets/card-tail.svg)',
+                  WebkitMaskRepeat: 'no-repeat',
+                  maskRepeat: 'no-repeat',
+                  WebkitMaskSize: 'contain',
+                  maskSize: 'contain',
+                }}
+              />
+              <div
+                className="block mb-4"
+                style={{
+                  width: c.iconW,
+                  height: c.iconH,
+                  backgroundColor: '#817e73',
+                  WebkitMaskImage: `url(${c.icon})`,
+                  maskImage: `url(${c.icon})`,
+                  WebkitMaskRepeat: 'no-repeat',
+                  maskRepeat: 'no-repeat',
+                  WebkitMaskSize: 'contain',
+                  maskSize: 'contain',
+                  WebkitMaskPosition: 'center',
+                  maskPosition: 'center',
+                }}
+              />
+              <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-black mb-3">{c.label}</p>
+              <p className="font-['Inter',sans-serif] font-normal text-[16px] leading-[28px] text-black/80">{c.body}</p>
+            </div>
+          ))}
         </div>
 
       </div>
