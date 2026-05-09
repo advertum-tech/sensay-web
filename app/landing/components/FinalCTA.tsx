@@ -1,4 +1,5 @@
 import SensayDot from "./SensayDot";
+import AnimatedSensayLogo from "./AnimatedSensayLogo";
 
 const BARS = [
   { h: 67, opacity: 0.4 },
@@ -23,11 +24,7 @@ export default function FinalCTA() {
       <div className="mx-5 md:mx-[50px] xl:mx-0 relative bg-[#FF4122] rounded-tl-[20px] rounded-tr-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-tl-[20px] min-[1600px]:!rounded-tr-[20px] z-20">
         <div className="px-6 pt-10 pb-8 md:px-12 md:pt-14 md:pb-12 xl:px-[100px] xl:pt-[100px] xl:pb-16">
           {/* Logo aligned with heading on the left */}
-          <img
-            src="/landing-assets/sensay-logo-white.svg"
-            alt=""
-            width={41}
-            height={40}
+          <AnimatedSensayLogo
             className="block h-[62px] md:h-[78px] xl:h-[86px] w-auto object-contain mb-8 md:mb-12"
           />
           <h2 className="font-['Inter',sans-serif] uppercase text-white text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] mb-20 md:mb-32 xl:mb-40 md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:max-w-[780px]">

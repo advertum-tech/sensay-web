@@ -1,4 +1,5 @@
 import SensayDot from "./SensayDot";
+import AnimatedSensayLogo from "./AnimatedSensayLogo";
 
 const TYPED_CHIPS = ["summerize", "this", "article"];
 
@@ -92,7 +93,7 @@ export default function AIPrompts() {
           {/* Speaking with Sensay box (BR square, tail at BR, orange + white logo top-right) */}
           <div className="relative flex-1 bg-[#FF4122] rounded-[20px] p-6 md:p-8 md:min-h-[300px]">
             <img src="/landing-assets/card-tail-orange.svg" alt="" width={25} height={16} className="absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100" />
-            <img src="/landing-assets/sensay-logo-white.svg" alt="" width={41} height={40} className="absolute top-5 right-5 md:top-6 md:right-6 pointer-events-none" />
+            <AnimatedSensayLogo width={41} height={40} className="absolute top-5 right-5 md:top-6 md:right-6 pointer-events-none" />
             <div className="flex items-center gap-3 mb-5">
               <SensayDot cutoutColor="#FF4122" />
               <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-white">Speaking with Sensay</p>
