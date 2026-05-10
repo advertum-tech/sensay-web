@@ -1,20 +1,22 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-// All 7 bars have the same SVG geometry (y=0, h=40) so scaleY=1 means full SVG height
-// for every bar. The visual waveform silhouette is produced entirely by the per-bar
-// scaleY animation range (min ↔ max). Center bar oscillates 0.20↔1.00 (huge amplitude),
-// edges 0.325↔0.425 (tiny). Web Animations API is used directly — no CSS-keyframes
-// indirection that could fail to apply.
+// All 7 bars share a single global animation cycle. Phase is offset progressively
+// by bar index — adjacent bars are slightly out of sync, producing a smooth
+// traveling sine-like wave across the logo (instead of each bar living its own life).
+// Amplitude (min↔max scaleY) varies per bar — center has biggest, edges smallest.
+
+const PERIOD_MS = 1100;       // one half-cycle (with `alternate`, full cycle = 2× this)
+const PHASE_STEP_MS = 130;    // phase offset per bar — controls how much the wave "travels"
 
 const BARS = [
-  { x: 0,  dur: 0.82, delay: 0.10, min: 0.325, max: 0.425 },
-  { x: 6,  dur: 1.14, delay: 0.45, min: 0.625, max: 0.875 },
-  { x: 12, dur: 0.91, delay: 0.00, min: 0.35,  max: 0.75  },
-  { x: 18, dur: 0.73, delay: 0.30, min: 0.20,  max: 1.00  },
-  { x: 24, dur: 1.05, delay: 0.60, min: 0.35,  max: 0.75  },
-  { x: 30, dur: 1.21, delay: 0.18, min: 0.625, max: 0.875 },
-  { x: 36, dur: 0.88, delay: 0.52, min: 0.325, max: 0.425 },
+  { x: 0,  min: 0.325, max: 0.425 },  // edge
+  { x: 6,  min: 0.40,  max: 0.85  },  // bumped: was 0.625↔0.875, range 0.25 → 0.45
+  { x: 12, min: 0.35,  max: 0.75  },
+  { x: 18, min: 0.20,  max: 1.00  },  // center, biggest amplitude
+  { x: 24, min: 0.35,  max: 0.75  },
+  { x: 30, min: 0.40,  max: 0.85  },  // bumped: was 0.625↔0.875, range 0.25 → 0.45
+  { x: 36, min: 0.325, max: 0.425 },  // edge
 ];
 
 type Props = {
@@ -40,8 +42,8 @@ export default function AnimatedSensayLogo({ width = 41, height = 40, className,
           { transform: `scaleY(${b.max})` },
         ],
         {
-          duration: b.dur * 1000,
-          delay: -b.delay * 1000,
+          duration: PERIOD_MS,
+          delay: -i * PHASE_STEP_MS, // progressive phase offset = traveling wave
           iterations: Infinity,
           direction: "alternate",
           easing: "ease-in-out",
