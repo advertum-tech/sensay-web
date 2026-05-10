@@ -24,18 +24,36 @@ const TESTIMONIALS = [
 
 export default function Testimonials() {
   return (
-    <section className="pt-12 pb-20 md:pt-16 md:pb-28">
+    <section className="relative pt-12 pb-20 md:pt-16 md:pb-28">
+      {/* Narrow tablet squiggle 768–1023px */}
+      <img
+        src="/landing-assets/testimonials-swirl.svg"
+        alt=""
+        width={246}
+        height={458}
+        className="hidden md:block lg:hidden absolute z-10 pointer-events-none -scale-y-100"
+        style={{ top: -150, left: '50%', marginLeft: -123 }}
+      />
+      {/* Wide tablet squiggle 1024–1279px */}
+      <img
+        src="/landing-assets/testimonials-swirl.svg"
+        alt=""
+        width={246}
+        height={458}
+        className="hidden lg:block xl:hidden absolute z-10 pointer-events-none -scale-y-100"
+        style={{ top: -150, left: '50%', marginLeft: -23 }}
+      />
       <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
 
         {/* Heading */}
-        <h2 className="font-['Inter',sans-serif] uppercase text-black mb-12 md:mb-16 text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:max-w-[776px]">
+        <h2 className="font-['Inter',sans-serif] uppercase text-black mb-12 md:mb-16 text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-xl:ml-[30px] md:max-xl:max-w-[372px] xl:max-w-[776px]">
           <span className="font-normal">Real people. </span><span className="font-bold">Real<br />messages</span>
         </h2>
 
         {/* Constrained block (figma 1180px) — centered horizontally */}
         <div className="md:max-w-[1180px] md:mx-auto md:relative">
 
-          {/* Section-local dotted swirl — figma 155:2999 (continues line from AIPrompts dark card) */}
+          {/* Desktop squiggle */}
           <img
             src="/landing-assets/testimonials-swirl.svg"
             alt=""

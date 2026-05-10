@@ -53,7 +53,28 @@ export default function Pricing() {
   }, [customOpen]);
 
   return (
-    <section className="pt-16 pb-20 md:pt-24 md:pb-28">
+    <section className="pt-16 pb-20 md:pt-24 md:pb-28 relative">
+
+      {/* TABLET — pixel-perfect 834px wrapper, figma 261:60 (swirl + supplement) */}
+      <div className="hidden md:block xl:hidden absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none" style={{ width: 834 }}>
+        {/* Section-local dotted swirl — figma 261:712 */}
+        <img
+          src="/landing-assets/pricing-swirl.svg"
+          alt=""
+          width={299}
+          height={170}
+          className="absolute pointer-events-none"
+          style={{ left: 431, top: 70 }}
+        />
+        {/* Supplement in swirl loop — figma 261:668 */}
+        <p
+          className="absolute origin-top-left font-['Inter',sans-serif] text-[16px] leading-[28px] uppercase text-black font-medium"
+          style={{ left: 492, top: 122, width: 200, transform: 'rotate(-5deg)' }}
+        >
+          <span className="font-bold">Start free. </span><span>Upgrade when you&apos;re hooked.</span>
+        </p>
+      </div>
+
       <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
 
         {/* Heading + supplement (in swirl loop on xl) */}
@@ -65,14 +86,15 @@ export default function Pricing() {
             width={354}
             height={200}
             className="hidden xl:block xl:absolute pointer-events-none xl:right-[150px] min-[1500px]:!right-[210px]"
-            style={{ top: -80, transform: 'rotate(-7deg)' }}
+            style={{ top: -70 }}
           />
 
-          <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:max-w-[780px]">
+          <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] lg:max-xl:ml-[calc(50%-423px)] md:max-w-[306px] xl:max-w-[780px]">
             <span className="font-bold">Simple</span><span className="font-normal"> pricing.</span>
           </h2>
 
-          <p className="mt-4 font-['Inter',sans-serif] uppercase text-[16px] leading-[28px] text-black xl:hidden">
+          {/* Mobile-only supplement (tablet supplement lives in 834-wrapper above) */}
+          <p className="mt-4 font-['Inter',sans-serif] uppercase text-[16px] leading-[28px] text-black md:hidden">
             <span className="font-bold">Start free. </span><span className="font-medium">Upgrade when you&apos;re hooked.</span>
           </p>
 
@@ -139,7 +161,11 @@ export default function Pricing() {
             </div>
 
             {/* PRO */}
-            <div className="relative flex-1 bg-[#2f2f2f] rounded-[20px] p-6 md:p-8 flex flex-col">
+            <div className="relative flex-1 bg-[#2f2f2f] rounded-[20px] p-6 md:p-8 flex flex-col mt-6 md:mt-0 md:scale-[1.04] md:z-10">
+              <span className="absolute -top-[18px] left-1/2 -translate-x-1/2 whitespace-nowrap inline-flex items-center gap-1.5 bg-[#FF4122] text-white font-['Inter',sans-serif] font-bold text-[11px] uppercase rounded-full px-4 h-[28px]">
+                <LuSparkles size={11} />
+                Most popular
+              </span>
               <img src="/landing-assets/card-tail-dark.svg" alt="" width={25} height={16} className="absolute bottom-0 -left-[10px] pointer-events-none" />
               <div className="mb-6">
                 <span className="inline-flex items-center gap-2 bg-[#c3beac] text-[#FF4122] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px] w-fit">
