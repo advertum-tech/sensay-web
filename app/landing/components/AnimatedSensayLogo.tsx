@@ -45,10 +45,12 @@ export default function AnimatedSensayLogo({ width = 41, height = 40, className,
       const t = (now - start) / 1000;
       rects.forEach((rect, i) => {
         const b = BARS[i];
-        const w1 = Math.sin(t * 2.85 - i * 0.55);
-        const w2 = Math.sin(t * 1.69 + i * 0.31 + 1.7);
-        const w3 = Math.sin(t * 4.43 - i * 0.18 + 0.4);
-        const combined = w1 * 0.55 + w2 * 0.30 + w3 * 0.15;
+        // Frequencies clustered closer (2.85 / 2.47 / 3.71 rad/s) and slow component
+        // weight reduced — removes the low-end "drag" that produced perceived slowdowns.
+        const w1 = Math.sin(t * 2.85 - i * 0.25);
+        const w2 = Math.sin(t * 2.47 + i * 0.14 + 1.7);
+        const w3 = Math.sin(t * 3.71 - i * 0.08 + 0.4);
+        const combined = w1 * 0.55 + w2 * 0.20 + w3 * 0.25;
         const norm = (combined + 1) / 2; // [0, 1]
         const scale = b.min + (b.max - b.min) * norm;
         const h = scale * VIEWBOX_H;
