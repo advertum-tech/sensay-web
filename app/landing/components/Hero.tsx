@@ -24,7 +24,7 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
     <section className="">
 
       {/* ═══ MOBILE (< md, 0–767px) ═══ */}
-      <div className="md:hidden overflow-hidden">
+      <div className="md:hidden overflow-x-hidden">
         <div className="relative max-[499px]:left-1/2 max-[499px]:-translate-x-1/2 max-[499px]:w-[375px] max-[359px]:left-0 max-[359px]:translate-x-0 max-[359px]:w-full">
 
           <div className="px-5 pt-8 min-[500px]:flex min-[500px]:flex-col min-[500px]:items-center">
@@ -90,7 +90,29 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
           {/* Separator — iPhone bottom sits on this line, per Figma y=1524 */}
           <div className="h-px bg-white max-[499px]:ml-[calc(50%-50vw)] max-[499px]:w-screen" />
 
+        </div>
+      </div>
 
+      {/* Loved badge — mobile only, outside overflow wrapper so line can bleed into next section */}
+      <div className="md:hidden relative" style={{ height: 217 }}>
+        <img
+          src="/hero-loved-line-mobile.svg"
+          alt=""
+          width={85}
+          height={294}
+          className="absolute pointer-events-none"
+          style={{ left: '50%', marginLeft: -22, top: -27 }}
+          aria-hidden="true"
+        />
+        <div className="absolute z-10" style={{ left: '50%', marginLeft: -131, top: 50, width: 262, height: 142 }}>
+          <img src="/hero-loved-oval-mobile.svg" alt="" width={262} height={142} className="w-full h-full" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <img src="/loved-avatars.svg" alt="" style={{ width: 59 }} className="mb-1" />
+            <p className="text-center uppercase whitespace-nowrap font-['Inter',sans-serif] font-medium text-[14px] leading-[28px]">
+              Loved by <strong className="font-bold">12,000+</strong>
+              <br />people already
+            </p>
+          </div>
         </div>
       </div>
 
