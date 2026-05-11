@@ -53,11 +53,11 @@ export default function UseCases() {
             alt=""
             width={458}
             height={816}
-            className="absolute md:left-[96px] md:top-[138px] lg:left-[96px] lg:top-[138px]"
+            className="absolute md:left-[96px] md:top-[138px] lg:left-[146px] lg:top-[138px]"
             aria-hidden="true"
           />
           <p
-            className="absolute font-['Inter',sans-serif] text-[16px] leading-[28px] uppercase text-[#E3DAD0] font-medium md:right-[166px] md:top-[68px] lg:right-[166px] lg:top-[68px]"
+            className="absolute font-['Inter',sans-serif] text-[16px] leading-[28px] uppercase text-[#E3DAD0] font-medium md:right-[166px] md:top-[68px] lg:right-[116px] lg:top-[68px]"
             style={{ width: 193 }}
           >
             <span className="font-bold">Which is, honestly,</span><br />most of the time.
@@ -72,7 +72,7 @@ export default function UseCases() {
             alt=""
             width={17}
             height={168}
-            className="absolute md:left-[547px] md:top-[-103px] lg:left-[547px] lg:top-[-103px] origin-center"
+            className="absolute md:left-[547px] md:top-[-103px] lg:left-[597px] lg:top-[-103px] origin-center"
             style={{ transform: 'rotate(-10deg)' }}
             aria-hidden="true"
           />

@@ -64,8 +64,8 @@ export default function FAQ() {
   return (
     <section className="pt-12 pb-20 md:pt-16 md:pb-28">
 
-      {/* Dark wrapper — same edge policy as UseCases: rounded+capped on mobile/tablet/≥1600, full-width edge-to-edge on xl 1280–1599 */}
-      <div className="mx-5 md:mx-[50px] xl:mx-0 relative bg-[#2f2f2f] rounded-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-[20px]">
+      {/* Dark wrapper — same edge policy as UseCases: 20px from viewport on mobile/tablet, full-width edge-to-edge on xl 1280–1599, capped on ≥1600 */}
+      <div className="mx-5 xl:mx-0 relative bg-[#2f2f2f] rounded-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-[20px]">
 
         {/* Tail at bottom-RIGHT */}
         <img

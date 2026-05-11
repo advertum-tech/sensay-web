@@ -21,7 +21,38 @@ function Chip({ children }: { children: React.ReactNode }) {
 
 export default function AIPrompts() {
   return (
-    <section className="pt-16 pb-12 md:pt-24 md:pb-16">
+    <section className="pt-16 pb-12 md:pt-24 md:pb-16 relative">
+
+      {/* TABLET — pixel-perfect 834px wrapper, figma 261:60 (badges + swirl + supplement) */}
+      <div className="hidden md:block xl:hidden absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none" style={{ width: 834 }}>
+        {/* For AI power badge — figma 261:526 */}
+        <div className="absolute origin-top-left" style={{ left: 80, top: 31, transform: 'rotate(-5deg)' }}>
+          <img src="/landing-assets/for-ai-power-bg-desktop.svg" alt="" width={135} height={41} className="absolute pointer-events-none max-w-none -scale-x-100" style={{ left: -6, top: -2 }} />
+          <p className="relative font-['Inter',sans-serif] font-bold text-[16px] uppercase text-[#79736d] whitespace-nowrap">For AI power</p>
+        </div>
+        {/* users badge — figma 261:529 */}
+        <div className="absolute origin-top-left" style={{ left: 173, top: 44, transform: 'rotate(-5deg)' }}>
+          <img src="/landing-assets/users-bg-desktop.svg" alt="" width={68} height={41} className="absolute pointer-events-none max-w-none -scale-x-100" style={{ left: -3, top: -2 }} />
+          <p className="relative font-['Inter',sans-serif] font-bold text-[16px] uppercase text-[#79736d] whitespace-nowrap">users</p>
+        </div>
+        {/* Section-local dotted swirl — figma 261:738 */}
+        <img
+          src="/landing-assets/aiprompts-swirl.svg"
+          alt=""
+          width={293}
+          height={287}
+          className="absolute pointer-events-none"
+          style={{ left: 452, top: 51 }}
+        />
+        {/* Supplement in swirl loop — figma 261:523 */}
+        <p
+          className="absolute origin-top-left font-['Inter',sans-serif] text-[16px] leading-[28px] uppercase text-black font-medium"
+          style={{ left: 502, top: 110, width: 207, transform: 'rotate(-5deg)' }}
+        >
+          <span>When you type a prompt, you cut corners. When you speak, you explain. </span><span className="font-bold">Better input, better output — every time.</span>
+        </p>
+      </div>
+
       <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
 
         {/* Heading + paint-splash badges (xl only) */}
@@ -30,12 +61,12 @@ export default function AIPrompts() {
           <div className="hidden xl:block xl:relative xl:w-[260px] xl:h-[80px] xl:mb-2">
             {/* For AI power */}
             <div className="absolute origin-top-left" style={{ left: 0, top: 0, transform: 'rotate(-5deg)' }}>
-              <img src="/landing-assets/for-ai-power-bg-desktop.svg" alt="" width={147} height={45} className="absolute left-0 top-0 pointer-events-none max-w-none -scale-x-100" />
+              <img src="/landing-assets/for-ai-power-bg-desktop.svg" alt="" width={162} height={50} className="absolute pointer-events-none max-w-none -scale-x-100" style={{ left: -7, top: -2 }} />
               <p className="relative font-['Inter',sans-serif] font-bold text-[16px] xl:text-[20px] uppercase text-[#79736d] whitespace-nowrap">For AI power</p>
             </div>
             {/* users — slightly right and below */}
             <div className="absolute origin-top-left" style={{ left: 115, top: 13, transform: 'rotate(-5deg)' }}>
-              <img src="/landing-assets/users-bg-desktop.svg" alt="" width={77} height={45} className="absolute left-0 top-0 pointer-events-none max-w-none -scale-x-100" />
+              <img src="/landing-assets/users-bg-desktop.svg" alt="" width={85} height={50} className="absolute pointer-events-none max-w-none -scale-x-100" style={{ left: -4, top: -2 }} />
               <p className="relative font-['Inter',sans-serif] font-bold text-[16px] xl:text-[20px] uppercase text-[#79736d] whitespace-nowrap">users</p>
             </div>
           </div>
@@ -50,12 +81,12 @@ export default function AIPrompts() {
               style={{ top: 0 }}
             />
 
-            <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:max-w-[776px]">
+            <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] lg:max-xl:ml-[calc(50%-423px)] md:max-w-[352px] xl:max-w-[776px]">
               <span className="font-normal">Your AI gets smarter </span><span className="font-bold">when you<br />stop typing to it.</span>
             </h2>
 
-            {/* Mobile/tablet supplement (will be redone per breakpoint later) */}
-            <p className="mt-4 font-['Inter',sans-serif] text-[16px] leading-[28px] text-black max-w-[700px] xl:hidden">
+            {/* Mobile-only supplement (tablet supplement lives in 834-wrapper above) */}
+            <p className="mt-4 font-['Inter',sans-serif] text-[16px] leading-[28px] text-black max-w-[700px] md:hidden">
               <span className="font-medium">When you type a prompt, you cut corners. When you speak, you explain. </span><span className="font-bold">Better input, better output — every time.</span>
             </p>
 
@@ -83,7 +114,7 @@ export default function AIPrompts() {
               <SensayDot cutoutColor="#bfb9ac" pulse={false} solid />
               <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-white">Typed prompt</p>
             </div>
-            <div className="flex flex-wrap gap-x-[2px] gap-y-[2px]">
+            <div className="flex flex-wrap gap-x-0 gap-y-[2px]">
               {TYPED_CHIPS.map((w) => (
                 <Chip key={w}>{w}</Chip>
               ))}
@@ -96,11 +127,14 @@ export default function AIPrompts() {
             <AnimatedSensayLogo width={41} height={40} className="absolute top-5 right-5 md:top-6 md:right-6 pointer-events-none" />
             <div className="flex items-center gap-3 mb-5">
               <SensayDot cutoutColor="#FF4122" />
-              <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-white">Speaking with Sensay</p>
+              <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-white">Spoken → cleaned by Sensay</p>
             </div>
             <div className="flex flex-col gap-y-[2px]">
               {SPOKEN_CHIPS.map((row, i) => (
-                <div key={i} className="flex flex-wrap gap-x-[2px]">
+                <div
+                  key={i}
+                  className={`flex flex-wrap gap-x-0 ${i === SPOKEN_CHIPS.length - 1 ? "mt-4" : ""}`}
+                >
                   {row.map((w) => (
                     <Chip key={w}>{w}</Chip>
                   ))}

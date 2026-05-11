@@ -13,13 +13,13 @@ import { useEffect, useRef } from "react";
 // height instead of flattening into ovals when the bar is short.
 
 const BARS = [
-  { x: 0,  min: 0.325, max: 0.425 },  // edge
+  { x: 0,  min: 0.20,  max: 0.425 },  // edge (min lowered for more liveliness)
   { x: 6,  min: 0.35,  max: 0.75  },  // swapped with prev idx 2
   { x: 12, min: 0.40,  max: 0.85  },  // swapped with prev idx 1
   { x: 18, min: 0.325, max: 1.00  },  // center, biggest amplitude (min raised to match edges — was 0.20)
   { x: 24, min: 0.40,  max: 0.85  },  // swapped with prev idx 5
   { x: 30, min: 0.35,  max: 0.75  },  // swapped with prev idx 4
-  { x: 36, min: 0.325, max: 0.425 },  // edge
+  { x: 36, min: 0.20,  max: 0.425 },  // edge (min lowered for more liveliness)
 ];
 
 const VIEWBOX_H = 40;

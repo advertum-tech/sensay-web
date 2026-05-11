@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { LuZap, LuSparkles, LuCrown, LuCircleHelp, LuX, LuCheck, LuUsers } from "react-icons/lu";
+import { LuSparkles, LuCircleHelp, LuX, LuCheck, LuUsers } from "react-icons/lu";
 
 const FREE_FEATURES = [
   "30 minutes / day",
@@ -10,18 +10,18 @@ const FREE_FEATURES = [
 ];
 
 const PRO_FEATURES = [
-  "Everything in Free",
   "Unlimited dictation",
   "All languages",
   "Every app & input field",
   "Smart context register",
+  "Priority processing",
 ];
 
 const MAX_FEATURES = [
   "Everything in Pro",
-  "Custom voice profile training",
-  "Priority processing",
-  "Advanced AI editing modes",
+  "Team admin + SSO",
+  "Audit logs",
+  "Priority support",
 ];
 
 const CUSTOM_FEATURES = [
@@ -34,7 +34,7 @@ const CUSTOM_FEATURES = [
 ];
 
 const PRICES = {
-  pro:  { monthly: "$2.99", yearly: "$2.49" },
+  pro:  { monthly: "$9", yearly: "$7.99" },
   max:  { monthly: "$6.99", yearly: "$6.29" },
 };
 
@@ -64,7 +64,7 @@ export default function Pricing() {
           width={299}
           height={170}
           className="absolute pointer-events-none"
-          style={{ left: 431, top: 70 }}
+          style={{ left: 431, top: 70, transform: 'rotate(2deg)' }}
         />
         {/* Supplement in swirl loop — figma 261:668 */}
         <p
@@ -86,7 +86,7 @@ export default function Pricing() {
             width={354}
             height={200}
             className="hidden xl:block xl:absolute pointer-events-none xl:right-[150px] min-[1500px]:!right-[210px]"
-            style={{ top: -70 }}
+            style={{ top: -70, transform: 'rotate(2deg)' }}
           />
 
           <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] lg:max-xl:ml-[calc(50%-423px)] md:max-w-[306px] xl:max-w-[780px]">
@@ -139,14 +139,17 @@ export default function Pricing() {
             {/* FREE */}
             <div className="relative flex-1 bg-[#fcfbfa] rounded-[20px] p-6 md:p-8 flex flex-col">
               <img src="/landing-assets/card-tail-fcfbfa.svg" alt="" width={25} height={16} className="absolute bottom-0 -left-[10px] pointer-events-none" />
-              <div className="mb-6">
-                <span className="inline-flex items-center gap-2 bg-[#FF4122] text-white font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px] w-fit">
-                  <LuZap size={16} />
-                  FREE
-                </span>
+              <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#FF4122] text-white font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
+                FREE
+              </span>
+              <div className="h-[103px] flex items-end mb-6">
+                <img src="/landing-assets/pricing-mic-free.svg" alt="" width={63} height={80} />
               </div>
-              <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-black mb-1">$0</p>
-              <p className="font-['Inter',sans-serif] text-[14px] leading-[28px] text-black/60 mb-6">Always free</p>
+              <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-black mb-3">$0<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
+              <div className="flex gap-0 mb-6">
+                <span className="inline-flex items-center bg-[#e3dad0] rounded-full px-4 h-[30px] font-['Inter',sans-serif] text-[14px] text-black">Always</span>
+                <span className="inline-flex items-center bg-[#e3dad0] rounded-full px-4 h-[30px] font-['Inter',sans-serif] text-[14px] text-black">Free</span>
+              </div>
               <ul className="flex flex-col gap-1 mb-8 flex-1">
                 {FREE_FEATURES.map((f) => (
                   <li key={f} className="flex items-start gap-2 font-['Inter',sans-serif] text-[14px] leading-[28px] text-black uppercase font-medium">
@@ -167,14 +170,17 @@ export default function Pricing() {
                 Most popular
               </span>
               <img src="/landing-assets/card-tail-dark.svg" alt="" width={25} height={16} className="absolute bottom-0 -left-[10px] pointer-events-none" />
-              <div className="mb-6">
-                <span className="inline-flex items-center gap-2 bg-[#c3beac] text-[#FF4122] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px] w-fit">
-                  <LuSparkles size={16} />
-                  PRO
-                </span>
+              <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#c3beac] text-[#FF4122] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
+                PRO
+              </span>
+              <div className="h-[103px] flex items-end mb-6">
+                <img src="/landing-assets/pricing-mic-pro.svg" alt="" width={67} height={96} />
               </div>
-              <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-white mb-1">{PRICES.pro[billing]}<span className="text-[20px] font-medium text-white/60"> /mo</span></p>
-              <p className="font-['Inter',sans-serif] text-[14px] leading-[28px] text-[#bfb9ac] mb-6">{billing === "yearly" ? "Billed annually" : "Cancel anytime"}</p>
+              <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-white mb-3">{PRICES.pro[billing]}<span className="text-[20px] font-normal text-white/60"> /mo</span></p>
+              <div className="flex gap-0 mb-6">
+                <span className="inline-flex items-center bg-[#e3dad0] rounded-full px-4 h-[30px] font-['Inter',sans-serif] text-[14px] text-black">Per month</span>
+                <span className="inline-flex items-center bg-[#e3dad0] rounded-full px-4 h-[30px] font-['Inter',sans-serif] text-[14px] text-black">Cancel anytime</span>
+              </div>
               <ul className="flex flex-col gap-1 mb-8 flex-1">
                 {PRO_FEATURES.map((f) => (
                   <li key={f} className="flex items-start gap-2 font-['Inter',sans-serif] text-[14px] leading-[28px] text-[#ded8cc] uppercase font-medium">
@@ -184,21 +190,24 @@ export default function Pricing() {
                 ))}
               </ul>
               <a href="#" className="block bg-[#FF4122] rounded-[7px] h-[55px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[16px] uppercase text-white hover:opacity-90 transition-opacity">
-                GET PRO
+                14 DAYS FREE
               </a>
             </div>
 
             {/* MAX */}
             <div className="relative flex-1 bg-[#bfb9ac] rounded-[20px] p-6 md:p-8 flex flex-col">
               <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100" />
-              <div className="mb-6">
-                <span className="inline-flex items-center gap-2 bg-[#79736d] text-[#e3dad0] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px] w-fit">
-                  <LuCrown size={16} />
-                  MAX
-                </span>
+              <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#79736d] text-[#e3dad0] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
+                MAX
+              </span>
+              <div className="h-[103px] flex items-end mb-6">
+                <img src="/landing-assets/pricing-mic-max.svg" alt="" width={67} height={103} />
               </div>
-              <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-black mb-1">{PRICES.max[billing]}<span className="text-[20px] font-medium text-black/60"> /mo</span></p>
-              <p className="font-['Inter',sans-serif] text-[14px] leading-[28px] text-black/60 mb-6">{billing === "yearly" ? "Billed annually" : "For power users"}</p>
+              <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-black mb-3">{PRICES.max[billing]}<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
+              <div className="flex gap-0 mb-6">
+                <span className="inline-flex items-center bg-[#e3dad0] rounded-full px-4 h-[30px] font-['Inter',sans-serif] text-[14px] text-black">For teams of</span>
+                <span className="inline-flex items-center bg-[#e3dad0] rounded-full px-4 h-[30px] font-['Inter',sans-serif] text-[14px] text-black">5+</span>
+              </div>
               <ul className="flex flex-col gap-1 mb-8 flex-1">
                 {MAX_FEATURES.map((f) => (
                   <li key={f} className="flex items-start gap-2 font-['Inter',sans-serif] text-[14px] leading-[28px] text-black uppercase font-medium">
@@ -207,8 +216,8 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a href="#" className="block bg-black text-white rounded-[7px] h-[55px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[16px] uppercase hover:opacity-90 transition-opacity">
-                GET MAX
+              <a href="#" className="block border border-white/70 rounded-[7px] h-[55px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[16px] uppercase text-white hover:bg-white hover:text-black transition-colors">
+                GET IN TOUCH
               </a>
             </div>
 

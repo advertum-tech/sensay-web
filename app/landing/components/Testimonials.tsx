@@ -32,7 +32,7 @@ export default function Testimonials() {
         width={246}
         height={458}
         className="hidden md:block lg:hidden absolute z-10 pointer-events-none -scale-y-100"
-        style={{ top: -150, left: '50%', marginLeft: -123 }}
+        style={{ top: -150, left: '50%' }}
       />
       {/* Wide tablet squiggle 1024–1279px */}
       <img

@@ -20,8 +20,8 @@ export default function FinalCTA() {
   return (
     <section className="pt-16 md:pt-24">
 
-      {/* Orange CTA card — same edge policy as UseCases/FAQ */}
-      <div className="mx-5 md:mx-[50px] xl:mx-0 relative bg-[#FF4122] rounded-tl-[20px] rounded-tr-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-tl-[20px] min-[1600px]:!rounded-tr-[20px] z-20">
+      {/* Orange CTA card — same edge policy as UseCases/FAQ: 20px from viewport on mobile/tablet */}
+      <div className="mx-5 xl:mx-0 relative bg-[#FF4122] rounded-tl-[20px] rounded-tr-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-tl-[20px] min-[1600px]:!rounded-tr-[20px] z-20">
         <div className="px-6 pt-10 pb-8 md:px-12 md:pt-14 md:pb-12 xl:px-[100px] xl:pt-[100px] xl:pb-16">
           {/* Logo aligned with heading on the left */}
           <AnimatedSensayLogo
@@ -29,8 +29,8 @@ export default function FinalCTA() {
           />
           <h2 className="font-['Inter',sans-serif] uppercase text-white text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] mb-20 md:mb-32 xl:mb-40 md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:max-w-[780px]">
             <span className="font-bold">You know </span>
-            <span className="font-bold xl:font-normal">what you want to say.</span>
-            <span className="inline-flex align-middle ml-3 relative" style={{ transform: 'translate(-33px, 22px)' }}><SensayDot cutoutColor="#FF4122" /></span>
+            <span className="font-bold xl:font-normal">what you want to say</span>
+            <span className="inline-block align-baseline"><SensayDot cutoutColor="#FF4122" /></span>
           </h2>
           <div className="flex justify-center">
             <a
@@ -43,8 +43,8 @@ export default function FinalCTA() {
         </div>
       </div>
 
-      {/* Dark bottom section — same edge policy as orange + UseCases/FAQ */}
-      <div className="mx-5 md:mx-[50px] xl:mx-0 mb-12 md:mb-16 xl:mb-0 min-[1600px]:!mb-16 relative bg-[#2f2f2f] rounded-bl-[20px] rounded-tr-[20px] rounded-br-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-bl-[20px] min-[1600px]:!rounded-tr-[20px] min-[1600px]:!rounded-br-[20px] z-0">
+      {/* Dark bottom section — same edge policy as orange + UseCases/FAQ: 20px from viewport (sides + bottom) on mobile/tablet */}
+      <div className="mx-5 xl:mx-0 mb-5 xl:mb-0 min-[1600px]:!mb-16 relative bg-[#2f2f2f] rounded-bl-[20px] rounded-tr-[20px] rounded-br-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-bl-[20px] min-[1600px]:!rounded-tr-[20px] min-[1600px]:!rounded-br-[20px] z-0">
 
         {/* Tail at bottom-RIGHT — only when wrapper has rounded corners (mobile/tablet/≥1600) */}
         <img
