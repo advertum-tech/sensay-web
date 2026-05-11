@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { LuSparkles, LuCircleHelp, LuX, LuCheck, LuUsers } from "react-icons/lu";
-import PricingMicFreeAnim from "./PricingMicFreeAnim";
+import PricingMicFreeAnim, { type MicAnimHandle } from "./PricingMicFreeAnim";
 import PricingMicProAnim from "./PricingMicProAnim";
 import PricingMicMaxAnim from "./PricingMicMaxAnim";
 
@@ -37,13 +37,16 @@ const CUSTOM_FEATURES = [
 ];
 
 const PRICES = {
-  pro:  { monthly: "$9", yearly: "$7.99" },
+  pro:  { monthly: "$2.99", yearly: "$2.49" },
   max:  { monthly: "$6.99", yearly: "$6.29" },
 };
 
 export default function Pricing() {
   const [customOpen, setCustomOpen] = useState(false);
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
+  const freeAnimRef = useRef<MicAnimHandle>(null);
+  const proAnimRef  = useRef<MicAnimHandle>(null);
+  const maxAnimRef  = useRef<MicAnimHandle>(null);
 
   // Close popup on Escape
   useEffect(() => {
@@ -145,9 +148,8 @@ export default function Pricing() {
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#FF4122] text-white font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
                 FREE
               </span>
-              <div className="h-[103px] flex items-end gap-4 mb-6">
-                <img src="/landing-assets/pricing-mic-free.svg" alt="" width={63} height={80} />
-                <PricingMicFreeAnim />
+              <div className="h-[103px] flex items-end mb-6">
+                <PricingMicFreeAnim ref={freeAnimRef} />
               </div>
               <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-black mb-3">$0<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
               <div className="flex gap-0 mb-6">
@@ -162,7 +164,7 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a href="#" className="block border border-black/70 rounded-[7px] h-[55px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[16px] uppercase text-black hover:bg-black hover:text-white transition-colors">
+              <a href="#" className="block border border-black/70 rounded-[7px] h-[55px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[16px] uppercase text-black hover:bg-black hover:text-white transition-colors" onMouseEnter={() => freeAnimRef.current?.start()} onMouseLeave={() => freeAnimRef.current?.stop()}>
                 GET STARTED
               </a>
             </div>
@@ -177,9 +179,8 @@ export default function Pricing() {
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#c3beac] text-[#FF4122] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
                 PRO
               </span>
-              <div className="h-[103px] flex items-end gap-4 mb-6">
-                <img src="/landing-assets/pricing-mic-pro.svg" alt="" width={67} height={96} />
-                <PricingMicProAnim />
+              <div className="h-[103px] flex items-end mb-6">
+                <PricingMicProAnim ref={proAnimRef} />
               </div>
               <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-white mb-3">{PRICES.pro[billing]}<span className="text-[20px] font-normal text-white/60"> /mo</span></p>
               <div className="flex gap-0 mb-6">
@@ -194,7 +195,7 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a href="#" className="block bg-[#FF4122] rounded-[7px] h-[55px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[16px] uppercase text-white hover:opacity-90 transition-opacity">
+              <a href="#" className="block bg-[#FF4122] rounded-[7px] h-[55px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[16px] uppercase text-white hover:opacity-90 transition-opacity" onMouseEnter={() => proAnimRef.current?.start()} onMouseLeave={() => proAnimRef.current?.stop()}>
                 14 DAYS FREE
               </a>
             </div>
@@ -205,9 +206,8 @@ export default function Pricing() {
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#79736d] text-[#e3dad0] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
                 MAX
               </span>
-              <div className="h-[103px] flex items-end gap-4 mb-6">
-                <img src="/landing-assets/pricing-mic-max.svg" alt="" width={67} height={103} />
-                <PricingMicMaxAnim />
+              <div className="h-[103px] flex items-end mb-6">
+                <PricingMicMaxAnim ref={maxAnimRef} />
               </div>
               <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-black mb-3">{PRICES.max[billing]}<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
               <div className="flex gap-0 mb-6">
@@ -222,7 +222,7 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a href="#" className="block border border-white/70 rounded-[7px] h-[55px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[16px] uppercase text-white hover:bg-white hover:text-black transition-colors">
+              <a href="#" className="block border border-white/70 rounded-[7px] h-[55px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[16px] uppercase text-white hover:bg-white hover:text-black transition-colors" onMouseEnter={() => maxAnimRef.current?.start()} onMouseLeave={() => maxAnimRef.current?.stop()}>
                 GET IN TOUCH
               </a>
             </div>

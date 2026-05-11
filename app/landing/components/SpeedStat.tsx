@@ -1,5 +1,5 @@
 import SensayDot from "./SensayDot";
-import AnimatedSensayLogo from "./AnimatedSensayLogo";
+import AnimatedSensayLogoHover from "./AnimatedSensayLogoHover";
 
 const TYPING_STEPS = [
   "Hunt for the right words",
@@ -83,7 +83,7 @@ export default function SpeedStat() {
           {/* Speaking with Sensay box (mirrored: tail at bottom-RIGHT, orange + white logo top-right) */}
           <div className="relative flex-1 bg-[#FF4122] rounded-[20px] p-6 md:p-8">
             <img src="/landing-assets/card-tail-orange.svg" alt="" width={25} height={16} className="absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100" />
-            <AnimatedSensayLogo width={41} height={40} className="absolute top-5 right-5 md:top-6 md:right-6 pointer-events-none" />
+            <AnimatedSensayLogoHover width={41} height={40} className="absolute top-5 right-5 md:top-6 md:right-6 pointer-events-none" />
             <div className="flex items-center gap-3 mb-4">
               <SensayDot cutoutColor="#FF4122" />
               <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-none uppercase text-white">Speaking with Sensay</p>

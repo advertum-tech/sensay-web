@@ -2,13 +2,13 @@
 import { useEffect, useRef } from "react";
 
 const BARS = [
-  { x: 0,  cy: 20, hRest: 17, hMin: 17, hMax: 17 },
-  { x: 6,  cy: 20, hRest: 32, hMin: 32, hMax: 32 },
-  { x: 12, cy: 20, hRest: 38, hMin: 38, hMax: 38 },
-  { x: 18, cy: 20, hRest: 40, hMin: 40, hMax: 40 },
-  { x: 24, cy: 20, hRest: 38, hMin: 38, hMax: 38 },
-  { x: 30, cy: 20, hRest: 32, hMin: 32, hMax: 32 },
-  { x: 36, cy: 20, hRest: 17, hMin: 17, hMax: 17 },
+  { x: 0,  cy: 20, hRest: 14, hMin: 5,  hMax: 22 },
+  { x: 6,  cy: 20, hRest: 22, hMin: 8,  hMax: 36 },
+  { x: 12, cy: 20, hRest: 24, hMin: 8,  hMax: 40 },
+  { x: 18, cy: 20, hRest: 24, hMin: 8,  hMax: 40 },
+  { x: 24, cy: 20, hRest: 24, hMin: 8,  hMax: 40 },
+  { x: 30, cy: 20, hRest: 22, hMin: 8,  hMax: 36 },
+  { x: 36, cy: 20, hRest: 14, hMin: 5,  hMax: 22 },
 ];
 
 const N = BARS.length;
