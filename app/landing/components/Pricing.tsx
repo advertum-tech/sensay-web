@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { LuSparkles, LuCircleHelp, LuX, LuCheck, LuUsers } from "react-icons/lu";
+import PricingMicFreeAnim from "./PricingMicFreeAnim";
+import PricingMicProAnim from "./PricingMicProAnim";
+import PricingMicMaxAnim from "./PricingMicMaxAnim";
 
 const FREE_FEATURES = [
   "30 minutes / day",
@@ -142,8 +145,9 @@ export default function Pricing() {
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#FF4122] text-white font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
                 FREE
               </span>
-              <div className="h-[103px] flex items-end mb-6">
+              <div className="h-[103px] flex items-end gap-4 mb-6">
                 <img src="/landing-assets/pricing-mic-free.svg" alt="" width={63} height={80} />
+                <PricingMicFreeAnim />
               </div>
               <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-black mb-3">$0<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
               <div className="flex gap-0 mb-6">
@@ -173,8 +177,9 @@ export default function Pricing() {
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#c3beac] text-[#FF4122] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
                 PRO
               </span>
-              <div className="h-[103px] flex items-end mb-6">
+              <div className="h-[103px] flex items-end gap-4 mb-6">
                 <img src="/landing-assets/pricing-mic-pro.svg" alt="" width={67} height={96} />
+                <PricingMicProAnim />
               </div>
               <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-white mb-3">{PRICES.pro[billing]}<span className="text-[20px] font-normal text-white/60"> /mo</span></p>
               <div className="flex gap-0 mb-6">
@@ -200,8 +205,9 @@ export default function Pricing() {
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#79736d] text-[#e3dad0] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
                 MAX
               </span>
-              <div className="h-[103px] flex items-end mb-6">
+              <div className="h-[103px] flex items-end gap-4 mb-6">
                 <img src="/landing-assets/pricing-mic-max.svg" alt="" width={67} height={103} />
+                <PricingMicMaxAnim />
               </div>
               <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-black mb-3">{PRICES.max[billing]}<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
               <div className="flex gap-0 mb-6">

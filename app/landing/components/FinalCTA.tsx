@@ -1,5 +1,6 @@
 import SensayDot from "./SensayDot";
 import AnimatedSensayLogo from "./AnimatedSensayLogo";
+import AnimatedSensayLogoHover from "./AnimatedSensayLogoHover";
 
 const BARS = [
   { h: 67, opacity: 0.4 },
@@ -24,9 +25,14 @@ export default function FinalCTA() {
       <div className="mx-5 xl:mx-0 relative bg-[#FF4122] rounded-tl-[20px] rounded-tr-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-tl-[20px] min-[1600px]:!rounded-tr-[20px] z-20">
         <div className="px-6 pt-10 pb-8 md:px-12 md:pt-14 md:pb-12 xl:px-[100px] xl:pt-[100px] xl:pb-16">
           {/* Logo aligned with heading on the left */}
-          <AnimatedSensayLogo
-            className="block h-[62px] md:h-[78px] xl:h-[86px] w-auto object-contain mb-8 md:mb-12"
-          />
+          <div className="flex items-end gap-4 mb-8 md:mb-12">
+            <AnimatedSensayLogo
+              className="block h-[62px] md:h-[78px] xl:h-[86px] w-auto object-contain"
+            />
+            <AnimatedSensayLogoHover
+              className="block h-[62px] md:h-[78px] xl:h-[86px] w-auto object-contain"
+            />
+          </div>
           <h2 className="font-['Inter',sans-serif] uppercase text-white text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] mb-20 md:mb-32 xl:mb-40 md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:max-w-[780px]">
             <span className="font-bold">You know </span>
             <span className="font-bold xl:font-normal">what you want to say</span>
