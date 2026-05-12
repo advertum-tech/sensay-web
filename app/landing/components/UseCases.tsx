@@ -31,8 +31,94 @@ const CASES = [
 
 export default function UseCases() {
   return (
-    <section className="pt-16 pb-20 md:pt-2 md:pb-28 md:-mt-[50px] xl:bg-transparent xl:py-0 xl:mt-0">
-      <div className="xl:relative xl:py-[100px] relative md:max-xl:min-h-[962px]">
+    <section className="pt-0 pb-20 md:pt-2 md:pb-28 md:-mt-[50px] xl:bg-transparent xl:py-0 xl:mt-0">
+
+      {/* ── MOBILE: dark card with staggered absolute-positioned cards ── */}
+      <div className="md:hidden mx-[10px] relative bg-[#2f2f2f] rounded-[20px]" style={{ height: 1414 }}>
+        <img
+          src="/landing-assets/card-tail-dark.svg"
+          alt=""
+          width={25}
+          height={16}
+          className="absolute bottom-0 -left-[10px] pointer-events-none"
+        />
+        <h2
+          className="absolute font-['Inter',sans-serif] uppercase text-[#E3DAD0] text-[50px] leading-[50px]"
+          style={{ left: 20, top: 23, width: 282 }}
+        >
+          <span className="font-normal">Whenever typing feels </span><span className="font-bold">like too much.</span>
+        </h2>
+        <p
+          className="absolute font-['Inter',sans-serif] text-[16px] leading-[28px] uppercase text-[#E3DAD0] font-medium"
+          style={{ left: 20, top: 303, width: 193 }}
+        >
+          Which is, honestly, most of the time.
+        </p>
+        <img
+          src="/landing-assets/usecases-swirl-mobile.svg"
+          alt=""
+          width={67}
+          height={404}
+          className="absolute pointer-events-none"
+          style={{ left: 250, top: 193 }}
+          aria-hidden="true"
+        />
+        <img
+          src="/landing-assets/usecases-swirl-mobile-2.svg"
+          alt=""
+          width={43}
+          height={197}
+          className="absolute pointer-events-none"
+          style={{ left: 58, top: 762 }}
+          aria-hidden="true"
+        />
+        {([
+          { ...CASES[0], cardLeft: 20,  cardTop: 394,  tailRight: false },
+          { ...CASES[1], cardLeft: 95,  cardTop: 644,  tailRight: true  },
+          { ...CASES[2], cardLeft: 20,  cardTop: 894,  tailRight: false },
+          { ...CASES[3], cardLeft: 95,  cardTop: 1144, tailRight: true  },
+        ] as Array<typeof CASES[0] & { cardLeft: number; cardTop: number; tailRight: boolean }>).map((c) => (
+          <div
+            key={c.label}
+            className="absolute bg-[#eaeaea] rounded-[20px] p-6"
+            style={{ left: c.cardLeft, top: c.cardTop, width: 240, height: 240 }}
+          >
+            <div
+              className={`absolute bottom-0 w-[25px] h-[16px] pointer-events-none ${c.tailRight ? "-right-[10px] -scale-x-100" : "-left-[10px]"}`}
+              style={{
+                backgroundColor: '#eaeaea',
+                WebkitMaskImage: 'url(/landing-assets/card-tail.svg)',
+                maskImage: 'url(/landing-assets/card-tail.svg)',
+                WebkitMaskRepeat: 'no-repeat',
+                maskRepeat: 'no-repeat',
+                WebkitMaskSize: 'contain',
+                maskSize: 'contain',
+              }}
+            />
+            <div
+              className="block mb-4"
+              style={{
+                width: c.iconW,
+                height: c.iconH,
+                backgroundColor: '#817e73',
+                WebkitMaskImage: `url(${c.icon})`,
+                maskImage: `url(${c.icon})`,
+                WebkitMaskRepeat: 'no-repeat',
+                maskRepeat: 'no-repeat',
+                WebkitMaskSize: 'contain',
+                maskSize: 'contain',
+                WebkitMaskPosition: 'center',
+                maskPosition: 'center',
+              }}
+            />
+            <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-black mb-3">{c.label}</p>
+            <p className="font-['Inter',sans-serif] font-normal text-[16px] leading-[28px] text-black/80">{c.body}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* ── TABLET + DESKTOP ── */}
+      <div className="hidden md:block xl:relative xl:py-[100px] relative md:max-xl:min-h-[962px]">
 
         {/* TABLET dark background (md-xl-): absolute, with margin from viewport edges, rounded, with bottom-left tail */}
         <div className="hidden md:block xl:hidden absolute inset-0 mx-5 bg-[#2f2f2f] rounded-[20px] pointer-events-none z-0">

@@ -20,9 +20,9 @@ export default function FinalCTA() {
   return (
     <section className="pt-16 md:pt-24">
 
-      {/* Orange CTA card — same edge policy as UseCases/FAQ: 20px from viewport on mobile/tablet */}
-      <div className="mx-5 xl:mx-0 relative bg-[#FF4122] rounded-tl-[20px] rounded-tr-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-tl-[20px] min-[1600px]:!rounded-tr-[20px] z-20">
-        <div className="px-6 pt-10 pb-8 md:px-12 md:pt-14 md:pb-12 xl:px-[100px] xl:pt-[100px] xl:pb-16">
+      {/* Orange CTA card — mobile: 10px margin, tablet: 20px, desktop: 0 */}
+      <div className="mx-[10px] md:mx-5 xl:mx-0 relative bg-[#FF4122] rounded-tl-[20px] rounded-tr-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-tl-[20px] min-[1600px]:!rounded-tr-[20px] z-20">
+        <div className="px-5 md:px-12 xl:px-[100px] pt-10 pb-8 md:pt-14 md:pb-12 xl:pt-[100px] xl:pb-16">
           {/* Logo aligned with heading on the left */}
           <AnimatedSensayLogoHover
             className="block h-[62px] md:h-[78px] xl:h-[86px] w-auto object-contain mb-8 md:mb-12"
@@ -43,8 +43,8 @@ export default function FinalCTA() {
         </div>
       </div>
 
-      {/* Dark bottom section — same edge policy as orange + UseCases/FAQ: 20px from viewport (sides + bottom) on mobile/tablet */}
-      <div className="mx-5 xl:mx-0 mb-5 xl:mb-0 min-[1600px]:!mb-16 relative bg-[#2f2f2f] rounded-bl-[20px] rounded-tr-[20px] rounded-br-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-bl-[20px] min-[1600px]:!rounded-tr-[20px] min-[1600px]:!rounded-br-[20px] z-0">
+      {/* Dark bottom section — mobile: 10px margin, tablet: 20px, desktop: 0 */}
+      <div className="mx-[10px] md:mx-5 xl:mx-0 mb-[10px] md:mb-5 xl:mb-0 min-[1600px]:!mb-16 relative bg-[#2f2f2f] rounded-bl-[20px] rounded-tr-[20px] rounded-br-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-bl-[20px] min-[1600px]:!rounded-tr-[20px] min-[1600px]:!rounded-br-[20px] z-0">
 
         {/* Tail at bottom-RIGHT — only when wrapper has rounded corners (mobile/tablet/≥1600) */}
         <img
@@ -55,8 +55,17 @@ export default function FinalCTA() {
           className="absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100 z-10 xl:hidden min-[1600px]:!block"
         />
 
-        {/* Paint waveform — single SVG (paint-desktop-tablet, viewBox 1580x2675), full width of dark wrapper */}
-        <div className="absolute left-0 right-0 pointer-events-none select-none" style={{ top: 0 }} aria-hidden="true">
+        {/* Paint waveform — mobile: 355×880, tablet/desktop: 1580×2168 */}
+        <div className="md:hidden absolute left-0 right-0 pointer-events-none select-none" style={{ top: 0 }} aria-hidden="true">
+          <div className="relative w-full" style={{ paddingTop: '220%' }}>
+            <img
+              src="/landing-assets/paint-mobile.svg"
+              alt=""
+              className="absolute bottom-0 left-0 w-full h-auto block"
+            />
+          </div>
+        </div>
+        <div className="hidden md:block absolute left-0 right-0 pointer-events-none select-none" style={{ top: 0 }} aria-hidden="true">
           <div className="relative w-full" style={{ paddingTop: '120%' }}>
             <img
               src="/landing-assets/paint-desktop-tablet.svg"
@@ -66,10 +75,10 @@ export default function FinalCTA() {
           </div>
         </div>
 
-        <div className="relative px-6 md:px-12 xl:px-[100px] pb-12 md:pb-16" style={{ paddingTop: '120%' }}>
+        <div className="relative px-5 md:px-12 xl:px-[100px] pb-12 md:pb-16 pt-[220%] md:pt-[120%]">
 
           {/* Puffy button */}
-          <div className="flex justify-center mt-[256px] md:mt-[320px] mb-[256px] md:mb-[320px]">
+          <div className="flex justify-center mt-4 md:mt-[320px] mb-[64px] md:mb-[320px]">
             <a
               href="#"
               className="group relative flex items-center gap-0 justify-center"
@@ -89,7 +98,7 @@ export default function FinalCTA() {
           </div>
 
           {/* Divider — full wrapper width via negative margin */}
-          <div className="border-t border-white/20 mb-6 md:mb-8 -mx-6 md:-mx-12 xl:-mx-[100px]" />
+          <div className="border-t border-white/20 mb-6 md:mb-8 -mx-5 md:-mx-12 xl:-mx-[100px]" />
 
           {/* Tagline */}
           <p className="text-center font-['Inter',sans-serif] text-[13px] leading-[28px] uppercase text-[#bfb9ac] mb-6 md:mb-8">
@@ -97,23 +106,49 @@ export default function FinalCTA() {
           </p>
 
           {/* Divider — full wrapper width via negative margin */}
-          <div className="border-t border-white/20 mb-8 md:mb-10 -mx-6 md:-mx-12 xl:-mx-[100px]" />
+          <div className="border-t border-white/20 mb-8 md:mb-10 -mx-5 md:-mx-12 xl:-mx-[100px]" />
 
-          {/* Footer */}
-          <div className="flex flex-col md:flex-row md:justify-between gap-6 font-['Inter',sans-serif] font-normal text-[16px] leading-[45px] md:text-[13px] md:leading-[34px] xl:text-[16px] xl:leading-[45px] text-[#e3dad0]">
-            <div>
-              Advertum Agency since 2009<br />
-              hello@advertum.com<br />
-              +372 5551 1283
+          {/* Footer — mobile: centered stack; tablet+: flex-row justify-between */}
+          <div className="font-['Inter',sans-serif] font-normal text-[16px] leading-[45px] md:text-[13px] md:leading-[34px] xl:text-[16px] xl:leading-[45px] text-[#e3dad0]">
+            <div className="flex flex-col items-center text-center gap-8 md:hidden">
+              <div>
+                Advertum Agency<br />
+                since 2009<br />
+                hello@advertum.com<br />
+                +372 5551 1283
+              </div>
+              <div>
+                Narva mnt 5, 10117<br />
+                Tallinn<br />
+                Harjumaa,<br />
+                Estonia<br />
+                Get directions
+              </div>
+              <div>
+                Follow<br />
+                @advertumofficial
+              </div>
             </div>
-            <div>
-              Narva mnt 5, 10117 Tallinn,<br />
-              Harjumaa, Estonia<br />
-              Get directions
+            <div className="hidden md:flex md:flex-row md:justify-between gap-6">
+              <div>
+                Advertum Agency since 2009<br />
+                hello@advertum.com<br />
+                +372 5551 1283
+              </div>
+              <div>
+                Narva mnt 5, 10117 Tallinn,<br />
+                Harjumaa, Estonia<br />
+                Get directions
+              </div>
+              <div className="text-right">
+                <span className="font-semibold xl:font-normal">Follow </span><span className="font-medium">@advertumofficial</span>
+              </div>
             </div>
-            <div className="md:text-right">
-              <span className="font-semibold xl:font-normal">Follow </span><span className="font-medium">@advertumofficial</span>
-            </div>
+          </div>
+
+          {/* Advertum logo — mobile only, centered */}
+          <div className="flex justify-center mt-8 md:hidden">
+            <img src="/landing-assets/advertum-logo.svg" alt="Advertum" width={114} height={20} />
           </div>
 
         </div>

@@ -46,8 +46,8 @@ export default function Testimonials() {
       <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
 
         {/* Heading */}
-        <h2 className="font-['Inter',sans-serif] uppercase text-black mb-12 md:mb-16 text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-xl:ml-[30px] md:max-xl:max-w-[372px] xl:max-w-[776px]">
-          <span className="font-normal">Real people. </span><span className="font-bold">Real<br />messages</span>
+        <h2 className="font-['Inter',sans-serif] uppercase text-black mb-12 md:mb-16 text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] max-w-[306px] md:max-xl:ml-[30px] md:max-xl:max-w-[372px] xl:max-w-[776px]">
+          <span className="font-normal">Real people. </span><span className="font-bold">Real messages.</span>
         </h2>
 
         {/* Constrained block (figma 1180px) — centered horizontally */}
@@ -64,7 +64,7 @@ export default function Testimonials() {
           />
 
           {/* 3 testimonial cards — 380x420, gap 20, no border, no dark wrapper */}
-          <div className="relative z-20 flex flex-col md:flex-row md:gap-5">
+          <div className="relative z-20 flex flex-col gap-5 md:flex-row md:gap-5">
             {TESTIMONIALS.map((t) => (
               <div
                 key={t.name}

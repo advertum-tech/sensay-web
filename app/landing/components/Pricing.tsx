@@ -100,7 +100,7 @@ export default function Pricing() {
           </h2>
 
           {/* Mobile-only supplement (tablet supplement lives in 834-wrapper above) */}
-          <p className="mt-4 font-['Inter',sans-serif] uppercase text-[16px] leading-[28px] text-black md:hidden">
+          <p className="mt-4 font-['Inter',sans-serif] uppercase text-[16px] leading-[28px] text-black max-w-[193px] md:hidden">
             <span className="font-bold">Start free. </span><span className="font-medium">Upgrade when you&apos;re hooked.</span>
           </p>
 
@@ -171,10 +171,12 @@ export default function Pricing() {
 
             {/* PRO */}
             <div className="relative flex-1 bg-[#2f2f2f] rounded-[20px] p-6 md:p-8 flex flex-col mt-6 md:mt-0 md:scale-[1.04] md:z-10">
-              <span className="absolute -top-[18px] left-1/2 -translate-x-1/2 whitespace-nowrap inline-flex items-center gap-1.5 bg-[#FF4122] text-white font-['Inter',sans-serif] font-bold text-[11px] uppercase rounded-full px-4 h-[28px]">
-                <LuSparkles size={11} />
-                Most popular
-              </span>
+              <div className="absolute -top-[18px] inset-x-0 flex justify-center pointer-events-none">
+                <span className="pointer-events-auto whitespace-nowrap inline-flex items-center gap-1.5 bg-[#FF4122] text-white font-['Inter',sans-serif] font-bold text-[11px] uppercase rounded-full px-4 h-[28px]">
+                  <LuSparkles size={11} />
+                  Most popular
+                </span>
+              </div>
               <img src="/landing-assets/card-tail-dark.svg" alt="" width={25} height={16} className="absolute bottom-0 -left-[10px] pointer-events-none" />
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#c3beac] text-[#FF4122] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
                 PRO
@@ -222,8 +224,8 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a href="#" className="block border border-white/70 rounded-[7px] h-[55px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[16px] uppercase text-white hover:bg-white hover:text-black transition-colors" onMouseEnter={() => maxAnimRef.current?.start()} onMouseLeave={() => maxAnimRef.current?.stop()}>
-                GET IN TOUCH
+              <a href="#" className="block bg-white text-black rounded-[7px] h-[55px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[16px] uppercase hover:bg-[#e3dad0] transition-colors" onMouseEnter={() => maxAnimRef.current?.start()} onMouseLeave={() => maxAnimRef.current?.stop()}>
+                GET MAX
               </a>
             </div>
 

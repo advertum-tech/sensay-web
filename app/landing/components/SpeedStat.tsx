@@ -32,7 +32,7 @@ function StepFlow({ steps, arrowColor }: { steps: string[]; arrowColor: string }
 
 export default function SpeedStat() {
   return (
-    <section className="pt-10 pb-20 md:pt-12 md:pb-28 xl:pt-[98px] relative">
+    <section className="pt-10 pb-5 md:pt-12 md:pb-28 xl:pt-[98px] relative">
 
       {/* TABLET supplement — pixel-perfect 834px wrapper trick (same as HowItWorks) */}
       <div className="hidden md:block xl:hidden absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none" style={{ width: 834 }}>

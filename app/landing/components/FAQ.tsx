@@ -62,10 +62,21 @@ export default function FAQ() {
   }
 
   return (
-    <section className="pt-12 pb-20 md:pt-16 md:pb-28">
+    <section className="pt-12 pb-20 md:pt-16 md:pb-28 relative">
+
+      {/* Swirl peeking from under this card into Pricing — mobile only */}
+      <img
+        src="/landing-assets/swirl-pricing-mobile.svg"
+        alt=""
+        width={97}
+        height={148}
+        className="md:hidden absolute pointer-events-none"
+        style={{ left: 130, bottom: -65 }}
+        aria-hidden="true"
+      />
 
       {/* Dark wrapper — same edge policy as UseCases: 20px from viewport on mobile/tablet, full-width edge-to-edge on xl 1280–1599, capped on ≥1600 */}
-      <div className="mx-5 xl:mx-0 relative bg-[#2f2f2f] rounded-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-[20px]">
+      <div className="mx-[10px] md:mx-5 xl:mx-0 relative bg-[#2f2f2f] rounded-[20px] xl:rounded-none min-[1600px]:!mx-auto min-[1600px]:!max-w-[1580px] min-[1600px]:!rounded-[20px]">
 
         {/* Tail at bottom-RIGHT */}
         <img
@@ -73,7 +84,7 @@ export default function FAQ() {
           alt=""
           width={25}
           height={16}
-          className="absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100"
+          className="absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100 xl:hidden min-[1600px]:!block"
         />
 
         {/* Heading */}
