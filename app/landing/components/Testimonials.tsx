@@ -18,7 +18,7 @@ const TESTIMONIALS = [
     name: "James R.",
     role: "Consultant",
     avatar: "/landing-assets/avatar-james.png",
-    mirrored: false,
+    mirrored: true,
   },
 ];
 
