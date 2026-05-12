@@ -2,13 +2,19 @@ export default function HowItWorks() {
   return (
     <section className="pt-16 pb-10 md:pt-4 md:pb-12 xl:pt-24 relative">
 
-      {/* TABLET supplement — single fixed 834px wrapper, right shifts via responsive classes */}
       <div className="hidden md:block xl:hidden absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none" style={{ width: 834 }}>
         <p
-          className="absolute font-['Inter',sans-serif] text-[16px] leading-[28px] uppercase text-black font-medium origin-top-left md:right-[144px] lg:right-[84px] md:top-[45px] lg:top-[35px]"
-          style={{ width: 202, transform: 'rotate(5deg)' }}
+          className="
+          {/*bg-amber-400 */}
+          absolute font-['Inter',sans-serif] text-[16px] leading-[28px]
+
+          uppercase text-black font-medium origin-top-left
+
+          md:right-[154px] lg:right-[73px] md:top-[45px] lg:top-[45px]"
+
+          style={{ width: 220, transform: 'rotate(5deg)' }}
         >
-          No learning curve. <span className="font-bold">No setup.</span> You already know how to use it.
+          No learning curve.<br /><span className="font-bold">No setup.</span> You already know how to use it.
         </p>
       </div>
 
@@ -36,9 +42,9 @@ export default function HowItWorks() {
           {/* Desktop supplement */}
           <p
             className="hidden xl:block xl:absolute font-['Inter',sans-serif] xl:text-[16px] xl:leading-[28px] xl:uppercase xl:text-black xl:font-medium xl:origin-top-left"
-            style={{ top: 66, right: 258, width: 202, transform: 'rotate(5deg)' }}
+            style={{ top: 66, right: 218, width: 250, transform: 'rotate(5deg)' }}
           >
-            No learning curve. <span className="font-bold">No setup.</span> You already know how to use it.
+            No learning curve.<br /><span className="font-bold">No setup.</span> You already know how to use it.
           </p>
         </div>
 
