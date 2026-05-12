@@ -48,12 +48,12 @@ export default function SpeedStat() {
 
         {/* Heading */}
         <div className="mb-12 md:mb-16 xl:relative">
-          <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] md:text-[50px] xl:text-[100px] leading-[50px] md:leading-[50px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[282px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[282px] xl:max-w-[778px]">
+          <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] md:text-[50px] xl:text-[100px] leading-[50px] md:leading-[50px] xl:leading-[80px] max-w-[282px] md:max-w-none md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[282px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[282px] xl:max-w-[778px]">
             <span className="font-normal">You type 40 words a minute.</span><br />
             <span className="font-bold">You speak 130.</span>
           </h2>
           {/* Mobile/tablet supplement */}
-          <p className="mt-4 font-['Inter',sans-serif] text-[16px] leading-[28px] uppercase text-black font-medium max-w-[600px] md:hidden">
+          <p className="mt-4 font-['Inter',sans-serif] text-[16px] leading-[28px] uppercase text-black font-medium max-w-[193px] md:hidden">
             <span className="font-bold">Your thoughts don&apos;t slow down for your fingers.</span> Neither should your messages.
           </p>
           {/* Desktop supplement — positioned per figma node 131:2802 */}

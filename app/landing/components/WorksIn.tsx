@@ -32,7 +32,7 @@ function CardTail({ mirrored }: { mirrored?: boolean }) {
 
 function AppCard({ src, alt, mirrored }: { src: string; alt: string; mirrored?: boolean }) {
   return (
-    <div className="relative w-[140px] h-[140px] md:w-[112px] md:h-[112px] xl:w-[140px] xl:h-[140px] bg-white rounded-[20px] flex items-center justify-center shrink-0">
+    <div className="relative w-[105px] h-[105px] md:w-[112px] md:h-[112px] xl:w-[140px] xl:h-[140px] bg-white rounded-[20px] flex items-center justify-center shrink-0">
       <CardTail mirrored={mirrored} />
       <img src={src} alt={alt} className="w-[60px] h-[60px] md:w-[48px] md:h-[48px] xl:w-[55px] xl:h-[55px] object-contain" />
     </div>
@@ -42,6 +42,27 @@ function AppCard({ src, alt, mirrored }: { src: string; alt: string; mirrored?: 
 export default function WorksIn() {
   return (
     <section className="pt-10 pb-10 md:pt-12 md:pb-12 relative">
+
+      {/* Mobile swirl top — short segment peeking from under "Text appears" card */}
+      <img
+        src="/landing-assets/worksIn-swirl-mobile-top.svg"
+        alt=""
+        width={206}
+        height={1057}
+        className="md:hidden absolute pointer-events-none"
+        style={{ left: 133, top: -70 }}
+        aria-hidden="true"
+      />
+      {/* Mobile swirl bottom — large arc wrapping around heading on the right */}
+      <img
+        src="/landing-assets/worksIn-swirl-mobile-bottom.svg"
+        alt=""
+        width={206}
+        height={1057}
+        className="md:hidden absolute pointer-events-none"
+        style={{ left: 133, top: -70 }}
+        aria-hidden="true"
+      />
 
       {/* TABLET swirl — pixel-perfect 834px wrapper (like Hero md/lg). Swirl natural size 336x942, starts under HowItWorks last card and extends down through SpeedStat */}
       <div className="hidden md:block xl:hidden absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none" style={{ width: 834 }}>
@@ -62,7 +83,7 @@ export default function WorksIn() {
 
         {/* Mobile logos — flex-wrap, 12 icons natural flow */}
         <div className="md:hidden">
-          <div className="relative z-20 flex flex-wrap gap-5">
+          <div className="relative z-20 flex flex-wrap gap-[10px]">
             {ICONS.map((app, i) => <AppCard key={app.alt} {...app} mirrored={i === ICONS.length - 1} />)}
           </div>
         </div>
