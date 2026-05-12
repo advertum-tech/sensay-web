@@ -53,16 +53,6 @@ export default function WorksIn() {
         style={{ left: 133, top: -70 }}
         aria-hidden="true"
       />
-      {/* Mobile swirl bottom — large arc wrapping around heading on the right */}
-      <img
-        src="/landing-assets/worksIn-swirl-mobile-bottom.svg"
-        alt=""
-        width={206}
-        height={1057}
-        className="md:hidden absolute pointer-events-none"
-        style={{ left: 133, top: -70 }}
-        aria-hidden="true"
-      />
 
       {/* TABLET swirl — pixel-perfect 834px wrapper (like Hero md/lg). Swirl natural size 336x942, starts under HowItWorks last card and extends down through SpeedStat */}
       <div className="hidden md:block xl:hidden absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none" style={{ width: 834 }}>
@@ -76,8 +66,8 @@ export default function WorksIn() {
         />
       </div>
 
-      <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
-        <h2 className="font-['Inter',sans-serif] uppercase text-black mb-12 md:mb-16 text-[50px] md:text-[50px] xl:text-[100px] leading-[50px] md:leading-[50px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px]">
+      <div className="pl-5 pr-0 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
+        <h2 className="font-['Inter',sans-serif] uppercase text-black mb-[27px] md:mb-16 text-[50px] md:text-[50px] xl:text-[100px] leading-[50px] md:leading-[50px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px]">
           <span className="font-normal">Works </span><span className="font-bold">in</span>
         </h2>
 

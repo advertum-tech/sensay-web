@@ -31,7 +31,18 @@ const CASES = [
 
 export default function UseCases() {
   return (
-    <section className="pt-0 pb-20 md:pt-2 md:pb-28 md:-mt-[50px] xl:bg-transparent xl:py-0 xl:mt-0">
+    <section className="pt-[100px] pb-6 md:pt-2 md:pb-28 md:-mt-[50px] xl:bg-transparent xl:py-0 xl:mt-0 relative z-[1]">
+
+      {/* Mobile connector swirl — bridges SpeedStat and UseCases */}
+      <img
+        src="/landing-assets/connector-swirl-mobile.svg"
+        alt=""
+        width={22}
+        height={110}
+        className="md:hidden absolute pointer-events-none"
+        style={{ left: 50, top: -10 }}
+        aria-hidden="true"
+      />
 
       {/* ── MOBILE: dark card with staggered absolute-positioned cards ── */}
       <div className="md:hidden mx-[10px] relative bg-[#2f2f2f] rounded-[20px]" style={{ height: 1414 }}>

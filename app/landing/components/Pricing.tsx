@@ -95,12 +95,12 @@ export default function Pricing() {
             style={{ top: -70, transform: 'rotate(2deg)' }}
           />
 
-          <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] lg:max-xl:ml-[calc(50%-423px)] md:max-w-[306px] xl:max-w-[780px]">
+          <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] lg:max-xl:ml-[calc(50%-423px)] max-[499px]:max-w-[306px] xl:max-w-[780px]">
             <span className="font-bold">Simple</span><span className="font-normal"> pricing.</span>
           </h2>
 
           {/* Mobile-only supplement (tablet supplement lives in 834-wrapper above) */}
-          <p className="mt-4 font-['Inter',sans-serif] uppercase text-[16px] leading-[28px] text-black max-w-[193px] md:hidden">
+          <p className="mt-4 font-['Inter',sans-serif] uppercase text-[16px] leading-[28px] text-black max-[499px]:max-w-[193px] md:hidden">
             <span className="font-bold">Start free. </span><span className="font-medium">Upgrade when you&apos;re hooked.</span>
           </p>
 

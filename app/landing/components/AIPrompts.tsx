@@ -22,16 +22,15 @@ function Chip({ children }: { children: React.ReactNode }) {
 
 export default function AIPrompts() {
   return (
-    <section className="pt-16 pb-12 md:pt-24 md:pb-16 relative">
+    <section className="pt-6 pb-12 md:pt-24 md:pb-16 relative">
 
       {/* Mobile swirl 1 — right edge */}
       <img
         src="/landing-assets/swirl-aiprompts-mobile.svg"
         alt=""
-        width={27}
-        height={223}
-        className="md:hidden absolute pointer-events-none"
-        style={{ left: 265, top: 3 }}
+        width={33}
+        height={229}
+        className="md:hidden absolute pointer-events-none max-[499px]:-top-[47px] min-[500px]:top-[-143px] max-[499px]:left-[265px] min-[500px]:left-[295px]"
         aria-hidden="true"
       />
 
@@ -41,8 +40,7 @@ export default function AIPrompts() {
         alt=""
         width={135}
         height={269}
-        className="md:hidden absolute pointer-events-none"
-        style={{ left: 204, top: 440 }}
+        className="md:hidden absolute pointer-events-none max-[499px]:top-[410px] min-[500px]:top-[250px] max-[499px]:left-[204px] min-[500px]:left-[234px]"
         aria-hidden="true"
       />
 
@@ -79,7 +77,7 @@ export default function AIPrompts() {
       <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
 
         {/* Heading + paint-splash badges (xl only) */}
-        <div className="mb-12 md:mb-16">
+        <div className="mb-6 md:mb-16">
 
           {/* Mobile "For AI power users" badge */}
           <div className="md:hidden relative w-[170px] h-[55px] mb-4">
@@ -117,8 +115,10 @@ export default function AIPrompts() {
               style={{ top: 0 }}
             />
 
-            <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] lg:max-xl:ml-[calc(50%-423px)] md:max-w-[352px] xl:max-w-[776px]">
-              <span className="font-normal">Your AI gets smarter </span><span className="font-bold">when you<br />stop typing to it.</span>
+            <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] max-[499px]:max-w-[282px] md:max-lg:ml-[calc(50%-336px)] lg:max-xl:ml-[calc(50%-423px)] md:max-w-[352px] xl:max-w-[776px]">
+              <span className="font-normal">Your AI gets smarter </span>
+              <span className="hidden min-[500px]:inline md:hidden"> </span>
+              <span className="font-bold">when you{" "}<br className="max-[499px]:block hidden" />stop typing to it.</span>
             </h2>
 
             {/* Mobile-only supplement (tablet supplement lives in 834-wrapper above) */}
