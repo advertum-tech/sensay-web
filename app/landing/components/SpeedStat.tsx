@@ -40,8 +40,8 @@ export default function SpeedStat() {
         alt=""
         width={206}
         height={1057}
-        className="md:hidden absolute pointer-events-none"
-        style={{ left: 133, top: -436 }}
+        className="md:hidden absolute pointer-events-none max-[499px]:left-[133px] min-[500px]:left-[133px]"
+        style={{ top: -436 }}
         aria-hidden="true"
       />
 
@@ -80,7 +80,7 @@ export default function SpeedStat() {
         <div className="relative z-20 flex flex-col md:flex-row gap-5 md:max-w-[1180px] md:mx-auto">
 
           {/* Typing box (tail at bottom-LEFT, beige) */}
-          <div className="relative flex-1 bg-[#bfb9ac] rounded-[20px] p-6 md:p-8">
+          <div className="relative flex-1 bg-[#bfb9ac] rounded-[20px] p-6 md:p-8 max-[499px]:mr-[50px] min-[500px]:mr-[100px] md:mr-0">
             <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="absolute bottom-0 -left-[10px] pointer-events-none" />
             <div className="flex items-center gap-3 mb-4">
               <SensayDot cutoutColor="#bfb9ac" pulse={false} solid />
@@ -92,7 +92,7 @@ export default function SpeedStat() {
           </div>
 
           {/* Speaking with Sensay box (mirrored: tail at bottom-RIGHT, orange + white logo top-right) */}
-          <div className="relative flex-1 bg-[#FF4122] rounded-[20px] p-6 md:p-8">
+          <div className="relative flex-1 bg-[#FF4122] rounded-[20px] p-6 md:p-8 max-[499px]:ml-[50px] min-[500px]:ml-[100px] md:ml-0">
             <img src="/landing-assets/card-tail-orange.svg" alt="" width={25} height={16} className="absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100" />
             <AnimatedSensayLogoHover width={41} height={40} className="absolute top-5 right-5 md:top-6 md:right-6 pointer-events-none" />
             <div className="flex items-center gap-3 mb-4">

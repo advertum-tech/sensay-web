@@ -40,7 +40,7 @@ export default function UseCases() {
         width={22}
         height={110}
         className="md:hidden absolute pointer-events-none"
-        style={{ left: 50, top: -10 }}
+        style={{ left: 100, top: -10 }}
         aria-hidden="true"
       />
 

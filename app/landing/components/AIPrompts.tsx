@@ -144,7 +144,7 @@ export default function AIPrompts() {
         <div className="relative z-20 flex flex-col md:flex-row md:items-start gap-5 mb-5">
 
           {/* Typed prompt box (BL square, tail at BL, beige) */}
-          <div className="relative flex-1 bg-[#bfb9ac] rounded-[20px] p-6 md:p-8 md:min-h-[160px]">
+          <div className="relative flex-1 bg-[#bfb9ac] rounded-[20px] p-6 md:p-8 md:min-h-[160px] max-[499px]:mr-[50px] min-[500px]:mr-[100px] md:mr-0">
             <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="absolute bottom-0 -left-[10px] pointer-events-none" />
             <div className="flex items-center gap-3 mb-5">
               <SensayDot cutoutColor="#bfb9ac" pulse={false} solid />
@@ -158,10 +158,10 @@ export default function AIPrompts() {
           </div>
 
           {/* Speaking with Sensay box (BR square, tail at BR, orange + white logo top-right) */}
-          <div className="relative flex-1 bg-[#FF4122] rounded-[20px] p-6 md:p-8 md:min-h-[300px]">
+          <div className="relative flex-1 bg-[#FF4122] rounded-[20px] p-6 md:p-8 md:min-h-[300px] max-[499px]:ml-[50px] min-[500px]:ml-[100px] md:ml-0">
             <img src="/landing-assets/card-tail-orange.svg" alt="" width={25} height={16} className="absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100" />
             <AnimatedSensayLogoHover width={41} height={40} className="absolute top-5 right-5 md:top-6 md:right-6 pointer-events-none" />
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center gap-3 mb-5 max-[499px]:pr-[44px]">
               <SensayDot cutoutColor="#FF4122" />
               <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-white">Spoken → cleaned by Sensay</p>
             </div>
