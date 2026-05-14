@@ -95,7 +95,7 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
 
       {/* Loved badge — mobile only, outside overflow wrapper so line can bleed into next section */}
       <div className="md:hidden relative" style={{ height: 270 }}>
-        <div className="absolute z-10" style={{ left: 43, top: 7, width: 263, height: 263 }}>
+        <div className="absolute z-10" style={{ left: '50%', transform: 'translateX(-50%)', top: 7, width: 263, height: 263 }}>
           <img src="/hero-loved-circle-mobile.svg" alt="" width={263} height={263} className="w-full h-full" />
           <div className="absolute inset-0 flex flex-col items-center justify-center" style={{ transform: 'rotate(-5deg)' }}>
             <img src="/loved-avatars.svg" alt="" style={{ width: 59 }} className="mb-1" />

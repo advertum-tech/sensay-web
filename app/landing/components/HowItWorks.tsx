@@ -1,6 +1,6 @@
 export default function HowItWorks() {
   return (
-    <section className="pt-16 pb-10 md:pt-4 md:pb-12 xl:pt-24 relative">
+    <section className="pt-[21px] pb-10 md:pt-4 md:pb-12 xl:pt-24 relative">
 
       <div className="hidden md:block xl:hidden absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none" style={{ width: 834 }}>
         <p
@@ -21,7 +21,16 @@ export default function HowItWorks() {
       <div className="px-5 md:px-[50px] xl:px-16 max-w-[1680px] xl:max-w-screen-2xl mx-auto">
 
         {/* Heading */}
-        <div className="mb-12 md:mb-16 relative">
+        <div className="mb-6 md:mb-16 relative">
+          <img
+            src="/hero-loved-line-mobile.svg"
+            alt=""
+            width={91}
+            height={728}
+            className="absolute md:hidden pointer-events-none z-0"
+            style={{ top: -76, left: '50%', transform: 'translateX(-50%)' }}
+            aria-hidden="true"
+          />
           <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] max-w-[319px] md:text-[50px] md:leading-[50px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:text-[100px] xl:leading-[80px] xl:max-w-[778px]">
             <span className="font-normal">Three<br className="hidden md:inline xl:hidden" /> seconds,<br className="hidden md:inline xl:hidden" /> </span><span className="font-bold">start to<br className="hidden md:inline xl:hidden" /> finish.</span>
           </h2>

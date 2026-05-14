@@ -1,6 +1,6 @@
 export default function HeroPersonMobile({ src }: { src?: string }) {
   return (
-    <div className="relative mx-auto w-[359px] max-[359px]:w-[274px] min-[500px]:w-[375px]" style={{ marginTop: "-56px" }}>
+    <div className="relative mx-auto w-[359px] max-[359px]:w-[274px] min-[500px]:w-[375px]" style={{ marginTop: "-80px" }}>
       <img
         src="/hero-person.png"
         alt=""
@@ -9,7 +9,7 @@ export default function HeroPersonMobile({ src }: { src?: string }) {
       <img
         src="/hero-dashed-mobile.svg"
         alt=""
-        className="absolute z-20 w-[204px] max-[359px]:w-[163px] top-[5px] max-[359px]:top-[4px] left-[105px] max-[359px]:left-[76px]"
+        className="absolute z-20 w-[204px] max-[359px]:w-[163px] top-[5px] max-[359px]:top-[4px] left-[100px] max-[359px]:left-[71px]"
       />
       <img
         src="/hero-mic-btn.svg"
