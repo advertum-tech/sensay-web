@@ -95,7 +95,7 @@ export default function Pricing() {
             style={{ top: -70, transform: 'rotate(2deg)' }}
           />
 
-          <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] lg:max-xl:ml-[calc(50%-423px)] max-[499px]:max-w-[306px] xl:max-w-[780px]">
+          <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] lg:max-xl:ml-[calc(50%-423px)] max-[499px]:max-w-[306px] md:max-xl:max-w-[306px] xl:max-w-[780px]">
             <span className="font-bold">Simple</span><span className="font-normal"> pricing.</span>
           </h2>
 
