@@ -87,14 +87,13 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
             <img src="/phone-text-and-white-logo.svg" alt="" className="absolute left-[63px] max-[359px]:left-[50px] top-[94px] max-[359px]:top-[75px] w-[230px] max-[359px]:w-[184px]" />
           </div>
 
-          {/* Separator — iPhone bottom sits on this line, per Figma y=1524 */}
-          <div className="h-px bg-white max-[499px]:ml-[calc(50%-50vw)] max-[499px]:w-screen" />
-
         </div>
       </div>
 
       {/* Loved badge — mobile only, outside overflow wrapper so line can bleed into next section */}
       <div className="md:hidden relative" style={{ height: 270 }}>
+        {/* Separator — iPhone bottom sits on this line */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-white" />
         <div className="absolute z-10" style={{ left: '50%', transform: 'translateX(-50%)', top: 7, width: 263, height: 263 }}>
           <img src="/hero-loved-circle-mobile.svg" alt="" width={263} height={263} className="w-full h-full" />
           <div className="absolute inset-0 flex flex-col items-center justify-center" style={{ transform: 'rotate(-5deg)' }}>
@@ -104,6 +103,15 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
               <br />people already
             </p>
           </div>
+          <img
+            src="/hero-loved-line-mobile.svg"
+            alt=""
+            width={91}
+            height={728}
+            className="absolute pointer-events-none"
+            style={{ left: 195, top: 208, zIndex: 0 }}
+            aria-hidden="true"
+          />
         </div>
       </div>
 

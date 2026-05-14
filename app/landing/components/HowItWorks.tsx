@@ -22,16 +22,7 @@ export default function HowItWorks() {
 
         {/* Heading */}
         <div className="mb-6 md:mb-16 relative">
-          <img
-            src="/hero-loved-line-mobile.svg"
-            alt=""
-            width={91}
-            height={728}
-            className="absolute md:hidden pointer-events-none z-0"
-            style={{ top: -76, left: '50%', transform: 'translateX(-50%)' }}
-            aria-hidden="true"
-          />
-          <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] max-w-[319px] md:text-[50px] md:leading-[50px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:text-[100px] xl:leading-[80px] xl:max-w-[778px]">
+<h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] max-w-[319px] md:text-[50px] md:leading-[50px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:text-[100px] xl:leading-[80px] xl:max-w-[778px]">
             <span className="font-normal">Three<br className="hidden md:inline xl:hidden" /> seconds,<br className="hidden md:inline xl:hidden" /> </span><span className="font-bold">start to<br className="hidden md:inline xl:hidden" /> finish.</span>
           </h2>
           {/* Mobile-only supplement (normal flow) */}
@@ -48,39 +39,45 @@ export default function HowItWorks() {
         </div>
 
         {/* 3 step cards */}
-        <div className="relative z-20 md:flex md:flex-row md:gap-5 md:max-w-[1180px] md:mx-auto">
+        <div className="relative z-20 flex flex-col gap-[10px] md:flex-row md:gap-5 md:max-w-[1180px] md:mx-auto">
 
           {/* Step 1 — Tap and talk */}
-          <div className="relative w-[240px] h-[280px] md:flex-1 md:w-auto md:h-auto md:min-h-[240px] bg-[#bfb9ac] rounded-[20px] p-6 md:p-7">
-            <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="hidden md:block absolute bottom-0 -left-[10px] pointer-events-none" />
-            <div className="relative w-[55px] h-[55px] mb-5">
-              <span className="absolute inset-0 rounded-full bg-[#E3DAD0] animate-step-pulse" style={{ animationDelay: '0s' }} />
-              <img src="/landing-assets/step-icon-mic.svg" alt="" width={55} height={55} className="relative block" />
+          <div className="max-[399px]:mr-[50px] min-[400px]:mr-[100px] md:flex-1 md:mr-0">
+            <div className="relative bg-[#bfb9ac] rounded-[20px] p-6 md:p-7 md:min-h-[240px]">
+              <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="absolute bottom-0 -left-[10px] pointer-events-none" />
+              <div className="relative w-[55px] h-[55px] mb-5">
+                <span className="absolute inset-0 rounded-full bg-[#E3DAD0] animate-step-pulse" style={{ animationDelay: '0s' }} />
+                <img src="/landing-assets/step-icon-mic.svg" alt="" width={55} height={55} className="relative block" />
+              </div>
+              <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-[#E3DAD0] xl:text-[#F0ECE3] mb-3">Tap and talk</p>
+              <p className="font-['Inter',sans-serif] text-[16px] text-[#2f2f2f] leading-[28px]">Open Sensay, tap the mic. Speak the way you'd say it to someone in the room.</p>
             </div>
-            <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-[#E3DAD0] xl:text-[#F0ECE3] mb-3">Tap and talk</p>
-            <p className="font-['Inter',sans-serif] text-[16px] text-[#2f2f2f] leading-[28px]">Open Sensay, tap the mic. Speak the way you'd say it to someone in the room.</p>
           </div>
 
-          {/* Step 2 — Sensay cleans it (offset right on mobile) */}
-          <div className="relative w-[240px] h-[280px] ml-[95px] mt-[10px] md:flex-1 md:w-auto md:h-auto md:min-h-[240px] md:ml-0 md:mt-0 bg-[#bfb9ac] rounded-[20px] p-6 md:p-7">
-            <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="hidden md:block absolute bottom-0 -left-[10px] pointer-events-none" />
-            <div className="relative w-[55px] h-[55px] mb-5">
-              <span className="absolute inset-0 rounded-full bg-[#E3DAD0] animate-step-pulse" style={{ animationDelay: '1s' }} />
-              <img src="/landing-assets/step-icon-check.svg" alt="" width={55} height={55} className="relative block" />
+          {/* Step 2 — Sensay cleans it */}
+          <div className="max-[399px]:ml-[50px] min-[400px]:ml-[100px] md:flex-1 md:ml-0">
+            <div className="relative bg-[#bfb9ac] rounded-[20px] p-6 md:p-7 md:min-h-[240px]">
+              <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100" />
+              <div className="relative w-[55px] h-[55px] mb-5">
+                <span className="absolute inset-0 rounded-full bg-[#E3DAD0] animate-step-pulse" style={{ animationDelay: '1s' }} />
+                <img src="/landing-assets/step-icon-check.svg" alt="" width={55} height={55} className="relative block" />
+              </div>
+              <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-[#E3DAD0] xl:text-[#F0ECE3] mb-3">Sensay cleans it</p>
+              <p className="font-['Inter',sans-serif] text-[16px] text-[#2f2f2f] leading-[28px]">Filler words, pauses, and "um"s — gone. Grammar fixed. Register matched to where it's going.</p>
             </div>
-            <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-[#E3DAD0] xl:text-[#F0ECE3] mb-3">Sensay cleans it</p>
-            <p className="font-['Inter',sans-serif] text-[16px] text-[#2f2f2f] leading-[28px]">Filler words, pauses, and "um"s — gone. Grammar fixed. Register matched to where it's going.</p>
           </div>
 
-          {/* Step 3 — Text appears (back to left on mobile) */}
-          <div className="relative w-[240px] h-[280px] mt-[10px] md:flex-1 md:w-auto md:h-auto md:min-h-[240px] md:mt-0 bg-[#bfb9ac] rounded-[20px] p-6 md:p-7">
-            <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="hidden md:block absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100" />
-            <div className="relative w-[55px] h-[55px] mb-5">
-              <span className="absolute inset-0 rounded-full bg-[#E3DAD0] animate-step-pulse" style={{ animationDelay: '2s' }} />
-              <img src="/landing-assets/step-icon-text.svg" alt="" width={55} height={55} className="relative block" />
+          {/* Step 3 — Text appears */}
+          <div className="max-[399px]:mr-[50px] min-[400px]:mr-[100px] md:flex-1 md:mr-0">
+            <div className="relative bg-[#bfb9ac] rounded-[20px] p-6 md:p-7 md:min-h-[240px]">
+              <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="absolute bottom-0 -left-[10px] pointer-events-none" />
+              <div className="relative w-[55px] h-[55px] mb-5">
+                <span className="absolute inset-0 rounded-full bg-[#E3DAD0] animate-step-pulse" style={{ animationDelay: '2s' }} />
+                <img src="/landing-assets/step-icon-text.svg" alt="" width={55} height={55} className="relative block" />
+              </div>
+              <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-[#E3DAD0] xl:text-[#F0ECE3] mb-3">Text appears</p>
+              <p className="font-['Inter',sans-serif] text-[16px] text-[#2f2f2f] leading-[28px]">In your email, Slack, WhatsApp, Notion — wherever your cursor is. Paste nothing. Done.</p>
             </div>
-            <p className="font-['Inter',sans-serif] font-bold text-[16px] leading-[28px] uppercase text-[#E3DAD0] xl:text-[#F0ECE3] mb-3">Text appears</p>
-            <p className="font-['Inter',sans-serif] text-[16px] text-[#2f2f2f] leading-[28px]">In your email, Slack, WhatsApp, Notion — wherever your cursor is. Paste nothing. Done.</p>
           </div>
 
         </div>
