@@ -22,16 +22,6 @@ export default function HowItWorks() {
 
         {/* Heading */}
         <div className="mb-12 md:mb-16 relative">
-          {/* Mobile swirl — decorative, runs from heading through card area */}
-          <img
-            src="/howitworks-swirl-mobile.svg"
-            alt=""
-            width={122}
-            height={495}
-            className="absolute md:hidden pointer-events-none z-0"
-            style={{ top: 159, left: 203 }}
-            aria-hidden="true"
-          />
           <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] max-w-[319px] md:text-[50px] md:leading-[50px] md:max-lg:ml-[calc(50%-336px)] md:max-lg:max-w-[673px] lg:max-xl:ml-[calc(50%-423px)] lg:max-xl:max-w-[847px] xl:text-[100px] xl:leading-[80px] xl:max-w-[778px]">
             <span className="font-normal">Three<br className="hidden md:inline xl:hidden" /> seconds,<br className="hidden md:inline xl:hidden" /> </span><span className="font-bold">start to<br className="hidden md:inline xl:hidden" /> finish.</span>
           </h2>

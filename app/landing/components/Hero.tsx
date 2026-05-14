@@ -94,19 +94,10 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
       </div>
 
       {/* Loved badge — mobile only, outside overflow wrapper so line can bleed into next section */}
-      <div className="md:hidden relative" style={{ height: 217 }}>
-        <img
-          src="/hero-loved-line-mobile.svg"
-          alt=""
-          width={85}
-          height={294}
-          className="absolute pointer-events-none"
-          style={{ left: '50%', marginLeft: -22, top: -27 }}
-          aria-hidden="true"
-        />
-        <div className="absolute z-10" style={{ left: '50%', marginLeft: -131, top: 50, width: 262, height: 142 }}>
-          <img src="/hero-loved-oval-mobile.svg" alt="" width={262} height={142} className="w-full h-full" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
+      <div className="md:hidden relative" style={{ height: 270 }}>
+        <div className="absolute z-10" style={{ left: 43, top: 7, width: 263, height: 263 }}>
+          <img src="/hero-loved-circle-mobile.svg" alt="" width={263} height={263} className="w-full h-full" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center" style={{ transform: 'rotate(-5deg)' }}>
             <img src="/loved-avatars.svg" alt="" style={{ width: 59 }} className="mb-1" />
             <p className="text-center uppercase whitespace-nowrap font-['Inter',sans-serif] font-medium text-[14px] leading-[28px]">
               Loved by <strong className="font-bold">12,000+</strong>
