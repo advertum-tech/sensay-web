@@ -143,7 +143,11 @@ export default function Pricing() {
           <div className="flex flex-col md:flex-row gap-5">
 
             {/* FREE */}
-            <div className="relative flex-1 bg-[#fcfbfa] rounded-[20px] p-6 md:p-8 flex flex-col">
+            <div
+              className="relative flex-1 bg-[#fcfbfa] rounded-[20px] p-6 md:p-8 flex flex-col"
+              onMouseEnter={() => freeAnimRef.current?.start()}
+              onMouseLeave={() => freeAnimRef.current?.stop()}
+            >
               <img src="/landing-assets/card-tail-fcfbfa.svg" alt="" width={25} height={16} className="absolute bottom-0 -left-[10px] pointer-events-none" />
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#FF4122] text-white font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
                 FREE
@@ -164,13 +168,17 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a href="#" className="block border border-black/70 rounded-[7px] h-[55px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[16px] uppercase text-black hover:bg-black hover:text-white transition-colors" onMouseEnter={() => freeAnimRef.current?.start()} onMouseLeave={() => freeAnimRef.current?.stop()}>
-                GET STARTED
-              </a>
+              <p className="font-['Inter',sans-serif] font-medium text-[14px] leading-[28px] uppercase text-black/50 min-h-[55px] flex items-center">
+                Free forever — no card needed
+              </p>
             </div>
 
             {/* PRO */}
-            <div className="relative flex-1 bg-[#2f2f2f] rounded-[20px] p-6 md:p-8 flex flex-col mt-6 md:mt-0 md:scale-[1.04] md:z-10">
+            <div
+              className="relative flex-1 bg-[#2f2f2f] rounded-[20px] p-6 md:p-8 flex flex-col mt-6 md:mt-0 md:scale-[1.04] md:z-10"
+              onMouseEnter={() => proAnimRef.current?.start()}
+              onMouseLeave={() => proAnimRef.current?.stop()}
+            >
               <div className="absolute -top-[18px] inset-x-0 flex justify-center pointer-events-none">
                 <span className="pointer-events-auto whitespace-nowrap inline-flex items-center gap-1.5 bg-[#FF4122] text-white font-['Inter',sans-serif] font-bold text-[11px] uppercase rounded-full px-4 h-[28px]">
                   <LuSparkles size={11} />
@@ -197,13 +205,17 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a href="#" className="block bg-[#FF4122] rounded-[7px] h-[55px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[16px] uppercase text-white hover:opacity-90 transition-opacity" onMouseEnter={() => proAnimRef.current?.start()} onMouseLeave={() => proAnimRef.current?.stop()}>
-                14 DAYS FREE
-              </a>
+              <p className="font-['Inter',sans-serif] font-medium text-[14px] leading-[28px] uppercase text-[#bfb9ac] min-h-[55px] flex items-center">
+                Upgrade in the app — billed by your app store
+              </p>
             </div>
 
             {/* MAX */}
-            <div className="relative flex-1 bg-[#bfb9ac] rounded-[20px] p-6 md:p-8 flex flex-col">
+            <div
+              className="relative flex-1 bg-[#bfb9ac] rounded-[20px] p-6 md:p-8 flex flex-col"
+              onMouseEnter={() => maxAnimRef.current?.start()}
+              onMouseLeave={() => maxAnimRef.current?.stop()}
+            >
               <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100" />
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#79736d] text-[#e3dad0] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
                 MAX
@@ -224,11 +236,25 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a href="#" className="block bg-white text-black rounded-[7px] h-[55px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[16px] uppercase hover:bg-[#e3dad0] transition-colors" onMouseEnter={() => maxAnimRef.current?.start()} onMouseLeave={() => maxAnimRef.current?.stop()}>
-                GET MAX
-              </a>
+              <p className="font-['Inter',sans-serif] font-medium text-[14px] leading-[28px] uppercase text-black/50 min-h-[55px] flex items-center">
+                Set up in the app — billed by your app store
+              </p>
             </div>
 
+          </div>
+
+          {/* Foundation CTA — one shared button for every plan (same intent as the header CTA),
+              sitting as the base the cards rest on. No per-card purchase button. */}
+          <div className="mt-5">
+            <a
+              href="#"
+              className="block w-full bg-[#FF4122] border border-[#FF4122] rounded-[10px] h-[64px] md:h-[72px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[18px] md:text-[20px] uppercase text-white hover:bg-white hover:text-[#FF4122] transition-colors duration-200"
+            >
+              Start for free
+            </a>
+            <p className="mt-4 text-center font-['Inter',sans-serif] font-medium text-[13px] leading-[28px] uppercase text-black/50">
+              Nothing to pay here — you start free. Pro and Max are unlocked later, inside the app.
+            </p>
           </div>
 
           {/* Custom plan link — pill style matching the Monthly/Annually toggle, centered under MAX card */}
