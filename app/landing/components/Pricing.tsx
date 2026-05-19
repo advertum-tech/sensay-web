@@ -1,40 +1,44 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { LuSparkles, LuCircleHelp, LuX, LuCheck, LuUsers } from "react-icons/lu";
+import { useState, useRef } from "react";
+import {
+  LuSparkles, LuArrowRight,
+  LuMessageSquare, LuStickyNote, LuMail,
+  LuFileText, LuMic, LuFileAudio, LuInfinity,
+} from "react-icons/lu";
 import PricingMicFreeAnim, { type MicAnimHandle } from "./PricingMicFreeAnim";
 import PricingMicProAnim from "./PricingMicProAnim";
 import PricingMicMaxAnim from "./PricingMicMaxAnim";
 
-const FREE_FEATURES = [
-  "30 minutes / day",
-  "English + major languages",
-  "Browser + key apps",
-];
-
-const PRO_FEATURES = [
-  "Unlimited dictation",
-  "All languages",
-  "Every app & input field",
-  "Smart context register",
-  "Priority processing",
-];
-
-const MAX_FEATURES = [
-  "Everything in Pro",
-  "Team admin + SSO",
-  "Audit logs",
-  "Priority support",
-];
-
-const CUSTOM_FEATURES = [
-  "Everything in Max",
-  "Team admin + SSO",
-  "Audit logs",
-  "Volume pricing",
-  "Dedicated onboarding",
-  "Priority support with SLA",
-];
+// Card content: weekly word limit sits right under the price; the closing block
+// is concrete use cases (who/what it's for) with small Lucide icons.
+const PLAN_FREE = {
+  limit: "7,000",
+  unit: "words / week",
+  uses: [
+    { Icon: LuMessageSquare, label: "Quick chat replies" },
+    { Icon: LuStickyNote, label: "Notes to self" },
+    { Icon: LuMail, label: "The odd email" },
+  ],
+};
+const PLAN_PRO = {
+  limit: "30,000",
+  unit: "words / week",
+  uses: [
+    { Icon: LuMail, label: "Long emails, all day" },
+    { Icon: LuFileText, label: "Docs & reports" },
+    { Icon: LuSparkles, label: "AI prompts & chats" },
+  ],
+};
+const PLAN_MAX = {
+  limit: "Unlimited",
+  unit: "words / week",
+  uses: [
+    { Icon: LuMic, label: "All-day dictation" },
+    { Icon: LuFileAudio, label: "Meeting transcripts" },
+    { Icon: LuInfinity, label: "No weekly cap" },
+  ],
+};
 
 const PRICES = {
   pro:  { monthly: "$2.99", yearly: "$2.49" },
@@ -42,21 +46,10 @@ const PRICES = {
 };
 
 export default function Pricing() {
-  const [customOpen, setCustomOpen] = useState(false);
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
   const freeAnimRef = useRef<MicAnimHandle>(null);
   const proAnimRef  = useRef<MicAnimHandle>(null);
   const maxAnimRef  = useRef<MicAnimHandle>(null);
-
-  // Close popup on Escape
-  useEffect(() => {
-    if (!customOpen) return;
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setCustomOpen(false);
-    }
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [customOpen]);
 
   return (
     <section className="pt-16 pb-20 md:pt-24 md:pb-28 relative">
@@ -77,7 +70,7 @@ export default function Pricing() {
           className="absolute origin-top-left font-['Inter',sans-serif] text-[16px] leading-[28px] uppercase text-black font-medium"
           style={{ left: 492, top: 122, width: 200, transform: 'rotate(-5deg)' }}
         >
-          <span className="font-bold">Start free. </span><span>Upgrade when you&apos;re hooked.</span>
+          <span className="font-bold">Pick how much you talk. </span><span>The right plan clicks once you start.</span>
         </p>
       </div>
 
@@ -96,19 +89,19 @@ export default function Pricing() {
           />
 
           <h2 className="font-['Inter',sans-serif] uppercase text-black text-[50px] leading-[50px] xl:text-[100px] xl:leading-[80px] md:max-lg:ml-[calc(50%-336px)] lg:max-xl:ml-[calc(50%-423px)] max-[499px]:max-w-[306px] md:max-xl:max-w-[306px] xl:max-w-[780px]">
-            <span className="font-bold">Simple</span><span className="font-normal"> pricing.</span>
+            <span className="font-bold">Start </span><span className="font-normal">for free.</span>
           </h2>
 
           {/* Mobile-only supplement (tablet supplement lives in 834-wrapper above) */}
           <p className="mt-4 font-['Inter',sans-serif] uppercase text-[16px] leading-[28px] text-black max-[499px]:max-w-[193px] md:hidden">
-            <span className="font-bold">Start free. </span><span className="font-medium">Upgrade when you&apos;re hooked.</span>
+            <span className="font-bold">Pick how much you talk. </span><span className="font-medium">The right plan clicks once you start.</span>
           </p>
 
           <p
             className="hidden xl:block xl:absolute font-['Inter',sans-serif] xl:text-[16px] xl:leading-[28px] xl:uppercase xl:text-black xl:font-medium xl:origin-top-left xl:right-[215px] min-[1500px]:!right-[278px]"
             style={{ top: 0, width: 200, transform: 'rotate(-5deg)' }}
           >
-            <span className="font-bold">Start free.</span> Upgrade when you&apos;re hooked.
+            <span className="font-bold">Pick how much you talk.</span> The right plan clicks once you start.
           </p>
         </div>
 
@@ -148,66 +141,60 @@ export default function Pricing() {
               onMouseEnter={() => freeAnimRef.current?.start()}
               onMouseLeave={() => freeAnimRef.current?.stop()}
             >
-              <img src="/landing-assets/card-tail-fcfbfa.svg" alt="" width={25} height={16} className="absolute bottom-0 -left-[10px] pointer-events-none" />
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#FF4122] text-white font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
                 FREE
               </span>
               <div className="h-[103px] flex items-end mb-6">
                 <PricingMicFreeAnim ref={freeAnimRef} />
               </div>
-              <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-black mb-3">$0<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
-              <div className="flex gap-0 mb-6">
-                <span className="inline-flex items-center bg-[#e3dad0] rounded-full px-4 h-[30px] font-['Inter',sans-serif] text-[14px] text-black">Always</span>
-                <span className="inline-flex items-center bg-[#e3dad0] rounded-full px-4 h-[30px] font-['Inter',sans-serif] text-[14px] text-black">Free</span>
-              </div>
-              <ul className="flex flex-col gap-1 mb-8 flex-1">
-                {FREE_FEATURES.map((f) => (
-                  <li key={f} className="flex items-start gap-2 font-['Inter',sans-serif] text-[14px] leading-[28px] text-black uppercase font-medium">
-                    <LuCheck size={18} strokeWidth={2.5} className="text-[#817e73] shrink-0 mt-[5px]" />
-                    <span>{f}</span>
+              <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-black mb-2">$0<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
+              <p className="font-['Inter',sans-serif] flex items-baseline gap-1.5">
+                <span className="font-bold text-[22px] leading-none text-black">{PLAN_FREE.limit}</span>
+                <span className="text-[14px] lowercase text-black/45">{PLAN_FREE.unit}</span>
+              </p>
+              <div className="mt-7 -mx-6 md:-mx-8 border-t-2 border-dotted border-black/20" />
+              <ul className="mt-7 flex-1 flex flex-col gap-3">
+                {PLAN_FREE.uses.map(({ Icon, label }) => (
+                  <li key={label} className="flex items-center gap-3 font-['Inter',sans-serif] text-[15px] leading-[24px] text-black/75">
+                    <Icon size={18} className="shrink-0 text-black/40" />
+                    <span>{label}</span>
                   </li>
                 ))}
               </ul>
-              <p className="font-['Inter',sans-serif] font-medium text-[14px] leading-[28px] uppercase text-black/50 min-h-[55px] flex items-center">
-                Free forever — no card needed
-              </p>
             </div>
 
             {/* PRO */}
             <div
-              className="relative flex-1 bg-[#2f2f2f] rounded-[20px] p-6 md:p-8 flex flex-col mt-6 md:mt-0 md:scale-[1.04] md:z-10"
+              className="relative flex-1 bg-[#2f2f2f] rounded-[20px] p-6 md:p-8 flex flex-col mt-6 md:mt-0"
               onMouseEnter={() => proAnimRef.current?.start()}
               onMouseLeave={() => proAnimRef.current?.stop()}
             >
               <div className="absolute -top-[18px] inset-x-0 flex justify-center pointer-events-none">
                 <span className="pointer-events-auto whitespace-nowrap inline-flex items-center gap-1.5 bg-[#FF4122] text-white font-['Inter',sans-serif] font-bold text-[11px] uppercase rounded-full px-4 h-[28px]">
                   <LuSparkles size={11} />
-                  Most popular
+                  Best price
                 </span>
               </div>
-              <img src="/landing-assets/card-tail-dark.svg" alt="" width={25} height={16} className="absolute bottom-0 -left-[10px] pointer-events-none" />
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#c3beac] text-[#FF4122] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
                 PRO
               </span>
               <div className="h-[103px] flex items-end mb-6">
                 <PricingMicProAnim ref={proAnimRef} />
               </div>
-              <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-white mb-3">{PRICES.pro[billing]}<span className="text-[20px] font-normal text-white/60"> /mo</span></p>
-              <div className="flex gap-0 mb-6">
-                <span className="inline-flex items-center bg-[#e3dad0] rounded-full px-4 h-[30px] font-['Inter',sans-serif] text-[14px] text-black">Per month</span>
-                <span className="inline-flex items-center bg-[#e3dad0] rounded-full px-4 h-[30px] font-['Inter',sans-serif] text-[14px] text-black">Cancel anytime</span>
-              </div>
-              <ul className="flex flex-col gap-1 mb-8 flex-1">
-                {PRO_FEATURES.map((f) => (
-                  <li key={f} className="flex items-start gap-2 font-['Inter',sans-serif] text-[14px] leading-[28px] text-[#ded8cc] uppercase font-medium">
-                    <LuCheck size={18} strokeWidth={2.5} className="text-[#FF4122] shrink-0 mt-[5px]" />
-                    <span>{f}</span>
+              <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-white mb-2">{PRICES.pro[billing]}<span className="text-[20px] font-normal text-white/60"> /mo</span></p>
+              <p className="font-['Inter',sans-serif] flex items-baseline gap-1.5">
+                <span className="font-bold text-[22px] leading-none text-white">{PLAN_PRO.limit}</span>
+                <span className="text-[14px] lowercase text-white/45">{PLAN_PRO.unit}</span>
+              </p>
+              <div className="mt-7 -mx-6 md:-mx-8 border-t-2 border-dotted border-white/25" />
+              <ul className="mt-7 flex-1 flex flex-col gap-3">
+                {PLAN_PRO.uses.map(({ Icon, label }) => (
+                  <li key={label} className="flex items-center gap-3 font-['Inter',sans-serif] text-[15px] leading-[24px] text-[#ded8cc]">
+                    <Icon size={18} className="shrink-0 text-[#FF4122]" />
+                    <span>{label}</span>
                   </li>
                 ))}
               </ul>
-              <p className="font-['Inter',sans-serif] font-medium text-[14px] leading-[28px] uppercase text-[#bfb9ac] min-h-[55px] flex items-center">
-                Upgrade in the app — billed by your app store
-              </p>
             </div>
 
             {/* MAX */}
@@ -216,29 +203,26 @@ export default function Pricing() {
               onMouseEnter={() => maxAnimRef.current?.start()}
               onMouseLeave={() => maxAnimRef.current?.stop()}
             >
-              <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100" />
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#79736d] text-[#e3dad0] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
                 MAX
               </span>
               <div className="h-[103px] flex items-end mb-6">
                 <PricingMicMaxAnim ref={maxAnimRef} />
               </div>
-              <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-black mb-3">{PRICES.max[billing]}<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
-              <div className="flex gap-0 mb-6">
-                <span className="inline-flex items-center bg-[#e3dad0] rounded-full px-4 h-[30px] font-['Inter',sans-serif] text-[14px] text-black">For teams of</span>
-                <span className="inline-flex items-center bg-[#e3dad0] rounded-full px-4 h-[30px] font-['Inter',sans-serif] text-[14px] text-black">5+</span>
-              </div>
-              <ul className="flex flex-col gap-1 mb-8 flex-1">
-                {MAX_FEATURES.map((f) => (
-                  <li key={f} className="flex items-start gap-2 font-['Inter',sans-serif] text-[14px] leading-[28px] text-black uppercase font-medium">
-                    <LuCheck size={18} strokeWidth={2.5} className="text-[#FF4122] shrink-0 mt-[5px]" />
-                    <span>{f}</span>
+              <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-black mb-2">{PRICES.max[billing]}<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
+              <p className="font-['Inter',sans-serif] flex items-baseline gap-1.5">
+                <span className="font-bold text-[22px] leading-none text-black">{PLAN_MAX.limit}</span>
+                <span className="text-[14px] lowercase text-black/50">{PLAN_MAX.unit}</span>
+              </p>
+              <div className="mt-7 -mx-6 md:-mx-8 border-t-2 border-dotted border-black/20" />
+              <ul className="mt-7 flex-1 flex flex-col gap-3">
+                {PLAN_MAX.uses.map(({ Icon, label }) => (
+                  <li key={label} className="flex items-center gap-3 font-['Inter',sans-serif] text-[15px] leading-[24px] text-black/75">
+                    <Icon size={18} className="shrink-0 text-black/40" />
+                    <span>{label}</span>
                   </li>
                 ))}
               </ul>
-              <p className="font-['Inter',sans-serif] font-medium text-[14px] leading-[28px] uppercase text-black/50 min-h-[55px] flex items-center">
-                Set up in the app — billed by your app store
-              </p>
             </div>
 
           </div>
@@ -248,74 +232,24 @@ export default function Pricing() {
           <div className="mt-5">
             <a
               href="#"
-              className="block w-full bg-[#FF4122] border border-[#FF4122] rounded-[10px] h-[64px] md:h-[72px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[18px] md:text-[20px] uppercase text-white hover:bg-white hover:text-[#FF4122] transition-colors duration-200"
+              className="group block w-full bg-[#FF4122] rounded-[14px] h-[76px] md:h-[88px] flex flex-col items-center justify-center gap-1 text-white hover:-translate-y-[2px] transition-transform duration-200"
             >
-              Start for free
+              <span className="flex items-center gap-2.5 font-['Inter',sans-serif] font-bold text-[20px] md:text-[24px] uppercase leading-none">
+                Start for free
+                <LuArrowRight size={22} className="transition-transform duration-200 group-hover:translate-x-1.5" />
+              </span>
+              <span className="font-['Inter',sans-serif] font-medium text-[12px] uppercase tracking-wide text-white/80 leading-none">
+                Free for macOS &amp; Windows
+              </span>
             </a>
             <p className="mt-4 text-center font-['Inter',sans-serif] font-medium text-[13px] leading-[28px] uppercase text-black/50">
-              Nothing to pay here — you start free. Pro and Max are unlocked later, inside the app.
+              Nothing to pay here - you start free. Pro and Max are unlocked later, inside the app.
             </p>
           </div>
 
-          {/* Custom plan link — pill style matching the Monthly/Annually toggle, centered under MAX card */}
-          <div className="mt-5 flex justify-center md:grid md:grid-cols-3 md:gap-5">
-            <div className="md:col-start-3 md:flex md:justify-center">
-              <button
-                type="button"
-                onClick={() => setCustomOpen(true)}
-                className="inline-flex items-center bg-[#bfb9ac] rounded-[20px] p-[3px] h-[36px] cursor-pointer hover:bg-[#a8a39a] transition-colors"
-              >
-                <span className="inline-flex items-center gap-2 px-4 h-[30px] rounded-[20px] bg-white text-black font-['Inter',sans-serif] font-bold text-[13px] uppercase">
-                  <LuCircleHelp size={16} />
-                  Need a custom plan?
-                </span>
-              </button>
-            </div>
-          </div>
         </div>
 
       </div>
-
-      {/* Custom plan popup */}
-      {customOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-5 bg-black/60 backdrop-blur-sm"
-          onClick={() => setCustomOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-[480px] bg-[#2f2f2f] rounded-[20px] p-6 md:p-8 flex flex-col"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setCustomOpen(false)}
-              className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors cursor-pointer"
-              aria-label="Close"
-            >
-              <LuX size={24} />
-            </button>
-            <div className="mb-6">
-              <span className="inline-flex items-center gap-2 bg-[#FF4122] text-white font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px] w-fit">
-                <LuUsers size={16} />
-                CUSTOM
-              </span>
-            </div>
-            <p className="font-['Inter',sans-serif] font-bold text-[40px] leading-[44px] text-white mb-1">Let&apos;s talk</p>
-            <p className="font-['Inter',sans-serif] text-[14px] leading-[28px] text-[#bfb9ac] mb-6">Volume pricing for teams of 10+</p>
-            <ul className="flex flex-col gap-1 mb-8">
-              {CUSTOM_FEATURES.map((f) => (
-                <li key={f} className="flex items-start gap-2 font-['Inter',sans-serif] text-[14px] leading-[28px] text-[#ded8cc] uppercase font-medium">
-                  <LuCheck size={18} strokeWidth={2.5} className="text-[#FF4122] shrink-0 mt-[5px]" />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-            <a href="mailto:hello@advertum.com" className="block bg-[#FF4122] rounded-[7px] h-[55px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[16px] uppercase text-white hover:opacity-90 transition-opacity">
-              GET IN TOUCH
-            </a>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
