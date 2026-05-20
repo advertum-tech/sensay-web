@@ -43,8 +43,8 @@ export default function HowItWorks() {
         <div className="relative z-20 flex flex-col gap-[10px] md:flex-row md:gap-5 md:max-w-[1180px] md:mx-auto">
 
           {/* Step 1 — Tap and talk */}
-          <div className="max-[399px]:mr-[50px] min-[400px]:mr-[100px] md:flex-1 md:mr-0">
-            <div className="relative bg-[#bfb9ac] rounded-[20px] p-6 md:p-7 min-h-[290px] md:min-h-[240px]">
+          <div className="flex flex-col max-[399px]:mr-[50px] min-[400px]:mr-[100px] md:flex-1 md:mr-0">
+            <div className="flex-1 relative bg-[#bfb9ac] rounded-[20px] p-6 md:p-7 min-h-[290px] md:min-h-[240px]">
               <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="absolute bottom-0 -left-[10px] pointer-events-none" />
               <div className="relative w-[55px] h-[55px] mb-5">
                 <span className="absolute inset-0 rounded-full bg-[#E3DAD0] animate-step-pulse" style={{ animationDelay: '0s' }} />
@@ -56,8 +56,8 @@ export default function HowItWorks() {
           </div>
 
           {/* Step 2 — Sensay cleans it */}
-          <div className="max-[399px]:ml-[50px] min-[400px]:ml-[100px] md:flex-1 md:ml-0">
-            <div className="relative bg-[#bfb9ac] rounded-[20px] p-6 md:p-7 min-h-[290px] md:min-h-[240px]">
+          <div className="flex flex-col max-[399px]:ml-[50px] min-[400px]:ml-[100px] md:flex-1 md:ml-0">
+            <div className="flex-1 relative bg-[#bfb9ac] rounded-[20px] p-6 md:p-7 min-h-[290px] md:min-h-[240px]">
               <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100" />
               <div className="relative w-[55px] h-[55px] mb-5">
                 <span className="absolute inset-0 rounded-full bg-[#E3DAD0] animate-step-pulse" style={{ animationDelay: '1s' }} />
@@ -69,8 +69,8 @@ export default function HowItWorks() {
           </div>
 
           {/* Step 3 — Text appears */}
-          <div className="max-[399px]:mr-[50px] min-[400px]:mr-[100px] md:flex-1 md:mr-0">
-            <div className="relative bg-[#bfb9ac] rounded-[20px] p-6 md:p-7 min-h-[290px] md:min-h-[240px]">
+          <div className="flex flex-col max-[399px]:mr-[50px] min-[400px]:mr-[100px] md:flex-1 md:mr-0">
+            <div className="flex-1 relative bg-[#bfb9ac] rounded-[20px] p-6 md:p-7 min-h-[290px] md:min-h-[240px]">
               <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="absolute bottom-0 -left-[10px] pointer-events-none" />
               <div className="relative w-[55px] h-[55px] mb-5">
                 <span className="absolute inset-0 rounded-full bg-[#E3DAD0] animate-step-pulse" style={{ animationDelay: '2s' }} />

@@ -171,7 +171,7 @@ export default function Pricing() {
 
             {/* PRO */}
             <div
-              className="relative flex-1 bg-[#2f2f2f] rounded-[20px] p-6 md:p-8 flex flex-col mt-6 md:mt-0"
+              className="relative flex-1 bg-[#2f2f2f] rounded-[20px] p-6 md:p-8 flex flex-col"
               onMouseEnter={() => proAnimRef.current?.start()}
               onMouseLeave={() => proAnimRef.current?.stop()}
             >
