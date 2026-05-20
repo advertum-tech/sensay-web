@@ -23,20 +23,27 @@ type Props = {
 
 export default function AnimatedSensayLogoHover({ width = 41, height = 40, className, fill = "white" }: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
+  // Pause the bar animation while the cursor is over the logo; resume on leave.
+  const pausedRef = useRef(false);
 
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg) return;
     const rects = Array.from(svg.querySelectorAll<SVGRectElement>("rect"));
     let rafId = 0;
-    const start = performance.now();
+    let elapsed = 0;
+    let last = performance.now();
 
     const tick = (now: number) => {
-      const t = (now - start) / 1000;
+      const delta = (now - last) / 1000;
+      last = now;
+      if (!pausedRef.current) {
+        elapsed += delta;
+      }
       rects.forEach((rect, i) => {
         const b = BARS[i];
         const phase = (i / (N - 1)) * Math.PI;
-        const norm = (Math.sin(t * FREQ + phase) + 1) / 2;
+        const norm = (Math.sin(elapsed * FREQ + phase) + 1) / 2;
         const h = b.hMin + (b.hMax - b.hMin) * norm;
         rect.setAttribute("height", h.toFixed(2));
         rect.setAttribute("y", (b.cy - h / 2).toFixed(2));
@@ -55,7 +62,9 @@ export default function AnimatedSensayLogoHover({ width = 41, height = 40, class
       viewBox="0 0 41 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={`cursor-pointer ${className ?? ""}`}
+      onMouseEnter={() => { pausedRef.current = true; }}
+      onMouseLeave={() => { pausedRef.current = false; }}
       aria-hidden="true"
     >
       {BARS.map((b, i) => (
