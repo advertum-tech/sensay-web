@@ -102,7 +102,7 @@ export default function FinalCTA() {
 
           {/* Tagline */}
           <p className="text-center font-['Inter',sans-serif] text-[13px] leading-[28px] uppercase text-[#bfb9ac] mb-6 md:mb-8">
-            <span className="font-bold">Sensay</span><span className="font-medium"> — voice dictation AI &nbsp;·&nbsp; Developed by Advertum Agency</span>
+            <span className="font-bold">Sensay</span><span className="font-medium"> — voice dictation AI &nbsp;·&nbsp; Developed by </span><a href="https://advertum.com" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">Advertum</a>
           </p>
 
           {/* Divider — full wrapper width via negative margin */}
@@ -112,10 +112,8 @@ export default function FinalCTA() {
           <div className="font-['Inter',sans-serif] font-normal text-[16px] leading-[45px] md:text-[13px] md:leading-[34px] xl:text-[16px] xl:leading-[45px] text-[#e3dad0]">
             <div className="flex flex-col items-center text-center gap-8 md:hidden">
               <div>
-                Advertum Agency<br />
-                since 2009<br />
-                hello@advertum.com<br />
-                +372 5551 1283
+                <img src="/landing-assets/advertum-logo.svg" alt="Advertum" width={114} height={20} className="block mx-auto mb-2" />
+                since 2009
               </div>
               <div>
                 Narva mnt 5, 10117<br />
@@ -126,14 +124,13 @@ export default function FinalCTA() {
               </div>
               <div>
                 Follow<br />
-                @advertumofficial
+                <a href="https://instagram.com/advertumofficial" target="_blank" rel="noopener noreferrer" className="hover:underline">@advertumofficial</a>
               </div>
             </div>
             <div className="hidden md:flex md:flex-row md:justify-between gap-6">
               <div>
-                Advertum Agency since 2009<br />
-                hello@advertum.com<br />
-                +372 5551 1283
+                <img src="/landing-assets/advertum-logo.svg" alt="Advertum" width={114} height={20} className="block mb-2" />
+                since 2009
               </div>
               <div>
                 Narva mnt 5, 10117 Tallinn,<br />
@@ -141,14 +138,9 @@ export default function FinalCTA() {
                 Get directions
               </div>
               <div className="text-right">
-                <span className="font-semibold xl:font-normal">Follow </span><span className="font-medium">@advertumofficial</span>
+                <span className="font-semibold xl:font-normal">Follow </span><a href="https://instagram.com/advertumofficial" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">@advertumofficial</a>
               </div>
             </div>
-          </div>
-
-          {/* Advertum logo — mobile only, centered */}
-          <div className="flex justify-center mt-8 md:hidden">
-            <img src="/landing-assets/advertum-logo.svg" alt="Advertum" width={114} height={20} />
           </div>
 
         </div>

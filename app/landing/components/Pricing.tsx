@@ -144,15 +144,15 @@ export default function Pricing() {
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#FF4122] text-white font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
                 FREE
               </span>
-              <div className="flex-1 flex flex-col min-[400px]:max-md:flex-row min-[400px]:max-md:gap-6">
-                <div className="min-[400px]:max-md:basis-[45%] min-[400px]:max-md:shrink-0">
+              <div className="flex-1 flex flex-col min-[500px]:max-md:flex-row min-[500px]:max-md:gap-6">
+                <div className="min-[500px]:max-md:basis-[45%] min-[500px]:max-md:shrink-0">
                   <div className="h-[103px] flex items-end mb-6">
                     <PricingMicFreeAnim ref={freeAnimRef} />
                   </div>
-                  <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-black mb-6 min-[400px]:max-md:mb-0">$0<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
+                  <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] min-[500px]:max-md:leading-[40px] text-black mb-6 min-[500px]:max-md:mb-0">$0<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
                 </div>
-                <div className="min-[400px]:max-md:basis-[55%] min-[400px]:max-md:items-end flex-1 flex">
-                  <ul className="flex-1 flex flex-col gap-3">
+                <div className="min-[500px]:max-md:basis-[55%] min-[500px]:max-md:items-end flex-1 flex">
+                  <ul className="flex-1 flex flex-col gap-3 min-[500px]:max-md:pb-1.5">
                     {PLAN_FREE.uses.map(({ Icon, label }) => (
                       <li key={label} className="flex items-center gap-3 font-['Inter',sans-serif] text-[15px] leading-[24px] text-black/75">
                         <Icon size={18} className="shrink-0 text-black/40" />
@@ -162,8 +162,8 @@ export default function Pricing() {
                   </ul>
                 </div>
               </div>
-              <div className="mt-7 -mx-6 md:-mx-8 border-t-[4px] border-dotted border-black/20" />
-              <p className="mt-7 flex items-baseline gap-1.5">
+              <div className="mt-5 md:mt-7 -mx-6 md:-mx-8 border-t-[4px] border-dotted border-black/20" />
+              <p className="mt-5 md:mt-7 flex items-baseline gap-1.5">
                 <span className="font-bold text-[22px] leading-none text-black">{PLAN_FREE.limit}</span>
                 <span className="text-[14px] lowercase text-black/45">{PLAN_FREE.unit}</span>
               </p>
@@ -184,15 +184,15 @@ export default function Pricing() {
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#c3beac] text-[#FF4122] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
                 PRO
               </span>
-              <div className="flex-1 flex flex-col min-[400px]:max-md:flex-row min-[400px]:max-md:gap-6">
-                <div className="min-[400px]:max-md:basis-[45%] min-[400px]:max-md:shrink-0">
+              <div className="flex-1 flex flex-col min-[500px]:max-md:flex-row min-[500px]:max-md:gap-6">
+                <div className="min-[500px]:max-md:basis-[45%] min-[500px]:max-md:shrink-0">
                   <div className="h-[103px] flex items-end mb-6">
                     <PricingMicProAnim ref={proAnimRef} />
                   </div>
-                  <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-white mb-6 min-[400px]:max-md:mb-0">{PRICES.pro[billing]}<span className="text-[20px] font-normal text-white/60"> /mo</span></p>
+                  <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] min-[500px]:max-md:leading-[40px] text-white mb-6 min-[500px]:max-md:mb-0">{PRICES.pro[billing]}<span className="text-[20px] font-normal text-white/60"> /mo</span></p>
                 </div>
-                <div className="min-[400px]:max-md:basis-[55%] min-[400px]:max-md:items-end flex-1 flex">
-                  <ul className="flex-1 flex flex-col gap-3">
+                <div className="min-[500px]:max-md:basis-[55%] min-[500px]:max-md:items-end flex-1 flex">
+                  <ul className="flex-1 flex flex-col gap-3 min-[500px]:max-md:pb-1.5">
                     {PLAN_PRO.uses.map(({ Icon, label }) => (
                       <li key={label} className="flex items-center gap-3 font-['Inter',sans-serif] text-[15px] leading-[24px] text-[#ded8cc]">
                         <Icon size={18} className="shrink-0 text-[#FF4122]" />
@@ -202,8 +202,8 @@ export default function Pricing() {
                   </ul>
                 </div>
               </div>
-              <div className="mt-7 -mx-6 md:-mx-8 border-t-[4px] border-dotted border-white/25" />
-              <p className="mt-7 flex items-baseline gap-1.5">
+              <div className="mt-5 md:mt-7 -mx-6 md:-mx-8 border-t-[4px] border-dotted border-white/25" />
+              <p className="mt-5 md:mt-7 flex items-baseline gap-1.5">
                 <span className="font-bold text-[22px] leading-none text-white">{PLAN_PRO.limit}</span>
                 <span className="text-[14px] lowercase text-white/45">{PLAN_PRO.unit}</span>
               </p>
@@ -218,15 +218,15 @@ export default function Pricing() {
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#79736d] text-[#e3dad0] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
                 MAX
               </span>
-              <div className="flex-1 flex flex-col min-[400px]:max-md:flex-row min-[400px]:max-md:gap-6">
-                <div className="min-[400px]:max-md:basis-[45%] min-[400px]:max-md:shrink-0">
+              <div className="flex-1 flex flex-col min-[500px]:max-md:flex-row min-[500px]:max-md:gap-6">
+                <div className="min-[500px]:max-md:basis-[45%] min-[500px]:max-md:shrink-0">
                   <div className="h-[103px] flex items-end mb-6">
                     <PricingMicMaxAnim ref={maxAnimRef} />
                   </div>
-                  <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] text-black mb-6 min-[400px]:max-md:mb-0">{PRICES.max[billing]}<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
+                  <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] min-[500px]:max-md:leading-[40px] text-black mb-6 min-[500px]:max-md:mb-0">{PRICES.max[billing]}<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
                 </div>
-                <div className="min-[400px]:max-md:basis-[55%] min-[400px]:max-md:items-end flex-1 flex">
-                  <ul className="flex-1 flex flex-col gap-3">
+                <div className="min-[500px]:max-md:basis-[55%] min-[500px]:max-md:items-end flex-1 flex">
+                  <ul className="flex-1 flex flex-col gap-3 min-[500px]:max-md:pb-1.5">
                     {PLAN_MAX.uses.map(({ Icon, label }) => (
                       <li key={label} className="flex items-center gap-3 font-['Inter',sans-serif] text-[15px] leading-[24px] text-black/75">
                         <Icon size={18} className="shrink-0 text-black/40" />
@@ -236,8 +236,8 @@ export default function Pricing() {
                   </ul>
                 </div>
               </div>
-              <div className="mt-7 -mx-6 md:-mx-8 border-t-[4px] border-dotted border-black/20" />
-              <p className="mt-7 flex items-baseline gap-1.5">
+              <div className="mt-5 md:mt-7 -mx-6 md:-mx-8 border-t-[4px] border-dotted border-black/20" />
+              <p className="mt-5 md:mt-7 flex items-baseline gap-1.5">
                 <span className="font-bold text-[22px] leading-none text-black">{PLAN_MAX.limit}</span>
                 <span className="text-[14px] lowercase text-black/50">{PLAN_MAX.unit}</span>
               </p>
