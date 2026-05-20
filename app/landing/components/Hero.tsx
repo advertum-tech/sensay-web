@@ -1,6 +1,7 @@
 import HeroPerson from './HeroPerson';
 import HeroPersonMobile from './HeroPersonMobile';
 import HeroMicBtn from './HeroMicBtn';
+import HeroSeeHow from './HeroSeeHow';
 
 function LovedBadge({ size = 120 }: { size?: number }) {
   return (
@@ -64,12 +65,10 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
               <strong className="font-bold">No typing. No switching apps.</strong>
             </p>
 
-            <a href="#" className="max-[499px]:block min-[500px]:inline-block bg-coral text-white font-bold text-sm uppercase rounded-xl px-8 py-4 text-center mb-4">
+            <a href="#" className="max-[499px]:block min-[500px]:inline-block bg-coral border border-coral text-white font-bold text-sm uppercase rounded-xl px-8 py-4 text-center mb-4 hover:bg-white hover:text-coral transition-colors duration-200">
               Start free — no signup
             </a>
-            <a href="#" className="block text-sm font-bold uppercase text-black/60 text-center">
-              See how →
-            </a>
+            <HeroSeeHow className="block text-sm font-bold uppercase text-black/60 text-center" />
           </div>
 
           {/* Bubble */}
@@ -194,18 +193,15 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
           <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "834px" }}>
             <a
               href="#"
-              className="absolute flex items-center justify-center bg-coral text-white font-bold text-base uppercase rounded-xl"
+              className="absolute flex items-center justify-center bg-coral border border-coral text-white font-bold text-base uppercase rounded-xl hover:bg-white hover:text-coral transition-colors duration-200"
               style={{ left: "80px", top: "50px", width: "280px", height: "50px" }}
             >
               Start free — no signup
             </a>
-            <a
-              href="#"
+            <HeroSeeHow
               className="absolute font-bold text-[18px] leading-[28px] uppercase text-black/60"
               style={{ left: "165px", top: "115px" }}
-            >
-              See how →
-            </a>
+            />
             <div className="absolute" style={{ right: "113px", top: "32px", width: "312px" }}>
               <img src="/hero-dashed-2-tablet.svg" alt="" className="w-full" />
               <div className="absolute flex flex-col items-center" style={{ top: "4.5%", left: "63%", transform: "translateX(-50%)" }}>
@@ -291,18 +287,15 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
           <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "1050px" }}>
             <a
               href="#"
-              className="absolute flex items-center justify-center bg-coral text-white font-bold text-base uppercase rounded-xl"
+              className="absolute flex items-center justify-center bg-coral border border-coral text-white font-bold text-base uppercase rounded-xl hover:bg-white hover:text-coral transition-colors duration-200"
               style={{ left: "101px", top: "50px", width: "353px", height: "50px" }}
             >
               Start free — no signup
             </a>
-            <a
-              href="#"
+            <HeroSeeHow
               className="absolute font-bold text-[18px] leading-[28px] uppercase text-black/60"
               style={{ left: "208px", top: "115px" }}
-            >
-              See how →
-            </a>
+            />
             <div className="absolute" style={{ right: "142px", top: "32px", width: "312px" }}>
               <img src="/hero-dashed-2-tablet.svg" alt="" className="w-full" />
               <div className="absolute flex flex-col items-center" style={{ top: "4.5%", left: "63%", transform: "translateX(-50%)" }}>
@@ -339,17 +332,12 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
               <div>
                 <a
                   href="#"
-                  className="inline-block bg-coral text-white font-bold text-base uppercase rounded-xl px-10 py-4 mb-5"
+                  className="inline-block bg-coral border border-coral text-white font-bold text-base uppercase rounded-xl px-10 py-4 mb-5 hover:bg-white hover:text-coral transition-colors duration-200"
                 >
                   Start free<span className="hidden min-[1350px]:inline"> — no signup</span>
                 </a>
                 <div>
-                  <a
-                    href="#"
-                    className="text-[16px] leading-[28px] font-bold uppercase text-black"
-                  >
-                    See how →
-                  </a>
+                  <HeroSeeHow className="text-[16px] leading-[28px] font-bold uppercase text-black" />
                 </div>
               </div>
             </div>

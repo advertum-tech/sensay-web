@@ -20,7 +20,7 @@ export default function LandingPage({ videoSrc }: { videoSrc: string }) {
             <img src="/icon.svg" alt="" width={41} height={40} />
             <span className="font-['Inter',sans-serif] text-[18px] text-black/80"><span className="font-light">Sen</span>say</span>
           </div>
-          <a href="#" className="bg-white border border-black/60 text-[#FF4122] text-[14px] font-bold uppercase px-5 py-[5px] rounded-[5px]">
+          <a href="#" className="bg-white border border-black/60 text-[#FF4122] text-[14px] font-bold uppercase px-5 py-[5px] rounded-[5px] hover:bg-[#FF4122] hover:text-white hover:border-[#FF4122] transition-colors duration-200">
             TRY FREE
           </a>
           <svg

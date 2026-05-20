@@ -35,7 +35,7 @@ export default function FinalCTA() {
           <div className="flex justify-center">
             <a
               href="#"
-              className="inline-flex items-center bg-white text-[#FF4122] font-['Inter',sans-serif] font-bold text-[14px] leading-none xl:text-[16px] uppercase rounded-[7px] px-12 md:px-16 h-[44px] md:h-[52px] hover:opacity-90 transition-opacity duration-200"
+              className="inline-flex items-center bg-white border border-white text-[#FF4122] font-['Inter',sans-serif] font-bold text-[14px] leading-none xl:text-[16px] uppercase rounded-[7px] px-12 md:px-16 h-[44px] md:h-[52px] hover:bg-[#FF4122] hover:text-white transition-colors duration-200"
             >
               So say it!
             </a>
