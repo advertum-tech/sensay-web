@@ -58,7 +58,7 @@ export default function HowItWorks() {
           {/* Step 2 — Sensay cleans it */}
           <div className="flex flex-col max-[399px]:ml-[50px] min-[400px]:ml-[100px] md:flex-1 md:ml-0">
             <div className="flex-1 relative bg-[#bfb9ac] rounded-[20px] p-6 md:p-7 min-h-[290px] md:min-h-[240px]">
-              <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="absolute bottom-0 -right-[10px] pointer-events-none -scale-x-100" />
+              <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="absolute bottom-0 -right-[10px] -scale-x-100 md:right-auto md:-left-[10px] md:scale-x-100 pointer-events-none" />
               <div className="relative w-[55px] h-[55px] mb-5">
                 <span className="absolute inset-0 rounded-full bg-[#E3DAD0] animate-step-pulse" style={{ animationDelay: '1s' }} />
                 <img src="/landing-assets/step-icon-check.svg" alt="" width={55} height={55} className="relative block" />
@@ -71,7 +71,7 @@ export default function HowItWorks() {
           {/* Step 3 — Text appears */}
           <div className="flex flex-col max-[399px]:mr-[50px] min-[400px]:mr-[100px] md:flex-1 md:mr-0">
             <div className="flex-1 relative bg-[#bfb9ac] rounded-[20px] p-6 md:p-7 min-h-[290px] md:min-h-[240px]">
-              <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="absolute bottom-0 -left-[10px] pointer-events-none" />
+              <img src="/landing-assets/card-tail.svg" alt="" width={25} height={16} className="absolute bottom-0 -left-[10px] md:left-auto md:-right-[10px] md:-scale-x-100 pointer-events-none" />
               <div className="relative w-[55px] h-[55px] mb-5">
                 <span className="absolute inset-0 rounded-full bg-[#E3DAD0] animate-step-pulse" style={{ animationDelay: '2s' }} />
                 <img src="/landing-assets/step-icon-text.svg" alt="" width={55} height={55} className="relative block" />
