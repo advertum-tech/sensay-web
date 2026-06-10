@@ -314,7 +314,7 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
       {/* ═══ DESKTOP (xl+) ═══ */}
       <div className="hidden xl:block">
         <div className="max-w-screen-2xl mx-auto px-16">
-          <div className="flex pt-20">
+          <div className="flex pt-16">
 
             {/* Left column */}
             <div className="w-[44%] flex-none pb-12 flex flex-col relative z-30">
