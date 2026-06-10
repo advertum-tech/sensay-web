@@ -34,7 +34,7 @@ export default function FinalCTA() {
           </h2>
           <div className="flex justify-center">
             <a
-              href="#"
+              href="#start-for-free"
               className="inline-flex items-center bg-white border border-white text-[#FF4122] font-['Inter',sans-serif] font-bold text-[14px] leading-none xl:text-[16px] uppercase rounded-[7px] px-12 md:px-16 h-[44px] md:h-[52px] hover:bg-[#FF4122] hover:text-white transition-colors duration-200"
             >
               So say it!
@@ -80,7 +80,7 @@ export default function FinalCTA() {
           {/* Puffy button */}
           <div className="flex justify-center mt-4 md:mt-[320px] mb-[64px] md:mb-[320px]">
             <a
-              href="#"
+              href="#start-for-free"
               className="group relative flex items-center gap-0 justify-center"
               style={{ height: 130 }}
             >

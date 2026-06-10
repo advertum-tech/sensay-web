@@ -251,7 +251,7 @@ export const en = {
   },
 
   downloadAlert: {
-    title: "Thanks for downloading!",
+    title: "Sensay is available on",
     body: "We’re in early testing — your feedback matters.",
     btn: "Got it",
     otherTitle: "Download for your platform",

@@ -14,13 +14,13 @@ export default function LandingPage({ videoSrc }: { videoSrc: string }) {
     <div className="bg-sand">
 
       {/* Floating header — all breakpoints */}
-      <header className="sticky top-0 z-50 mt-4 md:mt-10">
-        <div className="ml-8 mr-4 md:mx-[45px] relative bg-white rounded-2xl h-[60px] md:h-[70px] flex items-center justify-between px-5 md:px-8">
+      <header className="sticky top-0 z-50 mt-[5px] md:mt-[13px]">
+        <div className="ml-[11px] mr-[5px] md:mx-[15px] relative bg-white rounded-2xl h-[60px] md:h-[70px] flex items-center justify-between px-5 md:px-8">
           <div className="flex items-center gap-2">
             <img src="/icon.svg" alt="" width={41} height={40} />
             <span className="font-['Inter',sans-serif] text-[18px] text-black/80"><span className="font-light">Sen</span>say</span>
           </div>
-          <a href="#" className="bg-white border border-black/60 text-[#FF4122] text-[14px] font-bold uppercase px-5 py-[5px] rounded-[5px] hover:bg-[#FF4122] hover:text-white hover:border-[#FF4122] transition-colors duration-200">
+          <a href="#start-for-free" className="bg-white border border-black/60 text-[#FF4122] text-[14px] font-bold uppercase px-5 py-[5px] rounded-[5px] hover:bg-[#FF4122] hover:text-white hover:border-[#FF4122] transition-colors duration-200">
             TRY FREE
           </a>
           <svg

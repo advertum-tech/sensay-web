@@ -2,11 +2,12 @@
 
 import { useEffect } from "react";
 import { SiApple } from "react-icons/si";
-import { FaWindows } from "react-icons/fa";
+import { FaWindows, FaAppStoreIos, FaAndroid } from "react-icons/fa";
 import type { Platform } from "@/app/hooks/usePlatform";
 import { reachGoal } from "@/app/utils/reachGoal";
 import { locale } from "@/app/locales";
 import { getDownloadUrl } from "@/app/utils/downloads";
+import AnimatedSensayLogoHover from "@/app/landing/components/AnimatedSensayLogoHover";
 
 const TEXT = "#111111";
 const CORAL = "#ff4422";
@@ -43,6 +44,12 @@ const platformOptions: PlatformOption[] = [
     icon: <FaWindows size={18} />,
     label: "Windows",
   },
+];
+
+// Not shipped yet — always shown as disabled "Soon" rows.
+const soonOptions: { key: string; icon: React.ReactNode; label: string }[] = [
+  { key: "ios", icon: <FaAppStoreIos size={18} />, label: "iOS" },
+  { key: "android", icon: <FaAndroid size={18} />, label: "Android" },
 ];
 
 interface DownloadAlertProps {
@@ -91,19 +98,17 @@ export default function DownloadAlert({ visible, onClose, showAllPlatforms }: Do
       >
         <div
           style={{
-            width: 56,
-            height: 56,
+            width: 64,
+            height: 64,
             borderRadius: "50%",
-            background: "#22c55e15",
-            color: "#22c55e",
+            background: CORAL,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             margin: "0 auto 1.5rem",
-            fontSize: "1.5rem",
           }}
         >
-          ✓
+          <AnimatedSensayLogoHover width={33} height={32} />
         </div>
 
         <h3
@@ -118,33 +123,9 @@ export default function DownloadAlert({ visible, onClose, showAllPlatforms }: Do
         >
           {t.title}
         </h3>
-        <p
-          style={{
-            color: MUTED,
-            fontFamily: SANS,
-            fontSize: "0.9rem",
-            lineHeight: 1.7,
-            margin: "0 0 1.5rem",
-          }}
-        >
-          {t.body}
-        </p>
 
         {showAllPlatforms && (
           <div style={{ marginBottom: "1.5rem", textAlign: "left" }}>
-            <div
-              style={{
-                color: TEXT,
-                fontFamily: SANS,
-                fontSize: "0.78rem",
-                fontWeight: 600,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                marginBottom: "0.75rem",
-              }}
-            >
-              {t.otherTitle}
-            </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {platformOptions.map((opt) => {
                 const url = getDownloadUrl(opt.key);
@@ -223,6 +204,48 @@ export default function DownloadAlert({ visible, onClose, showAllPlatforms }: Do
                   </div>
                 );
               })}
+
+              {soonOptions.map((opt) => (
+                <div
+                  key={opt.key}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: 10,
+                    width: "100%",
+                    padding: "10px 16px",
+                    borderRadius: 8,
+                    border: `1.5px solid ${BORDER}`,
+                    background: WHITE,
+                    color: TEXT,
+                    fontFamily: SANS,
+                    fontSize: "0.88rem",
+                    fontWeight: 500,
+                    textAlign: "left",
+                    cursor: "not-allowed",
+                    opacity: 0.55,
+                  }}
+                >
+                  <span style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <span style={{ display: "flex", alignItems: "center", color: MUTED }}>
+                      {opt.icon}
+                    </span>
+                    {opt.label}
+                  </span>
+                  <span
+                    style={{
+                      color: MUTED,
+                      fontSize: "0.72rem",
+                      fontWeight: 600,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {t.soonLabel}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         )}

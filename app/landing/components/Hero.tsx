@@ -65,7 +65,7 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
               <strong className="font-bold">No typing. No switching apps.</strong>
             </p>
 
-            <a href="#" className="max-[499px]:block min-[500px]:inline-block bg-coral border border-coral text-white font-bold text-sm uppercase rounded-xl px-8 py-4 text-center mb-4 hover:bg-white hover:text-coral transition-colors duration-200">
+            <a href="#start-for-free" className="max-[499px]:block min-[500px]:inline-block bg-coral border border-coral text-white font-bold text-sm uppercase rounded-xl px-8 py-4 text-center mb-4 hover:bg-white hover:text-coral transition-colors duration-200">
               Start free — no signup
             </a>
             <HeroSeeHow className="block text-sm font-bold uppercase text-black/60 text-center" />
@@ -192,7 +192,7 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
         <div className="relative" style={{ height: "256px" }}>
           <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "834px" }}>
             <a
-              href="#"
+              href="#start-for-free"
               className="absolute flex items-center justify-center bg-coral border border-coral text-white font-bold text-base uppercase rounded-xl hover:bg-white hover:text-coral transition-colors duration-200"
               style={{ left: "80px", top: "50px", width: "280px", height: "50px" }}
             >
@@ -286,7 +286,7 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
         <div className="relative" style={{ height: "256px" }}>
           <div className="absolute top-0 left-1/2 -translate-x-1/2" style={{ width: "1050px" }}>
             <a
-              href="#"
+              href="#start-for-free"
               className="absolute flex items-center justify-center bg-coral border border-coral text-white font-bold text-base uppercase rounded-xl hover:bg-white hover:text-coral transition-colors duration-200"
               style={{ left: "101px", top: "50px", width: "353px", height: "50px" }}
             >
@@ -331,7 +331,7 @@ export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) 
               </div>
               <div>
                 <a
-                  href="#"
+                  href="#start-for-free"
                   className="inline-block bg-coral border border-coral text-white font-bold text-base uppercase rounded-xl px-10 py-4 mb-5 hover:bg-white hover:text-coral transition-colors duration-200"
                 >
                   Start free<span className="hidden min-[1350px]:inline"> — no signup</span>

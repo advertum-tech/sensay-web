@@ -1,14 +1,22 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, type ReactNode } from "react";
 import {
   LuSparkles, LuArrowRight,
   LuMessageSquare, LuStickyNote, LuMail,
   LuFileText, LuMic, LuFileAudio, LuInfinity,
 } from "react-icons/lu";
+import { SiApple } from "react-icons/si";
+import { FaWindows, FaAppStoreIos, FaAndroid } from "react-icons/fa";
+import { HiOutlineDownload } from "react-icons/hi";
 import PricingMicFreeAnim, { type MicAnimHandle } from "./PricingMicFreeAnim";
 import PricingMicProAnim from "./PricingMicProAnim";
 import PricingMicMaxAnim from "./PricingMicMaxAnim";
+import { usePlatform, type Platform } from "@/app/hooks/usePlatform";
+import { getDownloadUrl } from "@/app/utils/downloads";
+import { reachGoal } from "@/app/utils/reachGoal";
+import { locale } from "@/app/locales";
+import DownloadAlert from "@/app/components/DownloadAlert";
 
 // Card content: weekly word limit sits right under the price; the closing block
 // is concrete use cases (who/what it's for) with small Lucide icons.
@@ -45,14 +53,44 @@ const PRICES = {
   max:  { monthly: "$6.99", yearly: "$6.29" },
 };
 
+// Download button — ported from HeroDownload (auto platform detect + S3 build URL).
+const dlT = locale.heroDownload;
+const DL_PARAM_MAP: Record<Platform, Record<string, boolean>> = {
+  "mac-arm": { mac_arm: true },
+  "mac-x64": { mac_x64: true },
+  windows:   { windows: true },
+  unknown:   { other: true },
+};
+const DL_BUTTON_CONFIG: Record<Platform, { icon: ReactNode; label: string }> = {
+  "mac-arm": { icon: <SiApple size={24} />, label: dlT.macArm },
+  "mac-x64": { icon: <SiApple size={24} />, label: dlT.macIntel },
+  windows:   { icon: <FaWindows size={24} />, label: dlT.windows },
+  unknown:   { icon: <HiOutlineDownload size={24} />, label: dlT.generic },
+};
+
 export default function Pricing() {
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
   const freeAnimRef = useRef<MicAnimHandle>(null);
   const proAnimRef  = useRef<MicAnimHandle>(null);
   const maxAnimRef  = useRef<MicAnimHandle>(null);
 
+  const { platform } = usePlatform();
+  const [alertVisible, setAlertVisible] = useState(false);
+  const [showAllPlatforms, setShowAllPlatforms] = useState(false);
+  const downloadUrl = getDownloadUrl(platform);
+  const dlConfig = DL_BUTTON_CONFIG[platform];
+
+  function handleDownloadClick() {
+    reachGoal("click_download_button", { platform: DL_PARAM_MAP[platform] });
+  }
+
+  function handleOtherPlatforms() {
+    setShowAllPlatforms(true);
+    setAlertVisible(true);
+  }
+
   return (
-    <section className="pt-16 pb-20 md:pt-24 md:pb-28 relative">
+    <section id="start-for-free" className="pt-16 pb-20 md:pt-24 md:pb-28 relative">
 
       {/* TABLET — pixel-perfect 834px wrapper, figma 261:60 (swirl + supplement) */}
       <div className="hidden md:block xl:hidden absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none" style={{ width: 834 }}>
@@ -178,7 +216,7 @@ export default function Pricing() {
               <div className="absolute -top-[14px] inset-x-0 flex justify-center pointer-events-none">
                 <span className="pointer-events-auto whitespace-nowrap relative inline-flex items-center justify-center bg-[#FF4122] text-white font-['Inter',sans-serif] font-bold text-[11px] leading-none uppercase rounded-full px-7 h-[28px]">
                   <LuSparkles size={11} className="absolute left-3 top-1/2 -translate-y-1/2" />
-                  <span className="translate-y-[1px]">Best price</span>
+                  <span className="translate-y-[1px]">Popular</span>
                 </span>
               </div>
               <span className="absolute top-6 right-6 md:top-8 md:right-8 inline-flex items-center bg-[#c3beac] text-[#FF4122] font-['Inter',sans-serif] font-bold text-[16px] uppercase rounded-[20px] px-5 h-[40px]">
@@ -248,22 +286,50 @@ export default function Pricing() {
           {/* Foundation CTA — one shared button for every plan (same intent as the header CTA),
               sitting as the base the cards rest on. No per-card purchase button. */}
           <div className="mt-5">
-            <a
-              href="#"
-              className="group block w-full bg-[#FF4122] rounded-[14px] h-[76px] md:h-[88px] flex flex-col items-center justify-center gap-1 text-white hover:-translate-y-[2px] transition-transform duration-200"
-            >
-              <span className="flex items-center gap-2.5 font-['Inter',sans-serif] font-bold text-[20px] md:text-[24px] uppercase leading-none">
-                Start for free
+            {downloadUrl ? (
+              <a
+                href={downloadUrl}
+                onClick={handleDownloadClick}
+                className="group w-full bg-[#FF4122] rounded-[14px] h-[76px] md:h-[88px] flex items-center justify-center gap-2.5 text-white font-['Inter',sans-serif] font-bold text-[20px] md:text-[24px] leading-none hover:-translate-y-[2px] transition-transform duration-200"
+              >
+                <span className="flex items-center">{dlConfig.icon}</span>
+                {dlConfig.label}
                 <LuArrowRight size={22} className="transition-transform duration-200 group-hover:translate-x-1.5" />
+              </a>
+            ) : (
+              <button
+                type="button"
+                onClick={handleDownloadClick}
+                className="group w-full bg-[#FF4122] rounded-[14px] h-[76px] md:h-[88px] flex items-center justify-center gap-2.5 text-white font-['Inter',sans-serif] font-bold text-[20px] md:text-[24px] leading-none hover:-translate-y-[2px] transition-transform duration-200 cursor-pointer"
+              >
+                <span className="flex items-center">{dlConfig.icon}</span>
+                {dlConfig.label}
+                <LuArrowRight size={22} className="transition-transform duration-200 group-hover:translate-x-1.5" />
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={handleOtherPlatforms}
+              className="mt-5 w-full bg-transparent border border-black/15 rounded-[14px] h-[76px] md:h-[88px] flex items-center justify-center gap-3 text-black/45 font-['Inter',sans-serif] font-bold text-[20px] md:text-[24px] leading-none hover:border-black/30 hover:text-black/70 transition-colors duration-200 cursor-pointer"
+            >
+              <span className="flex items-center gap-2">
+                <SiApple size={24} />
+                <FaWindows size={24} />
+                <FaAppStoreIos size={24} />
+                <FaAndroid size={24} />
               </span>
-              <span className="font-['Inter',sans-serif] font-medium text-[12px] uppercase tracking-wide text-white/80 leading-none">
-                Free for macOS &amp; Windows
-              </span>
-            </a>
+              {dlT.otherPlatforms}
+            </button>
             <p className="mt-4 text-center font-['Inter',sans-serif] font-medium text-[13px] leading-[28px] uppercase text-black/50">
               Nothing to pay here - you start free. Pro and Max are unlocked later, inside the app.
             </p>
           </div>
+
+          <DownloadAlert
+            visible={alertVisible}
+            onClose={() => setAlertVisible(false)}
+            showAllPlatforms={showAllPlatforms}
+          />
 
         </div>
 
