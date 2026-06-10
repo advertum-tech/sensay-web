@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import LandingPage from "./landing/LandingPage";
-import { locale } from "./locales";
+import SensayLanding from "../landing";
+import { locale } from "../locales";
 
 const m = locale.metadata;
 
@@ -24,6 +24,4 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Page() {
-  return <LandingPage videoSrc="/norm.mp4" />;
-}
+export default SensayLanding;
