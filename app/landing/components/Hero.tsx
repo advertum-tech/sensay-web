@@ -20,7 +20,7 @@ function LovedBadge({ size = 120 }: { size?: number }) {
   );
 }
 
-export default function Hero({ videoSrc = '/dude.mp4' }: { videoSrc?: string }) {
+export default function Hero({ videoSrc = '/video/last.webm' }: { videoSrc?: string }) {
   return (
     <section className="">
 

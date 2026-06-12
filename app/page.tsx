@@ -25,5 +25,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <LandingPage videoSrc="/norm.mp4" />;
+  return <LandingPage videoSrc="/video/last.webm" />;
 }

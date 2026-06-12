@@ -1,5 +1,5 @@
 import LandingPage from "../landing/LandingPage";
 
 export default function Page() {
-  return <LandingPage videoSrc="/norm2.mp4" />;
+  return <LandingPage videoSrc="/video/norm2.mp4" />;
 }
