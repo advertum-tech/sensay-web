@@ -10,6 +10,9 @@ const IDLE_TIMEOUT = 60_000;
 const MAN_SCALE = 1.8; // масштаб: больше число = крупнее человек
 const MAN_X = '30px'; // сдвиг по горизонтали (+ вправо, - влево)
 const MAN_Y = '2px'; // сдвиг по вертикали (+ вниз, - вверх)
+// Цвет: гасит оранжевый. Действует только на пиксели человека, фон (альфа) не трогает.
+// saturate(<1) — меньше насыщенность, hue-rotate — сдвиг тона. 'none' = выключить.
+const MAN_FILTER = 'saturate(0.85) hue-rotate(-3deg)';
 
 interface Props {
   src?: string;
@@ -67,6 +70,7 @@ export default function HeroPerson({ src = '/video/last.webm', className, style 
           style={{
             width: `calc(100% * ${MAN_SCALE})`,
             transform: `translate(calc(-50% + ${MAN_X}), calc(-50% + ${MAN_Y}))`,
+            filter: MAN_FILTER,
             cursor: 'pointer',
           }}
           onClick={handleClick}
