@@ -8,7 +8,8 @@ const IDLE_TIMEOUT = 60_000;
 // Video is 1920x1080 (16:9) with alpha, person centered in the frame.
 // Box is square (like the old image), excess is clipped by overflow:hidden.
 const MAN_SCALE = 1.8; // scale: larger number = bigger person
-const MAN_X = '35px'; // horizontal offset (+ right, - left)
+// Horizontal offset is per-tier via the --man-x CSS var in className below
+// (main tier vs <=359px). + right, - left.
 const MAN_Y = '2px'; // vertical offset (+ down, - up)
 // Color: tones down the orange. Affects only the person's pixels, not the alpha background.
 // saturate(<1) — less saturation, hue-rotate — tone shift. 'none' = disable.
@@ -73,10 +74,10 @@ export default function HeroPersonMobile({ src = '/video/last.webm' }: { src?: s
           autoPlay
           muted
           playsInline
-          className="absolute left-1/2 top-1/2 max-w-none"
+          className="absolute left-1/2 top-1/2 max-w-none [--man-x:35px] max-[359px]:[--man-x:20px]"
           style={{
             width: `calc(100% * ${MAN_SCALE})`,
-            transform: `translate(calc(-50% + ${MAN_X}), calc(-50% + ${MAN_Y}))`,
+            transform: `translate(calc(-50% + var(--man-x)), calc(-50% + ${MAN_Y}))`,
             filter: MAN_FILTER,
             cursor: 'pointer',
           }}
