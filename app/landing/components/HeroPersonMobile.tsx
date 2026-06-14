@@ -4,14 +4,14 @@ import { useEffect, useRef, useState } from 'react';
 
 const IDLE_TIMEOUT = 60_000;
 
-// --- Кадрирование видео (подгоняй эти 3 числа) ---
-// Видео 1920x1080 (16:9) с альфой, человек в центре кадра.
-// Бокс квадратный (как была картинка), лишнее обрезается overflow:hidden.
-const MAN_SCALE = 1.8; // масштаб: больше число = крупнее человек
-const MAN_X = '0px'; // сдвиг по горизонтали (+ вправо, - влево)
-const MAN_Y = '0px'; // сдвиг по вертикали (+ вниз, - вверх)
-// Цвет: гасит оранжевый. Действует только на пиксели человека, фон (альфа) не трогает.
-// saturate(<1) — меньше насыщенность, hue-rotate — сдвиг тона. 'none' = выключить.
+// --- Video framing (tune these 3 numbers) ---
+// Video is 1920x1080 (16:9) with alpha, person centered in the frame.
+// Box is square (like the old image), excess is clipped by overflow:hidden.
+const MAN_SCALE = 1.8; // scale: larger number = bigger person
+const MAN_X = '35px'; // horizontal offset (+ right, - left)
+const MAN_Y = '2px'; // vertical offset (+ down, - up)
+// Color: tones down the orange. Affects only the person's pixels, not the alpha background.
+// saturate(<1) — less saturation, hue-rotate — tone shift. 'none' = disable.
 const MAN_FILTER = 'saturate(0.85) hue-rotate(-3deg)';
 
 export default function HeroPersonMobile({ src = '/video/last.webm' }: { src?: string }) {
@@ -84,7 +84,7 @@ export default function HeroPersonMobile({ src = '/video/last.webm' }: { src?: s
           onPlay={handlePlay}
           onEnded={handleEnded}
         >
-          {/* Safari/iOS: HEVC с альфа-каналом (WebM-альфу они не рисуют) */}
+          {/* Safari/iOS: HEVC with alpha channel (they don't render WebM alpha) */}
           {src.endsWith('.webm') && (
             <source src={src.replace(/\.webm$/, '.mov')} type='video/quicktime' />
           )}
