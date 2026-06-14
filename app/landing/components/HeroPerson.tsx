@@ -62,7 +62,6 @@ export default function HeroPerson({ src = '/video/last.webm', className, style 
       <div className="relative w-full aspect-square overflow-hidden">
         <video
           ref={ref}
-          src={src}
           autoPlay
           muted
           playsInline
@@ -76,7 +75,14 @@ export default function HeroPerson({ src = '/video/last.webm', className, style 
           onClick={handleClick}
           onPlay={handlePlay}
           onEnded={handleEnded}
-        />
+        >
+          {/* Safari/iOS: HEVC с альфа-каналом (WebM-альфу они не рисуют) */}
+          {src.endsWith('.webm') && (
+            <source src={src.replace(/\.webm$/, '.mov')} type='video/quicktime' />
+          )}
+          {/* Chrome/Firefox/Android */}
+          <source src={src} type={src.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
+        </video>
       </div>
     </div>
   );

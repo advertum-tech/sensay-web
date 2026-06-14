@@ -70,7 +70,6 @@ export default function HeroPersonMobile({ src = '/video/last.webm' }: { src?: s
       >
         <video
           ref={videoRef}
-          src={src}
           autoPlay
           muted
           playsInline
@@ -84,7 +83,14 @@ export default function HeroPersonMobile({ src = '/video/last.webm' }: { src?: s
           onClick={handleVideoClick}
           onPlay={handlePlay}
           onEnded={handleEnded}
-        />
+        >
+          {/* Safari/iOS: HEVC с альфа-каналом (WebM-альфу они не рисуют) */}
+          {src.endsWith('.webm') && (
+            <source src={src.replace(/\.webm$/, '.mov')} type='video/quicktime' />
+          )}
+          {/* Chrome/Firefox/Android */}
+          <source src={src} type={src.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
+        </video>
       </div>
       <img
         src="/hero-dashed-mobile.svg"
