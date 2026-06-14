@@ -25,7 +25,7 @@ export const ru = {
     paragraph:
       "Говорите. Получайте чистый текст — в email, Slack, WhatsApp или где угодно ещё. Без набора. Без переключения приложений.",
     seeHow: "Как это работает →",
-    lovedCount: "12 000+",
+    lovedCount: "100+",
     lovedByTemplate: "Уже любят {{count}} человек",
     imageAlt: "Говорит в телефон",
   },

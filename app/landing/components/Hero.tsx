@@ -11,7 +11,7 @@ function LovedBadge({ size = 120 }: { size?: number }) {
         <div className="w-full flex flex-col items-center" style={{ transform: "translateY(-20px)" }}>
           <img src="/loved-avatars.svg" alt="" className="w-[27%] mb-1" />
           <p className="text-center uppercase whitespace-nowrap" style={{ fontSize: size * 0.062, lineHeight: "2" }}>
-            Loved by <strong>12,000+</strong>
+            Loved by <strong>100+</strong>
             <br />people already
           </p>
         </div>
@@ -98,7 +98,7 @@ export default function Hero({ videoSrc = '/video/last.webm' }: { videoSrc?: str
           <div className="absolute inset-0 flex flex-col items-center justify-center" style={{ transform: 'rotate(-5deg)' }}>
             <img src="/loved-avatars.svg" alt="" style={{ width: 59 }} className="mb-1" />
             <p className="text-center uppercase whitespace-nowrap font-['Inter',sans-serif] font-medium text-[14px] leading-[28px]">
-              Loved by <strong className="font-bold">12,000+</strong>
+              Loved by <strong className="font-bold">100+</strong>
               <br />people already
             </p>
           </div>
@@ -207,7 +207,7 @@ export default function Hero({ videoSrc = '/video/last.webm' }: { videoSrc?: str
               <div className="absolute flex flex-col items-center" style={{ top: "4.5%", left: "63%", transform: "translateX(-50%)" }}>
                 <img src="/loved-avatars.svg" alt="" className="mb-1" style={{ width: "59px" }} />
                 <p className="text-center uppercase whitespace-nowrap" style={{ fontSize: "14px", lineHeight: "28px" }}>
-                  Loved by <strong className="font-bold">12,000+</strong>
+                  Loved by <strong className="font-bold">100+</strong>
                   <br />people already
                 </p>
               </div>
@@ -301,7 +301,7 @@ export default function Hero({ videoSrc = '/video/last.webm' }: { videoSrc?: str
               <div className="absolute flex flex-col items-center" style={{ top: "4.5%", left: "63%", transform: "translateX(-50%)" }}>
                 <img src="/loved-avatars.svg" alt="" className="mb-1" style={{ width: "74px" }} />
                 <p className="text-center uppercase whitespace-nowrap" style={{ fontSize: "14px", lineHeight: "28px" }}>
-                  Loved by <strong className="font-bold">12,000+</strong>
+                  Loved by <strong className="font-bold">100+</strong>
                   <br />people already
                 </p>
               </div>

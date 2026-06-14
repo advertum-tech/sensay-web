@@ -21,7 +21,7 @@ export const en = {
     paragraph:
       "Speak. Get clean, ready-to-send text — in your email, Slack, WhatsApp, or anywhere else. No typing. No switching apps.",
     seeHow: "See how →",
-    lovedCount: "12,000+",
+    lovedCount: "100+",
     lovedByTemplate: "Loved by {{count}} people already",
     imageAlt: "Speaking into phone",
   },
