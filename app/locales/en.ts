@@ -247,6 +247,7 @@ export const en = {
     windows: "Download for Windows",
     windowsSoon: "Windows — Soon",
     generic: "Download",
+    linux: "Download for Linux",
     otherPlatforms: "Other platforms",
   },
 
@@ -256,6 +257,19 @@ export const en = {
     btn: "Got it",
     otherTitle: "Download for your platform",
     soonLabel: "Soon",
+  },
+
+  downloadPicker: {
+    title: "Download for your platform",
+    body: "Free, no signup. Install and start talking.",
+    yourDevice: "Your device",
+    soon: "Soon",
+    btn: "Got it",
+    mac: { name: "macOS", help: "macOS 14 or later", diskImage: "Disk image", appleSilicon: "Apple Silicon", intel: "Intel" },
+    windows: { name: "Windows", help: "Windows 10 and 11, 64-bit", app: "Windows app", x64: "x64" },
+    linux: { name: "Linux", help: "Choose your distribution", deb: "Debian, Ubuntu", rpm: "Fedora", appimage: "Any distro" },
+    ios: "iOS",
+    android: "Android",
   },
 
   pricingAlert: {

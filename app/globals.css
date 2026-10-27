@@ -7,6 +7,12 @@
   --animate-step-pulse: step-pulse 3s ease-out infinite;
   --animate-glow-pulse: glow-pulse 4s ease-in-out infinite;
   --animate-dot-pulse: dot-pulse 1.6s ease-out infinite;
+  --animate-ring-spin: ring-spin 10s linear infinite;
+}
+
+/* Final CTA round button: dashed ring rotates on hover */
+@keyframes ring-spin {
+  to { transform: rotate(360deg); }
 }
 
 @keyframes dot-pulse {

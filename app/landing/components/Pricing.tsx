@@ -7,7 +7,7 @@ import {
   LuFileText, LuMic, LuFileAudio, LuInfinity,
 } from "react-icons/lu";
 import { SiApple } from "react-icons/si";
-import { FaWindows, FaAppStoreIos, FaAndroid } from "react-icons/fa";
+import { FaWindows, FaAppStoreIos, FaAndroid, FaLinux } from "react-icons/fa";
 import { HiOutlineDownload } from "react-icons/hi";
 import PricingMicFreeAnim, { type MicAnimHandle } from "./PricingMicFreeAnim";
 import PricingMicProAnim from "./PricingMicProAnim";
@@ -16,7 +16,7 @@ import { usePlatform, type Platform } from "@/app/hooks/usePlatform";
 import { getDownloadUrl } from "@/app/utils/downloads";
 import { reachGoal } from "@/app/utils/reachGoal";
 import { locale } from "@/app/locales";
-import DownloadAlert from "@/app/components/DownloadAlert";
+import DownloadPicker from "@/app/components/DownloadPicker";
 
 // Card content: weekly word limit sits right under the price; the closing block
 // is concrete use cases (who/what it's for) with small Lucide icons.
@@ -59,12 +59,16 @@ const DL_PARAM_MAP: Record<Platform, Record<string, boolean>> = {
   "mac-arm": { mac_arm: true },
   "mac-x64": { mac_x64: true },
   windows:   { windows: true },
+  "linux-x64":   { linux_x64: true },
+  "linux-arm64": { linux_arm64: true },
   unknown:   { other: true },
 };
 const DL_BUTTON_CONFIG: Record<Platform, { icon: ReactNode; label: string }> = {
   "mac-arm": { icon: <SiApple size={24} />, label: dlT.macArm },
   "mac-x64": { icon: <SiApple size={24} />, label: dlT.macIntel },
   windows:   { icon: <FaWindows size={24} />, label: dlT.windows },
+  "linux-x64":   { icon: <FaLinux size={24} />, label: dlT.linux },
+  "linux-arm64": { icon: <FaLinux size={24} />, label: dlT.linux },
   unknown:   { icon: <HiOutlineDownload size={24} />, label: dlT.generic },
 };
 
@@ -75,8 +79,7 @@ export default function Pricing() {
   const maxAnimRef  = useRef<MicAnimHandle>(null);
 
   const { platform } = usePlatform();
-  const [alertVisible, setAlertVisible] = useState(false);
-  const [showAllPlatforms, setShowAllPlatforms] = useState(false);
+  const [pickerVisible, setPickerVisible] = useState(false);
   const downloadUrl = getDownloadUrl(platform);
   const dlConfig = DL_BUTTON_CONFIG[platform];
 
@@ -85,8 +88,7 @@ export default function Pricing() {
   }
 
   function handleOtherPlatforms() {
-    setShowAllPlatforms(true);
-    setAlertVisible(true);
+    setPickerVisible(true);
   }
 
   return (
@@ -299,7 +301,10 @@ export default function Pricing() {
             ) : (
               <button
                 type="button"
-                onClick={handleDownloadClick}
+                onClick={() => {
+                  handleDownloadClick();
+                  handleOtherPlatforms();
+                }}
                 className="group w-full bg-[#FF4122] rounded-[14px] h-[76px] md:h-[88px] flex items-center justify-center gap-2.5 text-white font-['Inter',sans-serif] font-bold text-[20px] md:text-[24px] leading-none hover:-translate-y-[2px] transition-transform duration-200 cursor-pointer"
               >
                 <span className="flex items-center">{dlConfig.icon}</span>
@@ -312,23 +317,24 @@ export default function Pricing() {
               onClick={handleOtherPlatforms}
               className="mt-5 w-full bg-transparent border border-black/15 rounded-[14px] h-[76px] md:h-[88px] flex items-center justify-center gap-3 text-black/45 font-['Inter',sans-serif] font-bold text-[20px] md:text-[24px] leading-none hover:border-black/30 hover:text-black/70 transition-colors duration-200 cursor-pointer"
             >
+              {dlT.otherPlatforms}
               <span className="flex items-center gap-2">
                 <SiApple size={24} />
                 <FaWindows size={24} />
+                <FaLinux size={24} />
                 <FaAppStoreIos size={24} />
                 <FaAndroid size={24} />
               </span>
-              {dlT.otherPlatforms}
             </button>
             <p className="mt-4 text-center font-['Inter',sans-serif] font-medium text-[13px] leading-[28px] uppercase text-black/50">
               Nothing to pay here - you start free. Pro and Max are unlocked later, inside the app.
             </p>
           </div>
 
-          <DownloadAlert
-            visible={alertVisible}
-            onClose={() => setAlertVisible(false)}
-            showAllPlatforms={showAllPlatforms}
+          <DownloadPicker
+            visible={pickerVisible}
+            onClose={() => setPickerVisible(false)}
+            platform={platform}
           />
 
         </div>

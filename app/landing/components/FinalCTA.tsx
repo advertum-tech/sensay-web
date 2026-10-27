@@ -1,21 +1,6 @@
 import SensayDot from "./SensayDot";
 import AnimatedSensayLogoHover from "./AnimatedSensayLogoHover";
 
-const BARS = [
-  { h: 67, opacity: 0.4 },
-  { h: 90, opacity: 0.6 },
-  { h: 110, opacity: 0.9 },
-  { h: 130, opacity: 1 },
-  { h: 120, opacity: 0.9 },
-  { h: 100, opacity: 0.8 },
-  { h: 110, opacity: 0.7 },
-  { h: 120, opacity: 0.8 },
-  { h: 130, opacity: 1 },
-  { h: 110, opacity: 0.9 },
-  { h: 90, opacity: 0.8 },
-  { h: 60, opacity: 0.7 },
-];
-
 export default function FinalCTA() {
   return (
     <section className="pt-16 md:pt-24">
@@ -77,21 +62,21 @@ export default function FinalCTA() {
 
         <div className="relative px-5 md:px-12 xl:px-[100px] pb-12 md:pb-16 pt-[220%] md:pt-[120%]">
 
-          {/* Puffy button */}
+          {/* Round button — coral disc at rest; on hover the fill goes away and a rotating dashed ring stays */}
           <div className="flex justify-center mt-4 md:mt-[320px] mb-[64px] md:mb-[320px]">
             <a
               href="#start-for-free"
-              className="group relative flex items-center gap-0 justify-center"
-              style={{ height: 130 }}
+              className="group relative flex h-[180px] w-[180px] md:h-[212px] md:w-[212px] items-center justify-center rounded-full bg-[#FF4122] transition-colors duration-300 hover:bg-transparent"
             >
-              {BARS.map((b, i) => (
-                <div
-                  key={i}
-                  className="w-[28px] md:w-[42px] rounded-[40px] bg-[#FF4122] flex-none transition-opacity duration-300 group-hover:opacity-100"
-                  style={{ height: b.h, opacity: b.opacity }}
-                />
-              ))}
-              <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#FF4122] border border-white rounded-[10px] h-[52px] w-[220px] md:h-[60px] md:w-[280px] flex items-center justify-center font-['Inter',sans-serif] font-bold text-[14px] leading-[28px] xl:text-[16px] xl:leading-[28px] uppercase text-white tracking-wider whitespace-nowrap pointer-events-none transition-colors duration-200 group-hover:bg-white group-hover:text-[#FF4122]">
+              {/* Dash + gap = 24 and r chosen so the pattern closes on itself (2πr = 27 × 24) */}
+              <svg
+                viewBox="0 0 212 212"
+                aria-hidden="true"
+                className="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:animate-ring-spin motion-reduce:animate-none"
+              >
+                <circle cx="106" cy="106" r="103.13" fill="none" stroke="#e3dad0" strokeWidth="5" strokeDasharray="14 10" />
+              </svg>
+              <span className="relative font-['Inter',sans-serif] font-bold text-[14px] xl:text-[16px] leading-none uppercase tracking-wider text-white whitespace-nowrap">
                 Start Sensay free
               </span>
             </a>

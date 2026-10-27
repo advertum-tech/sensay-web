@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { usePlatform, type Platform } from "@/app/hooks/usePlatform";
 import { SiApple } from "react-icons/si";
-import { FaWindows } from "react-icons/fa";
+import { FaWindows, FaLinux } from "react-icons/fa";
 import { HiOutlineDownload } from "react-icons/hi";
 import DownloadAlert from "./DownloadAlert";
 import { reachGoal } from "@/app/utils/reachGoal";
@@ -18,6 +18,8 @@ const platformParamMap: Record<Platform, Record<string, boolean>> = {
   "mac-arm": { mac_arm: true },
   "mac-x64": { mac_x64: true },
   windows:   { windows: true },
+  "linux-x64":   { linux_x64: true },
+  "linux-arm64": { linux_arm64: true },
   unknown:   { other: true },
 };
 
@@ -27,6 +29,8 @@ const buttonConfig: Record<Platform, { icon: React.ReactNode; label: string }> =
   "mac-arm": { icon: <SiApple size={20} />, label: t.macArm },
   "mac-x64": { icon: <SiApple size={20} />, label: t.macIntel },
   windows:   { icon: <FaWindows size={20} />, label: t.windows },
+  "linux-x64":   { icon: <FaLinux size={20} />, label: t.linux },
+  "linux-arm64": { icon: <FaLinux size={20} />, label: t.linux },
   unknown:   { icon: <HiOutlineDownload size={20} />, label: t.generic },
 };
 

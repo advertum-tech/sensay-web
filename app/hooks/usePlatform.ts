@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export type Platform = "mac-arm" | "mac-x64" | "windows" | "unknown";
+export type Platform = "mac-arm" | "mac-x64" | "windows" | "linux-x64" | "linux-arm64" | "unknown";
 
 interface NavigatorWithUA extends Navigator {
   userAgentData?: {
@@ -65,6 +65,13 @@ export function usePlatform(): { platform: Platform; isLoading: boolean } {
             setIsLoading(false);
             return;
           }
+
+          // Desktop Linux only: Chrome on Android reports platform "Android".
+          if (data.platform === "Linux") {
+            setPlatform(data.architecture === "arm" ? "linux-arm64" : "linux-x64");
+            setIsLoading(false);
+            return;
+          }
         } catch {
           // fall through
         }
@@ -78,6 +85,9 @@ export function usePlatform(): { platform: Platform; isLoading: boolean } {
       } else if (ua.includes("mac os x") || ua.includes("macos")) {
         // Try WebGL renderer to distinguish ARM vs Intel (reliable in Safari)
         setPlatform(detectMacArchViaWebGL());
+      } else if (ua.includes("linux") && !ua.includes("android")) {
+        // Android UAs also contain "Linux" — only desktop Linux counts
+        setPlatform(/aarch64|arm64|armv8/.test(ua) ? "linux-arm64" : "linux-x64");
       }
 
       setIsLoading(false);

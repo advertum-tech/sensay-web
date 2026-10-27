@@ -251,6 +251,7 @@ export const ru = {
     windows: "Скачать для Windows",
     windowsSoon: "Windows — скоро",
     generic: "Скачать",
+    linux: "Скачать для Linux",
     otherPlatforms: "Другие платформы",
   },
 
@@ -260,6 +261,19 @@ export const ru = {
     btn: "Понятно",
     otherTitle: "Скачайте для вашей платформы",
     soonLabel: "Скоро",
+  },
+
+  downloadPicker: {
+    title: "Скачайте для вашей платформы",
+    body: "Бесплатно, без регистрации. Установите и говорите.",
+    yourDevice: "Ваше устройство",
+    soon: "Скоро",
+    btn: "Понятно",
+    mac: { name: "macOS", help: "macOS 14 или новее", diskImage: "Образ диска", appleSilicon: "Apple Silicon", intel: "Intel" },
+    windows: { name: "Windows", help: "Windows 10 и 11, 64-бит", app: "Приложение Windows", x64: "x64" },
+    linux: { name: "Linux", help: "Выберите дистрибутив", deb: "Debian, Ubuntu", rpm: "Fedora", appimage: "Любой дистрибутив" },
+    ios: "iOS",
+    android: "Android",
   },
 
   pricingAlert: {

@@ -1,16 +1,8 @@
-import { getYmId } from "./ymId";
+import posthog from "posthog-js";
 
-const YM_ID = getYmId();
-
-declare global {
-  function ym(counterId: number, method: string, ...args: unknown[]): void;
-}
-
+// Sends a landing event to PostHog. No-op on the server and when analytics is disabled.
 export function reachGoal(goal: string, params?: Record<string, unknown>): void {
-  if (typeof window === "undefined" || typeof ym === "undefined") return;
-  const userId = localStorage.getItem("sensay_user_id");
-  const mergedParams = userId
-    ? { users: { userId }, ...params }
-    : params;
-  ym(YM_ID, "reachGoal", goal, mergedParams);
+  if (typeof window === "undefined") return;
+  if (process.env.NEXT_PUBLIC_DISABLE_ANALYTICS === "true") return;
+  posthog.capture(goal, params);
 }
