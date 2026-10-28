@@ -11,13 +11,18 @@ import type { Platform } from "@/app/hooks/usePlatform";
 //     "https://api.sensay.app/storage/v1/object/public/builds/windows/x64/latest/sensay.exe",
 //   unknown: null,
 // };
+const S3 = "https://sensay-app.s3.eu-west-1.amazonaws.com";
+
+// Per-platform release versions. Files are uploaded by publish-s3.sh with the
+// version in the file name, so bumping a version here is the whole landing update.
+const MAC_VERSION = "0.2.4";
+const WINDOWS_VERSION = "0.2.2";
+const LINUX_VERSION = "0.2.1";
+
 export const downloadUrls: Record<Platform, string | null> = {
-  "mac-arm":
-    "https://sensay-app.s3.eu-west-1.amazonaws.com/macos/arm64/sensay-0.0.2-arm64.dmg",
-  "mac-x64":
-    "https://sensay-app.s3.eu-west-1.amazonaws.com/macos/x64/sensay-0.0.2-x64.dmg",
-  windows:
-    "https://sensay-app.s3.eu-west-1.amazonaws.com/windows/x64/sensay-0.0.2-x64.exe",
+  "mac-arm": `${S3}/macos/arm64/Sensay-${MAC_VERSION}-arm64.dmg`,
+  "mac-x64": `${S3}/macos/x64/Sensay-${MAC_VERSION}-x64.dmg`,
+  windows: `${S3}/windows/x64/Sensay-Setup-${WINDOWS_VERSION}.exe`,
   // Linux has no single direct download — the wide button opens the picker.
   "linux-x64": null,
   "linux-arm64": null,
@@ -27,14 +32,10 @@ export const downloadUrls: Record<Platform, string | null> = {
 export type LinuxFormat = "deb" | "rpm" | "appimage";
 export type LinuxArch = "x86_64" | "arm64";
 
-const S3 = "https://sensay-app.s3.eu-west-1.amazonaws.com";
-const LINUX_VERSION = "0.1.0";
-
 // Shown in the download picker next to each OS card.
-export const buildVersions = { mac: "0.0.2", windows: "0.0.2", linux: LINUX_VERSION };
+export const buildVersions = { mac: MAC_VERSION, windows: WINDOWS_VERSION, linux: LINUX_VERSION };
 
-// Per-format, per-arch Linux packages. Paths follow the planned S3 layout
-// (linux/x86_64, linux/aarch64); files are uploaded per release.
+// Per-format, per-arch Linux packages in S3 (linux/x86_64, linux/aarch64).
 export const linuxDownloads: Record<LinuxFormat, Record<LinuxArch, string>> = {
   deb: {
     x86_64: `${S3}/linux/x86_64/sensay_${LINUX_VERSION}_amd64.deb`,
