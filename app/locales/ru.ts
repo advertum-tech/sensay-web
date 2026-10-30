@@ -269,7 +269,7 @@ export const ru = {
     yourDevice: "Ваше устройство",
     soon: "Скоро",
     btn: "Понятно",
-    mac: { name: "macOS", help: "macOS 14 или новее", diskImage: "Образ диска", appleSilicon: "Apple Silicon", intel: "Intel" },
+    mac: { name: "macOS", help: "macOS 13 или новее", diskImage: "Образ диска", appleSilicon: "Apple Silicon", intel: "Intel" },
     windows: { name: "Windows", help: "Windows 10 и 11, 64-бит", app: "Приложение Windows", x64: "x64" },
     linux: { name: "Linux", help: "Выберите дистрибутив", deb: "Debian, Ubuntu", rpm: "Fedora", appimage: "Любой дистрибутив" },
     ios: "iOS",

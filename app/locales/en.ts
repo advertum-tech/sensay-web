@@ -265,7 +265,7 @@ export const en = {
     yourDevice: "Your device",
     soon: "Soon",
     btn: "Got it",
-    mac: { name: "macOS", help: "macOS 14 or later", diskImage: "Disk image", appleSilicon: "Apple Silicon", intel: "Intel" },
+    mac: { name: "macOS", help: "macOS 13 or later", diskImage: "Disk image", appleSilicon: "Apple Silicon", intel: "Intel" },
     windows: { name: "Windows", help: "Windows 10 and 11, 64-bit", app: "Windows app", x64: "x64" },
     linux: { name: "Linux", help: "Choose your distribution", deb: "Debian, Ubuntu", rpm: "Fedora", appimage: "Any distro" },
     ios: "iOS",
