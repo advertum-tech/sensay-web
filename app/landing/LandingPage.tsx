@@ -8,6 +8,7 @@ import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
 import Pricing from "./components/Pricing";
 import FinalCTA from "./components/FinalCTA";
+import BetaStamp from "./components/BetaStamp";
 
 export default function LandingPage({ videoSrc }: { videoSrc: string }) {
   return (
@@ -19,6 +20,10 @@ export default function LandingPage({ videoSrc }: { videoSrc: string }) {
           <div className="flex items-center gap-2">
             <img src="/icon.svg" alt="" width={41} height={40} />
             <span className="font-['Inter',sans-serif] text-[18px] text-black/80"><span className="font-light">Sen</span>say</span>
+            {/* Hidden on the narrowest phones, where it would push "Try free" onto two lines. */}
+            <span className="max-[419px]:hidden">
+              <BetaStamp size="header" delayMs={400} className="ml-1 -rotate-[6deg]">Private beta</BetaStamp>
+            </span>
           </div>
           <a href="#start-for-free" className="bg-white border border-black/60 text-[#FF4122] text-[14px] font-bold uppercase px-5 py-[5px] rounded-[5px] hover:bg-[#FF4122] hover:text-white hover:border-[#FF4122] transition-colors duration-200">
             TRY FREE

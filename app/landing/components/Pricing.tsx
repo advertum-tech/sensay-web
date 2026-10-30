@@ -12,6 +12,7 @@ import { HiOutlineDownload } from "react-icons/hi";
 import PricingMicFreeAnim, { type MicAnimHandle } from "./PricingMicFreeAnim";
 import PricingMicProAnim from "./PricingMicProAnim";
 import PricingMicMaxAnim from "./PricingMicMaxAnim";
+import { PlanPrice } from "./PricingZero";
 import { usePlatform, type Platform } from "@/app/hooks/usePlatform";
 import { getDownloadUrl } from "@/app/utils/downloads";
 import { reachGoal } from "@/app/utils/reachGoal";
@@ -48,11 +49,6 @@ const PLAN_MAX = {
   ],
 };
 
-const PRICES = {
-  pro:  { monthly: "$2.99", yearly: "$2.49" },
-  max:  { monthly: "$6.99", yearly: "$6.29" },
-};
-
 // Download button — ported from HeroDownload (auto platform detect + S3 build URL).
 const dlT = locale.heroDownload;
 const DL_PARAM_MAP: Record<Platform, Record<string, boolean>> = {
@@ -73,7 +69,6 @@ const DL_BUTTON_CONFIG: Record<Platform, { icon: ReactNode; label: string }> = {
 };
 
 export default function Pricing() {
-  const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
   const freeAnimRef = useRef<MicAnimHandle>(null);
   const proAnimRef  = useRef<MicAnimHandle>(null);
   const maxAnimRef  = useRef<MicAnimHandle>(null);
@@ -148,29 +143,11 @@ export default function Pricing() {
         {/* 3 price cards — constrained 1180px sub-grid centered */}
         <div className="md:max-w-[1180px] md:mx-auto">
 
-          {/* Billing toggle — sits above cards, aligned right (under MAX area) */}
+          {/* Private beta: every plan is free, so the billing toggle gives way to this label. */}
           <div className="mb-5 flex justify-center md:justify-end">
-            <div className="inline-flex items-center gap-3">
-              {billing === "yearly" && (
-                <span className="font-['Inter',sans-serif] text-[12px] uppercase font-bold text-[#FF4122]">Save ~10%</span>
-              )}
-              <div className="inline-flex items-center bg-[#bfb9ac] rounded-[20px] p-[3px] h-[36px]">
-                <button
-                  type="button"
-                  onClick={() => setBilling("monthly")}
-                  className={`px-4 h-[30px] rounded-[20px] font-['Inter',sans-serif] font-bold text-[13px] uppercase transition-colors cursor-pointer ${billing === "monthly" ? "bg-white text-black" : "text-black/60 hover:text-black"}`}
-                >
-                  Monthly
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setBilling("yearly")}
-                  className={`px-4 h-[30px] rounded-[20px] font-['Inter',sans-serif] font-bold text-[13px] uppercase transition-colors cursor-pointer ${billing === "yearly" ? "bg-white text-black" : "text-black/60 hover:text-black"}`}
-                >
-                  Annually
-                </button>
-              </div>
-            </div>
+            <span className="inline-flex items-center h-[36px] px-4 rounded-[20px] bg-[#FF4122] text-white font-['Inter',sans-serif] font-bold text-[13px] uppercase">
+              Private beta · Everything free
+            </span>
           </div>
 
           <div className="flex flex-col md:flex-row gap-5">
@@ -189,7 +166,7 @@ export default function Pricing() {
                   <div className="h-[103px] flex items-end mb-6">
                     <PricingMicFreeAnim ref={freeAnimRef} />
                   </div>
-                  <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] min-[500px]:max-md:leading-[40px] text-black mb-6 min-[500px]:max-md:mb-0">$0<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
+                  <p className="relative font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] min-[500px]:max-md:leading-[40px] text-black mb-6 min-[500px]:max-md:mb-0"><PlanPrice plan="free" tone="light" /></p>
                 </div>
                 <div className="min-[500px]:max-md:basis-[55%] min-[500px]:max-md:items-end flex-1 flex">
                   <ul className="flex-1 flex flex-col gap-3 min-[500px]:max-md:pb-1.5">
@@ -202,7 +179,7 @@ export default function Pricing() {
                   </ul>
                 </div>
               </div>
-              <div className="mt-5 md:mt-7 -mx-6 md:-mx-8 border-t-[4px] border-dotted border-black/20" />
+              <div className="mt-5 md:mt-7 -mx-6 md:-mx-8 border-t-[4px] border-dotted border-sand" />
               <p className="mt-5 md:mt-7 flex items-baseline gap-1.5">
                 <span className="font-bold text-[22px] leading-none text-black">{PLAN_FREE.limit}</span>
                 <span className="text-[14px] lowercase text-black/45">{PLAN_FREE.unit}</span>
@@ -229,7 +206,7 @@ export default function Pricing() {
                   <div className="h-[103px] flex items-end mb-6">
                     <PricingMicProAnim ref={proAnimRef} />
                   </div>
-                  <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] min-[500px]:max-md:leading-[40px] text-white mb-6 min-[500px]:max-md:mb-0">{PRICES.pro[billing]}<span className="text-[20px] font-normal text-white/60"> /mo</span></p>
+                  <p className="relative font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] min-[500px]:max-md:leading-[40px] text-white mb-6 min-[500px]:max-md:mb-0"><PlanPrice plan="pro" tone="dark" /></p>
                 </div>
                 <div className="min-[500px]:max-md:basis-[55%] min-[500px]:max-md:items-end flex-1 flex">
                   <ul className="flex-1 flex flex-col gap-3 min-[500px]:max-md:pb-1.5">
@@ -263,7 +240,7 @@ export default function Pricing() {
                   <div className="h-[103px] flex items-end mb-6">
                     <PricingMicMaxAnim ref={maxAnimRef} />
                   </div>
-                  <p className="font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] min-[500px]:max-md:leading-[40px] text-black mb-6 min-[500px]:max-md:mb-0">{PRICES.max[billing]}<span className="text-[20px] font-normal text-black/60"> /mo</span></p>
+                  <p className="relative font-['Inter',sans-serif] font-bold text-[55px] leading-[50px] min-[500px]:max-md:leading-[40px] text-black mb-6 min-[500px]:max-md:mb-0"><PlanPrice plan="max" tone="light" /></p>
                 </div>
                 <div className="min-[500px]:max-md:basis-[55%] min-[500px]:max-md:items-end flex-1 flex">
                   <ul className="flex-1 flex flex-col gap-3 min-[500px]:max-md:pb-1.5">
@@ -327,7 +304,7 @@ export default function Pricing() {
               </span>
             </button>
             <p className="mt-4 text-center font-['Inter',sans-serif] font-medium text-[13px] leading-[28px] uppercase text-black/50">
-              Nothing to pay here - you start free. Pro and Max are unlocked later, inside the app.
+              Private beta: every plan is free. Prices announced at launch.
             </p>
           </div>
 

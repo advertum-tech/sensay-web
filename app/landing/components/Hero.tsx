@@ -2,6 +2,7 @@ import HeroPerson from './HeroPerson';
 import HeroPersonMobile from './HeroPersonMobile';
 import HeroMicBtn from './HeroMicBtn';
 import HeroSeeHow from './HeroSeeHow';
+import BetaStamp from './BetaStamp';
 
 function LovedBadge({ size = 120 }: { size?: number }) {
   return (
@@ -65,8 +66,9 @@ export default function Hero({ videoSrc = '/video/last.webm' }: { videoSrc?: str
               <strong className="font-bold">No typing. No switching apps.</strong>
             </p>
 
-            <a href="#start-for-free" className="max-[499px]:block min-[500px]:inline-block bg-coral border border-coral text-white font-bold text-sm uppercase rounded-xl px-8 py-4 text-center mb-4 hover:bg-white hover:text-coral transition-colors duration-200">
+            <a href="#start-for-free" className="relative max-[499px]:block min-[500px]:inline-block bg-coral border border-coral text-white font-bold text-sm uppercase rounded-xl px-8 py-4 text-center mb-4 hover:bg-white hover:text-coral transition-colors duration-200">
               Start free — no signup
+              <BetaStamp size="sticker" delayMs={900} className="absolute -top-3 -right-3 rotate-[8deg]">Private beta</BetaStamp>
             </a>
             <HeroSeeHow className="block text-sm font-bold uppercase text-black/60 text-center" />
           </div>
@@ -197,6 +199,7 @@ export default function Hero({ videoSrc = '/video/last.webm' }: { videoSrc?: str
               style={{ left: "80px", top: "50px", width: "280px", height: "50px" }}
             >
               Start free — no signup
+              <BetaStamp size="sticker" delayMs={900} className="absolute -top-3 -right-3 rotate-[8deg]">Private beta</BetaStamp>
             </a>
             <HeroSeeHow
               className="absolute font-bold text-[18px] leading-[28px] uppercase text-black/60"
@@ -291,6 +294,7 @@ export default function Hero({ videoSrc = '/video/last.webm' }: { videoSrc?: str
               style={{ left: "101px", top: "50px", width: "353px", height: "50px" }}
             >
               Start free — no signup
+              <BetaStamp size="sticker" delayMs={900} className="absolute -top-3 -right-3 rotate-[8deg]">Private beta</BetaStamp>
             </a>
             <HeroSeeHow
               className="absolute font-bold text-[18px] leading-[28px] uppercase text-black/60"
@@ -332,9 +336,10 @@ export default function Hero({ videoSrc = '/video/last.webm' }: { videoSrc?: str
               <div>
                 <a
                   href="#start-for-free"
-                  className="inline-block bg-coral border border-coral text-white font-bold text-base uppercase rounded-xl px-10 py-4 mb-5 hover:bg-white hover:text-coral transition-colors duration-200"
+                  className="relative inline-block bg-coral border border-coral text-white font-bold text-base uppercase rounded-xl px-10 py-4 mb-5 hover:bg-white hover:text-coral transition-colors duration-200"
                 >
                   Start free<span className="hidden min-[1350px]:inline"> — no signup</span>
+                  <BetaStamp size="sticker" delayMs={900} className="absolute -top-3 -right-3 rotate-[8deg]">Private beta</BetaStamp>
                 </a>
                 <div>
                   <HeroSeeHow className="text-[16px] leading-[28px] font-bold uppercase text-black" />

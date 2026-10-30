@@ -68,11 +68,13 @@ export default function FinalCTA() {
               href="#start-for-free"
               className="group relative flex h-[180px] w-[180px] md:h-[212px] md:w-[212px] items-center justify-center rounded-full bg-[#FF4122] transition-colors duration-300 hover:bg-transparent"
             >
-              {/* Dash + gap = 24 and r chosen so the pattern closes on itself (2πr = 27 × 24) */}
+              {/* Dash + gap = 24 and r chosen so the pattern closes on itself (2πr = 27 × 24).
+                  The spin is always attached and only paused outside hover: removing the
+                  animation on hover-out snapped the ring back to 0° while it was still fading. */}
               <svg
                 viewBox="0 0 212 212"
                 aria-hidden="true"
-                className="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:animate-ring-spin motion-reduce:animate-none"
+                className="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-300 animate-ring-spin [animation-play-state:paused] group-hover:opacity-100 group-hover:[animation-play-state:running] motion-reduce:animate-none"
               >
                 <circle cx="106" cy="106" r="103.13" fill="none" stroke="#e3dad0" strokeWidth="5" strokeDasharray="14 10" />
               </svg>

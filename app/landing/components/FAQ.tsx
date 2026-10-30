@@ -26,8 +26,8 @@ const ITEMS: Item[] = [
     a: "Any app with a text input — email, Slack, WhatsApp, Notion, browsers, coding editors, and more.",
   },
   {
-    q: "What happens when my free trial ends?",
-    a: "You'll automatically continue on the Free plan (30 min/day). No charges, no card required unless you upgrade.",
+    q: "Is Sensay free?",
+    a: "Yes. During the private beta every plan is free. No card needed.",
   },
 ];
 
