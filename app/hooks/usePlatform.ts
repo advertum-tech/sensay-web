@@ -79,10 +79,12 @@ export function usePlatform(): { platform: Platform; isLoading: boolean } {
 
       // 2. Fallback: User Agent (Safari, Firefox, etc.)
       const ua = navigator.userAgent.toLowerCase();
+      // iPhone/iPad UAs contain "like Mac OS X" — they are not Macs
+      const isIOS = /iphone|ipad|ipod/.test(ua);
 
       if (ua.includes("win") || ua.includes("windows")) {
         setPlatform("windows");
-      } else if (ua.includes("mac os x") || ua.includes("macos")) {
+      } else if (!isIOS && (ua.includes("mac os x") || ua.includes("macos"))) {
         // Try WebGL renderer to distinguish ARM vs Intel (reliable in Safari)
         setPlatform(detectMacArchViaWebGL());
       } else if (ua.includes("linux") && !ua.includes("android")) {
