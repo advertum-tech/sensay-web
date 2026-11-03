@@ -15,7 +15,7 @@ const S3 = "https://sensay-app.s3.eu-west-1.amazonaws.com";
 
 // Per-platform release versions. Files are uploaded by publish-s3.sh with the
 // version in the file name, so bumping a version here is the whole landing update.
-const MAC_VERSION = "0.2.4";
+const MAC_VERSION = "0.2.5";
 const WINDOWS_VERSION = "0.2.2";
 const LINUX_VERSION = "0.2.1";
 
